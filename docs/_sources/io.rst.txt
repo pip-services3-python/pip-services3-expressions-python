@@ -1,0 +1,19 @@
+io package
+==========
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   io.IPushbackReader
+   io.StringPushbackReader
+
+Module contents
+---------------
+
+.. automodule:: io
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,33 @@
+pip\_services3\_expressions.calculator package
+==============================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pip_services3_expressions.calculator.functions
+   pip_services3_expressions.calculator.parsers
+   pip_services3_expressions.calculator.tokenizers
+   pip_services3_expressions.calculator.variables
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pip_services3_expressions.calculator.CalculationStack
+   pip_services3_expressions.calculator.ExpressionCalculator
+   pip_services3_expressions.calculator.ExpressionException
+   pip_services3_expressions.calculator.SyntaxErrorCode
+   pip_services3_expressions.calculator.SyntaxException
+
+Module contents
+---------------
+
+.. automodule:: pip_services3_expressions.calculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

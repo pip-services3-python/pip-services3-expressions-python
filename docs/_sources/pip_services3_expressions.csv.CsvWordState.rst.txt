@@ -1,0 +1,7 @@
+pip\_services3\_expressions.csv.CsvWordState module
+===================================================
+
+.. automodule:: pip_services3_expressions.csv.CsvWordState
+   :members:
+   :undoc-members:
+   :show-inheritance:

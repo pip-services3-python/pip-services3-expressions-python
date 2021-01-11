@@ -1,0 +1,23 @@
+pip\_services3\_expressions.variants package
+============================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pip_services3_expressions.variants.AbstractVariantOperations
+   pip_services3_expressions.variants.IVariantOperations
+   pip_services3_expressions.variants.TypeSafeVariantOperations
+   pip_services3_expressions.variants.TypeUnsafeVariantOperations
+   pip_services3_expressions.variants.Variant
+   pip_services3_expressions.variants.VariantType
+
+Module contents
+---------------
+
+.. automodule:: pip_services3_expressions.variants
+   :members:
+   :undoc-members:
+   :show-inheritance:

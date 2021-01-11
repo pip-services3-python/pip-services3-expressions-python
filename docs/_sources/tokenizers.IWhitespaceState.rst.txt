@@ -1,0 +1,7 @@
+tokenizers.IWhitespaceState module
+==================================
+
+.. automodule:: tokenizers.IWhitespaceState
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+calculator.parsers.ExpressionParser module
+==========================================
+
+.. automodule:: calculator.parsers.ExpressionParser
+   :members:
+   :undoc-members:
+   :show-inheritance:

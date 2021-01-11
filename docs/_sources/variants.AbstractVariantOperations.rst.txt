@@ -1,0 +1,7 @@
+variants.AbstractVariantOperations module
+=========================================
+
+.. automodule:: variants.AbstractVariantOperations
+   :members:
+   :undoc-members:
+   :show-inheritance:

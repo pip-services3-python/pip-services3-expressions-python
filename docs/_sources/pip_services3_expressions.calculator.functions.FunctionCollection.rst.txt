@@ -1,0 +1,7 @@
+pip\_services3\_expressions.calculator.functions.FunctionCollection module
+==========================================================================
+
+.. automodule:: pip_services3_expressions.calculator.functions.FunctionCollection
+   :members:
+   :undoc-members:
+   :show-inheritance:

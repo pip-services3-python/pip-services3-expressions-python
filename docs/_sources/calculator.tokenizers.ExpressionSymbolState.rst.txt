@@ -1,0 +1,7 @@
+calculator.tokenizers.ExpressionSymbolState module
+==================================================
+
+.. automodule:: calculator.tokenizers.ExpressionSymbolState
+   :members:
+   :undoc-members:
+   :show-inheritance:

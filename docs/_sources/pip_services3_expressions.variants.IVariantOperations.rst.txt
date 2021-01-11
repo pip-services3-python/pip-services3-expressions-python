@@ -1,0 +1,7 @@
+pip\_services3\_expressions.variants.IVariantOperations module
+==============================================================
+
+.. automodule:: pip_services3_expressions.variants.IVariantOperations
+   :members:
+   :undoc-members:
+   :show-inheritance:

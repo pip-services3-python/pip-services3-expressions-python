@@ -1,0 +1,7 @@
+tokenizers.utilities.CharValidator module
+=========================================
+
+.. automodule:: tokenizers.utilities.CharValidator
+   :members:
+   :undoc-members:
+   :show-inheritance:

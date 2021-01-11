@@ -1,0 +1,7 @@
+calculator.tokenizers.ExpressionTokenizer module
+================================================
+
+.. automodule:: calculator.tokenizers.ExpressionTokenizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

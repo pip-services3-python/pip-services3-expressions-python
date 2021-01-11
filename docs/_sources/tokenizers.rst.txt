@@ -1,0 +1,37 @@
+tokenizers package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tokenizers.generic
+   tokenizers.utilities
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tokenizers.AbstractTokenizer
+   tokenizers.ICommentState
+   tokenizers.INumberState
+   tokenizers.IQuoteState
+   tokenizers.ISymbolState
+   tokenizers.ITokenizer
+   tokenizers.ITokenizerState
+   tokenizers.IWhitespaceState
+   tokenizers.IWordState
+   tokenizers.Token
+   tokenizers.TokenType
+
+Module contents
+---------------
+
+.. automodule:: tokenizers
+   :members:
+   :undoc-members:
+   :show-inheritance:

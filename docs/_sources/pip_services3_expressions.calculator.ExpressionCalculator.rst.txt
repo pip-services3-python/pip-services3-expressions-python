@@ -1,0 +1,7 @@
+pip\_services3\_expressions.calculator.ExpressionCalculator module
+==================================================================
+
+.. automodule:: pip_services3_expressions.calculator.ExpressionCalculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

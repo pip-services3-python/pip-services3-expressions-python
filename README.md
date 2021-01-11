@@ -12,7 +12,7 @@ The module contains the following packages:
 
 <a name="links"></a> Quick links:
 
-* [API Reference](https://pip-services3-python.github.io/pip-services3-expressions-python/index.html)
+* [API Reference](https://pip-services3-python.github.io/pip-services3-expressions-python/)
 * [Change Log](CHANGELOG.md)
 * [Get Help](https://www.pipservices.org/community/help)
 * [Contribute](https://www.pipservices.org/community/contribute)

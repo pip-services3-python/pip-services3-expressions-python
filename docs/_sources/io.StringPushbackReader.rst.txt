@@ -1,0 +1,7 @@
+io.StringPushbackReader module
+==============================
+
+.. automodule:: io.StringPushbackReader
+   :members:
+   :undoc-members:
+   :show-inheritance:

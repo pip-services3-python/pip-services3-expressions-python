@@ -1,0 +1,7 @@
+pip\_services3\_expressions.calculator.CalculationStack module
+==============================================================
+
+.. automodule:: pip_services3_expressions.calculator.CalculationStack
+   :members:
+   :undoc-members:
+   :show-inheritance:

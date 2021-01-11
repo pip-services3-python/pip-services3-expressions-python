@@ -1,0 +1,7 @@
+calculator.parsers.ExpressionTokenType module
+=============================================
+
+.. automodule:: calculator.parsers.ExpressionTokenType
+   :members:
+   :undoc-members:
+   :show-inheritance:

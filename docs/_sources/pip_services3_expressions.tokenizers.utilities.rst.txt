@@ -1,0 +1,21 @@
+pip\_services3\_expressions.tokenizers.utilities package
+========================================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pip_services3_expressions.tokenizers.utilities.CharReferenceInterval
+   pip_services3_expressions.tokenizers.utilities.CharReferenceMap
+   pip_services3_expressions.tokenizers.utilities.CharValidator
+   pip_services3_expressions.tokenizers.utilities.CsvTokenizer
+
+Module contents
+---------------
+
+.. automodule:: pip_services3_expressions.tokenizers.utilities
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+pip\_services3\_expressions.calculator.variables package
+========================================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pip_services3_expressions.calculator.variables.IVariable
+   pip_services3_expressions.calculator.variables.IVariableCollection
+   pip_services3_expressions.calculator.variables.Variable
+   pip_services3_expressions.calculator.variables.VariableCollection
+
+Module contents
+---------------
+
+.. automodule:: pip_services3_expressions.calculator.variables
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+variants.Variant module
+=======================
+
+.. automodule:: variants.Variant
+   :members:
+   :undoc-members:
+   :show-inheritance:

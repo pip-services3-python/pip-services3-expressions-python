@@ -1,0 +1,7 @@
+tokenizers.generic.GenericCommentState module
+=============================================
+
+.. automodule:: tokenizers.generic.GenericCommentState
+   :members:
+   :undoc-members:
+   :show-inheritance:

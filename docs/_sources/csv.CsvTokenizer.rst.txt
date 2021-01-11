@@ -1,0 +1,7 @@
+csv.CsvTokenizer module
+=======================
+
+.. automodule:: csv.CsvTokenizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pip\_services3\_expressions.calculator.tokenizers.ExpressionNumberState module
+==============================================================================
+
+.. automodule:: pip_services3_expressions.calculator.tokenizers.ExpressionNumberState
+   :members:
+   :undoc-members:
+   :show-inheritance:

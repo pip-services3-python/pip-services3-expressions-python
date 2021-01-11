@@ -1,0 +1,7 @@
+calculator.functions.IFunctionCollection module
+===============================================
+
+.. automodule:: calculator.functions.IFunctionCollection
+   :members:
+   :undoc-members:
+   :show-inheritance:

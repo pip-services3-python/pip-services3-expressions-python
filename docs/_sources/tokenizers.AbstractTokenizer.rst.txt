@@ -1,0 +1,7 @@
+tokenizers.AbstractTokenizer module
+===================================
+
+.. automodule:: tokenizers.AbstractTokenizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

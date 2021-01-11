@@ -1,0 +1,7 @@
+pip\_services3\_expressions.variants.TypeSafeVariantOperations module
+=====================================================================
+
+.. automodule:: pip_services3_expressions.variants.TypeSafeVariantOperations
+   :members:
+   :undoc-members:
+   :show-inheritance:

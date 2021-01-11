@@ -1,0 +1,7 @@
+tokenizers.IQuoteState module
+=============================
+
+.. automodule:: tokenizers.IQuoteState
+   :members:
+   :undoc-members:
+   :show-inheritance:

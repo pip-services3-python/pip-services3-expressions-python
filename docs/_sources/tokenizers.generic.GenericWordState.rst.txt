@@ -1,0 +1,7 @@
+tokenizers.generic.GenericWordState module
+==========================================
+
+.. automodule:: tokenizers.generic.GenericWordState
+   :members:
+   :undoc-members:
+   :show-inheritance:

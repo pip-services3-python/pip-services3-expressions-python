@@ -1,0 +1,7 @@
+pip\_services3\_expressions.tokenizers.generic.GenericTokenizer module
+======================================================================
+
+.. automodule:: pip_services3_expressions.tokenizers.generic.GenericTokenizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

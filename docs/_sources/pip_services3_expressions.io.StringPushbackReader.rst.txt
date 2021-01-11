@@ -1,0 +1,7 @@
+pip\_services3\_expressions.io.StringPushbackReader module
+==========================================================
+
+.. automodule:: pip_services3_expressions.io.StringPushbackReader
+   :members:
+   :undoc-members:
+   :show-inheritance:

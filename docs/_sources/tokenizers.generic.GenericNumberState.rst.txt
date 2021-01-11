@@ -1,0 +1,7 @@
+tokenizers.generic.GenericNumberState module
+============================================
+
+.. automodule:: tokenizers.generic.GenericNumberState
+   :members:
+   :undoc-members:
+   :show-inheritance:

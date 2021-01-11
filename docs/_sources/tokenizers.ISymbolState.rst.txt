@@ -1,0 +1,7 @@
+tokenizers.ISymbolState module
+==============================
+
+.. automodule:: tokenizers.ISymbolState
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+io.IPushbackReader module
+=========================
+
+.. automodule:: io.IPushbackReader
+   :members:
+   :undoc-members:
+   :show-inheritance:

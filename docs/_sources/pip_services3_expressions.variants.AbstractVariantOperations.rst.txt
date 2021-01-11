@@ -1,0 +1,7 @@
+pip\_services3\_expressions.variants.AbstractVariantOperations module
+=====================================================================
+
+.. automodule:: pip_services3_expressions.variants.AbstractVariantOperations
+   :members:
+   :undoc-members:
+   :show-inheritance:

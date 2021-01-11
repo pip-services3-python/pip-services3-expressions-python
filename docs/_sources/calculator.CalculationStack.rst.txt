@@ -1,0 +1,7 @@
+calculator.CalculationStack module
+==================================
+
+.. automodule:: calculator.CalculationStack
+   :members:
+   :undoc-members:
+   :show-inheritance:

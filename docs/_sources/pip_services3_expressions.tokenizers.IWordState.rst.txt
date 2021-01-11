@@ -1,0 +1,7 @@
+pip\_services3\_expressions.tokenizers.IWordState module
+========================================================
+
+.. automodule:: pip_services3_expressions.tokenizers.IWordState
+   :members:
+   :undoc-members:
+   :show-inheritance:

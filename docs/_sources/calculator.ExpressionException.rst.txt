@@ -1,0 +1,7 @@
+calculator.ExpressionException module
+=====================================
+
+.. automodule:: calculator.ExpressionException
+   :members:
+   :undoc-members:
+   :show-inheritance:

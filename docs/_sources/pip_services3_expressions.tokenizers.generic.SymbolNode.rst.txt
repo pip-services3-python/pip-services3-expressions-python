@@ -1,0 +1,7 @@
+pip\_services3\_expressions.tokenizers.generic.SymbolNode module
+================================================================
+
+.. automodule:: pip_services3_expressions.tokenizers.generic.SymbolNode
+   :members:
+   :undoc-members:
+   :show-inheritance:

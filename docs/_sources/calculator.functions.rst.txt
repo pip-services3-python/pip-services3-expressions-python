@@ -1,0 +1,22 @@
+calculator.functions package
+============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   calculator.functions.DefaultFunctionCollection
+   calculator.functions.DelegatedFunction
+   calculator.functions.FunctionCollection
+   calculator.functions.IFunction
+   calculator.functions.IFunctionCollection
+
+Module contents
+---------------
+
+.. automodule:: calculator.functions
+   :members:
+   :undoc-members:
+   :show-inheritance:

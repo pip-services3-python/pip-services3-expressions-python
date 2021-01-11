@@ -1,0 +1,7 @@
+tokenizers.generic.GenericSymbolState module
+============================================
+
+.. automodule:: tokenizers.generic.GenericSymbolState
+   :members:
+   :undoc-members:
+   :show-inheritance:

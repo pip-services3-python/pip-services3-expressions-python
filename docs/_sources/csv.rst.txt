@@ -1,0 +1,22 @@
+csv package
+===========
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   csv.CsvConstant
+   csv.CsvQuoteState
+   csv.CsvSymbolState
+   csv.CsvTokenizer
+   csv.CsvWordState
+
+Module contents
+---------------
+
+.. automodule:: csv
+   :members:
+   :undoc-members:
+   :show-inheritance:

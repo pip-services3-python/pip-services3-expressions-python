@@ -1,0 +1,7 @@
+tokenizers.utilities.CharReferenceInterval module
+=================================================
+
+.. automodule:: tokenizers.utilities.CharReferenceInterval
+   :members:
+   :undoc-members:
+   :show-inheritance:

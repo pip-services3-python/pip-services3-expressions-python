@@ -1,0 +1,7 @@
+pip\_services3\_expressions.calculator.variables.VariableCollection module
+==========================================================================
+
+.. automodule:: pip_services3_expressions.calculator.variables.VariableCollection
+   :members:
+   :undoc-members:
+   :show-inheritance:

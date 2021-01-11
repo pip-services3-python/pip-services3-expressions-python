@@ -1,0 +1,7 @@
+variants.TypeSafeVariantOperations module
+=========================================
+
+.. automodule:: variants.TypeSafeVariantOperations
+   :members:
+   :undoc-members:
+   :show-inheritance:

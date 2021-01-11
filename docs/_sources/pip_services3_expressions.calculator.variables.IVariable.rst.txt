@@ -1,0 +1,7 @@
+pip\_services3\_expressions.calculator.variables.IVariable module
+=================================================================
+
+.. automodule:: pip_services3_expressions.calculator.variables.IVariable
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pip\_services3\_expressions.tokenizers.ICommentState module
+===========================================================
+
+.. automodule:: pip_services3_expressions.tokenizers.ICommentState
+   :members:
+   :undoc-members:
+   :show-inheritance:

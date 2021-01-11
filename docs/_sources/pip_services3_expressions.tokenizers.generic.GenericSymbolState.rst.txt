@@ -1,0 +1,7 @@
+pip\_services3\_expressions.tokenizers.generic.GenericSymbolState module
+========================================================================
+
+.. automodule:: pip_services3_expressions.tokenizers.generic.GenericSymbolState
+   :members:
+   :undoc-members:
+   :show-inheritance:

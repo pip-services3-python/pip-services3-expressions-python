@@ -1,0 +1,33 @@
+calculator package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   calculator.functions
+   calculator.parsers
+   calculator.tokenizers
+   calculator.variables
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   calculator.CalculationStack
+   calculator.ExpressionCalculator
+   calculator.ExpressionException
+   calculator.SyntaxErrorCode
+   calculator.SyntaxException
+
+Module contents
+---------------
+
+.. automodule:: calculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

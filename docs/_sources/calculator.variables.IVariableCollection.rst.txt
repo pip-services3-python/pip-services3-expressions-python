@@ -1,0 +1,7 @@
+calculator.variables.IVariableCollection module
+===============================================
+
+.. automodule:: calculator.variables.IVariableCollection
+   :members:
+   :undoc-members:
+   :show-inheritance:

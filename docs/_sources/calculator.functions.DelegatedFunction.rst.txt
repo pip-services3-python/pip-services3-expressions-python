@@ -1,0 +1,7 @@
+calculator.functions.DelegatedFunction module
+=============================================
+
+.. automodule:: calculator.functions.DelegatedFunction
+   :members:
+   :undoc-members:
+   :show-inheritance:

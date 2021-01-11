@@ -1,0 +1,7 @@
+tokenizers.generic.GenericTokenizer module
+==========================================
+
+.. automodule:: tokenizers.generic.GenericTokenizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

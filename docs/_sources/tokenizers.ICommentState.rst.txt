@@ -1,0 +1,7 @@
+tokenizers.ICommentState module
+===============================
+
+.. automodule:: tokenizers.ICommentState
+   :members:
+   :undoc-members:
+   :show-inheritance:
