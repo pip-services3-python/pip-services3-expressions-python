@@ -34,7 +34,6 @@ class ExpressionQuoteState(IQuoteState):
                 if  reader.peek() == first_symbol:
                     next_symbol = reader.read()
                     token_value += chr(next_symbol)
-                    next_symbol = reader.read()
                 else:
                     break
             next_symbol = reader.read()

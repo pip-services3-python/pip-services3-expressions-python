@@ -53,7 +53,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         elif value.type == VariantType.Boolean:
             return self.__convert_from_boolean(value, new_type)
 
-        raise Exception(f"Variant convertion from {self._type_to_string(value.type)}" +
+        raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
     def __convert_from_null(self, new_type):

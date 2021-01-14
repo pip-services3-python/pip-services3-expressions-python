@@ -552,25 +552,25 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         # Performs operation.
         if value1.type == VariantType.Integer:
-            result.as_integer = value1.as_integer > value2.as_integer
+            result.as_boolean = value1.as_integer > value2.as_integer
             return result
         elif value1.type == VariantType.Long:
-            result.as_long = value1.as_long > value2.as_long
+            result.as_boolean = value1.as_long > value2.as_long
             return result
         elif value1.type == VariantType.Float:
-            result.as_float = value1.as_float > value2.as_float
+            result.as_boolean = value1.as_float > value2.as_float
             return result
         elif value1.type == VariantType.Double:
-            result.as_double = value1.as_double > value2.as_double
+            result.as_boolean = value1.as_double > value2.as_double
             return result
         elif value1.type == VariantType.String:
-            result.as_string = value1.as_string > value2.as_string
+            result.as_boolean = value1.as_string > value2.as_string
             return result
         elif value1.type == VariantType.TimeSpan:
-            result.as_time_span = value1.as_time_span > value2.as_time_span
+            result.as_boolean = value1.as_time_span > value2.as_time_span
             return result
         elif value1.type == VariantType.DateTime:
-            result.as_datetime = value1.as_datetime.timestamp() > value2.as_datetime.timestamp()
+            result.as_boolean = value1.as_datetime.timestamp() > value2.as_datetime.timestamp()
             return result
 
         raise Exception(f"Operation '>' is not supported for type {self._type_to_string(value1.type)}")
@@ -758,5 +758,6 @@ class AbstractVariantOperations(IVariantOperations, ABC):
             return value1.get_by_index(value2.as_integer)
         elif value1.type == VariantType.String:
             result.as_string = value1.as_string[value2.as_integer]
+            return result
 
         raise Exception(f"Operation '[]' is not supported for type {self._type_to_string(value1.type)}")

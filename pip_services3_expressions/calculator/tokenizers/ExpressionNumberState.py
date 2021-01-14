@@ -47,10 +47,12 @@ class ExpressionNumberState(GenericNumberState):
         next_char = reader.peek()
         if next_char == self.MINUS or next_char == self.PLUS:
             token_value += chr(reader.read())
+            next_char = reader.peek()
 
         # Exit if mantissa has no digits.
         if not CharValidator.is_digit(next_char):
             reader.pushback_string(token_value)
+            return token
 
         # Process matissa digits
         while CharValidator.is_digit(next_char):

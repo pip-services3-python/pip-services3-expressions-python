@@ -47,7 +47,7 @@ class ExpressionParser:
         self.__expression = ''
         self.__original_tokens = []
         self.__initial_tokens = []
-        self.__current_token_index = None
+        self.__current_token_index = 0
         self.__variable_names = []
         self.__result_tokens = []
 
@@ -217,7 +217,7 @@ class ExpressionParser:
         """
         for token in self.__original_tokens:
             token_type = ExpressionTokenType.Unknown
-            token_value = Variant.Empty
+            token_value = Variant.Empty()
             if token.type in [TokenType.Comment, TokenType.Whitespace]:
                 continue
             elif token.type == TokenType.Keyword:
@@ -268,7 +268,7 @@ class ExpressionParser:
             if token.type in [ExpressionTokenType.And, ExpressionTokenType.Or, ExpressionTokenType.Xor]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level1()
-                self.__add_token_to_result(token.type, Variant.Empty)
+                self.__add_token_to_result(token.type, Variant.Empty())
                 continue
             break
 
@@ -281,7 +281,7 @@ class ExpressionParser:
         if token.type == ExpressionTokenType.Not:
             self.__move_to_next_token()
             self.__perform_syntax_analysis_at_level2()
-            self.__add_token_to_result(token.type, Variant.Empty)
+            self.__add_token_to_result(token.type, Variant.Empty())
         else:
             self.__perform_syntax_analysis_at_level2()
 
@@ -297,7 +297,7 @@ class ExpressionParser:
                               ExpressionTokenType.Less, ExpressionTokenType.EqualMore, ExpressionTokenType.EqualLess]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level3()
-                self.__add_token_to_result(token.type, Variant.Empty)
+                self.__add_token_to_result(token.type, Variant.Empty())
                 continue
             break
 
@@ -312,18 +312,18 @@ class ExpressionParser:
             if token.type in [ExpressionTokenType.Plus, ExpressionTokenType.Minus, ExpressionTokenType.Like]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level4()
-                self.__add_token_to_result(token.type, Variant.Empty)
+                self.__add_token_to_result(token.type, Variant.Empty())
             elif self.__match_tokens_with_types(ExpressionTokenType.Is, ExpressionTokenType.Less):
                 self.__perform_syntax_analysis_at_level4()
-                self.__add_token_to_result(ExpressionTokenType.NotLike, Variant.Empty)
+                self.__add_token_to_result(ExpressionTokenType.NotLike, Variant.Empty())
             elif self.__match_tokens_with_types(ExpressionTokenType.Is, ExpressionTokenType.Null):
-                self.__add_token_to_result(ExpressionTokenType.IsNull, Variant.Empty)
+                self.__add_token_to_result(ExpressionTokenType.IsNull, Variant.Empty())
             elif self.__match_tokens_with_types(ExpressionTokenType.Is, ExpressionTokenType.Not,
                                                 ExpressionTokenType.Null):
-                self.__add_token_to_result(ExpressionTokenType.IsNotNull, Variant.Empty)
+                self.__add_token_to_result(ExpressionTokenType.IsNotNull, Variant.Empty())
             elif self.__match_tokens_with_types(ExpressionTokenType.Not, ExpressionTokenType.In):
                 self.__perform_syntax_analysis_at_level4()
-                self.__add_token_to_result(ExpressionTokenType.NotIn, Variant.Empty)
+                self.__add_token_to_result(ExpressionTokenType.NotIn, Variant.Empty())
             else:
                 break
 
@@ -338,7 +338,7 @@ class ExpressionParser:
             if token.type in [ExpressionTokenType.Star, ExpressionTokenType.Slash, ExpressionTokenType.Procent]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level5()
-                self.__add_token_to_result(token.type, Variant.Empty)
+                self.__add_token_to_result(token.type, Variant.Empty())
                 continue
             break
 
@@ -354,7 +354,7 @@ class ExpressionParser:
                               ExpressionTokenType.ShiftRight]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level6()
-                self.__add_token_to_result(token.type, Variant.Empty)
+                self.__add_token_to_result(token.type, Variant.Empty())
                 continue
             break
 
@@ -436,17 +436,17 @@ class ExpressionParser:
             raise SyntaxException(None, SyntaxErrorCode.ERROR_AT, "Syntax error at " + primitive_token.value)
 
         if unary_token is not None:
-            self.__add_token_to_result(unary_token.type, Variant.Empty)
+            self.__add_token_to_result(unary_token.type, Variant.Empty())
 
         # Process [] operator.
         if self.__has_more_tokens():
             primitive_token = self.__get_current_token()
-            if primitive_token == ExpressionTokenType.LeftSquareBrace:
+            if primitive_token.type == ExpressionTokenType.LeftSquareBrace:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis()
                 self.__check_for_more_tokens()
                 primitive_token = self.__get_current_token()
-                if primitive_token != ExpressionTokenType.RightSquareBrace:
+                if primitive_token.type != ExpressionTokenType.RightSquareBrace:
                     raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ']' was not found")
                 self.__move_to_next_token()
-                self.__add_token_to_result(ExpressionTokenType.Element, Variant.Empty)
+                self.__add_token_to_result(ExpressionTokenType.Element, Variant.Empty())

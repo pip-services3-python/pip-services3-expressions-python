@@ -28,7 +28,6 @@ class CharReferenceMap:
             self.__other_intervals.insert(0, CharReferenceInterval(start, end, reference))
 
     def clear(self):
-        self.__initial_interval = []
         for index in range(0x0100):
             try:
                 self.__initial_interval[index] = None

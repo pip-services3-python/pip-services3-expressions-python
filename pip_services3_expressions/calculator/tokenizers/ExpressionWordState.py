@@ -20,7 +20,7 @@ class ExpressionWordState(GenericWordState):
         ]
 
         self.clear_word_chars()
-        self.set_word_chars(ord('a'), ord('a'), True)
+        self.set_word_chars(ord('a'), ord('z'), True)
         self.set_word_chars(ord('A'), ord('Z'), True)
         self.set_word_chars(ord('0'), ord('9'), True)
         self.set_word_chars(ord('_'), ord('_'), True)

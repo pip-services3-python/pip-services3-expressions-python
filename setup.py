@@ -25,6 +25,7 @@ setup(
     author='Conceptual Vision Consulting LLC',
     author_email='seroukhov@gmail.com',
     long_description=__doc__,
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=['config', 'data', 'test']),
     include_package_data=True,
     zip_safe=True,

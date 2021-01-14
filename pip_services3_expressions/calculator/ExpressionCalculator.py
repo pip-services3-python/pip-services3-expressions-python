@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import _thread
-import concurrent.futures
-import threading
-from threading import Thread
-
 from pip_services3_expressions.calculator.CalculationStack import CalculationStack
 from pip_services3_expressions.calculator.ExpressionException import ExpressionException
 from pip_services3_expressions.calculator.functions.DefaultFunctionCollection import DefaultFunctionCollection
@@ -27,7 +22,6 @@ class ExpressionCalculator:
 
         :param expression: The expression string.
         """
-        self.__lock = threading.RLock()
 
         self.__default_variables = VariableCollection()
         self.__default_functions = DefaultFunctionCollection()
@@ -160,41 +154,15 @@ class ExpressionCalculator:
         variables = variables or self.__default_variables
         functions = functions or self.__default_functions
 
-        def _start():
-            self.__lock.acquire()
-            self.__evaluate_constant(token, stack)
+        
+        for token in self.result_tokens:
+            self.__evaluate_constant(token, stack),
             self.__evaluate_variable(token, stack, variables)
             self.__evaluate_function(token, stack, functions)
             self.__evaluate_logical(token, stack)
             self.__evaluate_arithmetical(token, stack)
             self.__evaluate_boolean(token, stack)
             self.__evaluate_other(token, stack)
-            self.__lock.release()
-
-        threads = []
-
-        for token in self.result_tokens:  
-            threads.append(Thread(target=_start))
-            threads[-1].start()
-
-        for thread in threads:
-            thread.join()
-
-        # Another realiztion of threads
-        # futures = []
-        # with concurrent.futures.ThreadPoolExecutor() as executor:
-        #     for token in self.result_tokens:
-        #         futures = [executor.submit(self.__evaluate_constant, token, stack),
-        #                    executor.submit(self.__evaluate_variable, token, stack, variables),
-        #                    executor.submit(self.__evaluate_function, token, stack, functions),
-        #                    executor.submit(self.__evaluate_logical, token, stack),
-        #                    executor.submit(self.__evaluate_arithmetical, token, stack),
-        #                    executor.submit(self.__evaluate_boolean, token, stack),
-        #                    executor.submit(self.__evaluate_other, token, stack)]
-
-        # for future in concurrent.futures.as_completed(futures):
-        #     if future.exception():
-        #         raise future.exception()
 
         return self.__handling_result(stack)
 
@@ -202,8 +170,7 @@ class ExpressionCalculator:
         if err is None and processed:
             return
         elif err:
-            print(repr(err))
-            _thread.interrupt_main()
+            raise err
 
     def __handling_result(self, stack):
         if stack.length != 1:
@@ -245,7 +212,7 @@ class ExpressionCalculator:
         params = []
         param_count = stack.pop().as_integer
         while param_count > 0:
-            params[0] = stack.pop()
+            params.insert(0, stack.pop())
             param_count -= 1
 
         def callback(_err, function_result):
@@ -376,12 +343,12 @@ class ExpressionCalculator:
             if token.type == ExpressionTokenType.In:
                 value2 = stack.pop()
                 value1 = stack.pop()
-                stack.push(self.__variant_operations.in_(value1, value2))
+                stack.push(self.__variant_operations.in_(value2, value1))
                 result = True
             elif token.type == ExpressionTokenType.NotIn:
                 value2 = stack.pop()
                 value1 = stack.pop()
-                rvalue = self.__variant_operations.in_(value1, value2)
+                rvalue = self.__variant_operations.in_(value2, value1)
                 rvalue = Variant.from_boolean(not rvalue.as_boolean)
                 stack.push(rvalue)
                 result = True

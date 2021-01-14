@@ -13,6 +13,8 @@ class Variant:
     Defines container for variant values.
     """
 
+    __empty = None
+
     def __init__(self, value=None):
         """
         Constructs this class and Assignes another variant value.
@@ -21,14 +23,13 @@ class Variant:
         """
         self.__type: VariantType
         self.__value = None
-        self.__empty = None
         self.as_object = value
 
-    @property
-    def Empty(self):
-        if self.__empty is None:
-            self.__empty = Variant(None)
-        return self.__empty
+    @staticmethod
+    def Empty():
+        if Variant.__empty is None:
+            Variant.__empty = Variant(None)
+        return Variant.__empty
 
     @property
     def type(self):

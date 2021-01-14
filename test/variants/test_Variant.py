@@ -8,7 +8,6 @@ class TestVariants:
 
     def test_variants(self):
         a = Variant(123)
-        print(Variant.Empty)
         assert VariantType.Integer == a.type
         assert 123 == a.as_integer
         assert 123 == a.as_object
