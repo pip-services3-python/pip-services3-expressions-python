@@ -173,7 +173,7 @@ class MustacheParser:
             self.__perform_syntax_analysis()
             if self.__has_more_tokens():
                 token = self.__get_current_token()
-                raise MustacheException(None, MustacheErrorCode.ERROR_NEAR, "Syntax error near " + token.value);
+                raise MustacheException(None, MustacheErrorCode.ERROR_NEAR, "Syntax error near " + token.value)
             self.__lookup_variables()
 
     def __complete_lexical_analysis(self):

@@ -2,11 +2,13 @@
 
 from abc import ABC
 
+
 class IScanner(ABC):
     """
     Defines scanner that can read and unread characters and count lines.
     This scanner is used by tokenizers to process input streams.
     """
+
     def read(self):
         """
         Reads character from the top of the stream.

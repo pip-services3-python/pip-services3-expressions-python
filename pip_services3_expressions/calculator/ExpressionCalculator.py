@@ -128,8 +128,6 @@ class ExpressionCalculator:
     def evaluate(self):
         """
         Evaluates this expression using default variables and functions.
-
-        :param callback: The callback to receive the evaluation results
         """
         return self.evaluate_with_variables_and_functions(None, None)
 
@@ -138,7 +136,6 @@ class ExpressionCalculator:
         Evaluates this expression using specified variables.
 
         :param variables: The list of variables
-        :param callback: The callback to receive the evaluation results
         """
         return self.evaluate_with_variables_and_functions(variables, None)
 
@@ -148,13 +145,11 @@ class ExpressionCalculator:
         
         :param variables: The list of variables
         :param functions: The list of functions
-        :param callback: The callback to receive the evaluation results
         """
         stack = CalculationStack()
         variables = variables or self.__default_variables
         functions = functions or self.__default_functions
 
-        
         for token in self.result_tokens:
             self.__evaluate_constant(token, stack),
             self.__evaluate_variable(token, stack, variables)
@@ -271,7 +266,7 @@ class ExpressionCalculator:
                 value1 = stack.pop()
                 stack.push(self.__variant_operations.div(value1, value2))
                 result = True
-            elif token.type == ExpressionTokenType.Procent:
+            elif token.type == ExpressionTokenType.Percent:
                 value2 = stack.pop()
                 value1 = stack.pop()
                 stack.push(self.__variant_operations.mod(value1, value2))
@@ -300,7 +295,7 @@ class ExpressionCalculator:
         return self.__check_processed(None, result)
 
     def __evaluate_boolean(self, token, stack):
-        
+
         result = False
         try:
             if token.type == ExpressionTokenType.Equal:

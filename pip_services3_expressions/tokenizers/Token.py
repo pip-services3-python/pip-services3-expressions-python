@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from .TokenType import TokenType
-
 
 class Token:
     """

@@ -54,7 +54,7 @@ class ExpressionNumberState(GenericNumberState):
             scanner.unread_many(len(token_value))
             return token
 
-        # Process matissa digits
+        # Process mantissa digits
         while CharValidator.is_digit(next_char):
             token_value += chr(scanner.read())
             next_char = scanner.peek()

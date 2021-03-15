@@ -17,7 +17,7 @@ class Variant:
 
     def __init__(self, value=None):
         """
-        Constructs this class and Assignes another variant value.
+        Constructs this class and Assigns another variant value.
 
         :param value: value a value to be assigned to this variant.
         """
@@ -305,7 +305,7 @@ class Variant:
 
     def assign(self, value):
         """
-        Assignes a new value to this object.
+        Assigns a new value to this object.
 
         :param value: A new value to be assigned.
         """
@@ -318,7 +318,7 @@ class Variant:
 
     def clear(self):
         """
-        Clears this object and assignes a VariantType.Null type.
+        Clears this object and assigns a VariantType.Null type.
         """
         self.__type = VariantType.Null
         self.__value = None

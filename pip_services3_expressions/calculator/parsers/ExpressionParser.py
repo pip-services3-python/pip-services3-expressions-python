@@ -31,7 +31,7 @@ class ExpressionParser:
             ExpressionTokenType.LeftSquareBrace, ExpressionTokenType.RightSquareBrace,
             ExpressionTokenType.Plus, ExpressionTokenType.Minus,
             ExpressionTokenType.Star, ExpressionTokenType.Slash,
-            ExpressionTokenType.Procent, ExpressionTokenType.Power,
+            ExpressionTokenType.Percent, ExpressionTokenType.Power,
             ExpressionTokenType.Equal, ExpressionTokenType.NotEqual,
             ExpressionTokenType.NotEqual, ExpressionTokenType.More,
             ExpressionTokenType.Less, ExpressionTokenType.EqualMore,
@@ -170,7 +170,7 @@ class ExpressionParser:
     def __match_tokens_with_types(self, *types):
         """
         Matches available tokens types with types from the list.
-        If tokens matchs then shift the list.
+        If tokens matches then shift the list.
         
         :param types: A list of token types to compare.
         :return: **True** if token types match.
@@ -335,7 +335,7 @@ class ExpressionParser:
         self.__perform_syntax_analysis_at_level5()
         while self.__has_more_tokens():
             token = self.__get_current_token()
-            if token.type in [ExpressionTokenType.Star, ExpressionTokenType.Slash, ExpressionTokenType.Procent]:
+            if token.type in [ExpressionTokenType.Star, ExpressionTokenType.Slash, ExpressionTokenType.Percent]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level5()
                 self.__add_token_to_result(token.type, Variant.Empty())

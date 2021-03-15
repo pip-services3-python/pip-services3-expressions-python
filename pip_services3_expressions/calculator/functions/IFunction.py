@@ -17,4 +17,5 @@ class IFunction(ABC):
 
         :param params: The stack to get function parameters and place
         :param variant_operations: Variants operations manager.
+        :param callback:
         """

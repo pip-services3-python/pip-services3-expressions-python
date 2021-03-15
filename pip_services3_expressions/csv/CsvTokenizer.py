@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
+from typing import Union
 
 from pip_services3_expressions.csv.CsvConstant import CsvConstant
 from pip_services3_expressions.csv.CsvQuoteState import CsvQuoteState
 from pip_services3_expressions.csv.CsvSymbolState import CsvSymbolState
 from pip_services3_expressions.csv.CsvWordState import CsvWordState
 from pip_services3_expressions.tokenizers.AbstractTokenizer import AbstractTokenizer
+from pip_services3_expressions.tokenizers.ICommentState import ICommentState
+from pip_services3_expressions.tokenizers.INumberState import INumberState
+from pip_services3_expressions.tokenizers.IWhitespaceState import IWhitespaceState
 
 
 class CsvTokenizer(AbstractTokenizer):
@@ -22,9 +26,9 @@ class CsvTokenizer(AbstractTokenizer):
         self.__quote_symbols = [ord('"')]
         self.__end_of_line = "\n\r"
 
-        self.number_state = None
-        self.whitespace_state = None
-        self.comment_state = None
+        self.number_state: Union[INumberState, None] = None
+        self.whitespace_state: Union[IWhitespaceState, None] = None
+        self.comment_state: Union[ICommentState, None] = None
         self.word_state = CsvWordState(self.field_separators, self.quote_symbols)
         self.symbol_state = CsvSymbolState()
         self.quote_state = CsvQuoteState()
@@ -46,7 +50,7 @@ class CsvTokenizer(AbstractTokenizer):
             raise Exception('value')
 
         for field_separator in value:
-            if field_separator in [CsvConstant.CR, CsvConstant.LF, CsvConstant.Nill]:
+            if field_separator in [CsvConstant.CR, CsvConstant.LF, CsvConstant.Nil]:
                 raise Exception('Invalid field separator.')
 
             for quote_symbol in self.quote_symbols:
@@ -87,7 +91,7 @@ class CsvTokenizer(AbstractTokenizer):
             raise Exception('value')
 
         for quote_symbol in value:
-            if quote_symbol in [CsvConstant.CR, CsvConstant.LF, CsvConstant.Nill]:
+            if quote_symbol in [CsvConstant.CR, CsvConstant.LF, CsvConstant.Nil]:
                 raise Exception('Invalid quote symbol.')
 
             for filed_separator in self.field_separators:

@@ -105,7 +105,7 @@ class ITokenizer(ABC):
     # A token state to process quoted strings.
     quote_state: IQuoteState
 
-    # A token state to process symbols (single like "=" or muti-character like "<>")
+    # A token state to process symbols (single like "=" or multi-character like "<>")
     symbol_state: ISymbolState
 
     # A token state to process white space delimiters.

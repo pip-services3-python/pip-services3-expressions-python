@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 
 from abc import ABC
-from decimal import Decimal
 
+from .IVariantOperations import IVariantOperations
 from .Variant import Variant
 from .VariantType import VariantType
-from .IVariantOperations import IVariantOperations
 
 
 class AbstractVariantOperations(IVariantOperations, ABC):
     """
-    Implements an abstractd variant operations manager object.
+    Implements an abstract variant operations manager object.
     """
 
     def _type_to_string(self, value):
@@ -54,7 +53,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -93,7 +92,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -132,7 +131,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -165,7 +164,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -198,7 +197,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -227,7 +226,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         # Performs operation.
         if value1.type in [VariantType.Integer, VariantType.Long, VariantType.Float, VariantType.Double]:
-            # Converts second operant to the type of the first operand.
+            # Converts second operand to the type of the first operand.
             value1 = self.convert(value1, VariantType.Float)
             value2 = self.convert(value2, VariantType.Float)
             result.as_float = value1.as_float + value2.as_float
@@ -248,7 +247,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -278,7 +277,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -308,7 +307,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -338,7 +337,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -365,7 +364,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -498,7 +497,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
             result.as_boolean = False
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -547,7 +546,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
             result.as_boolean = False
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -590,7 +589,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
             result.as_boolean = False
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -633,7 +632,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
             result.as_boolean = False
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -676,7 +675,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
             result.as_boolean = False
             return result
 
-        # Converts second operant to the type of the first operand.
+        # Converts second operand to the type of the first operand.
         value2 = self.convert(value2, value1.type)
 
         # Performs operation.
@@ -751,8 +750,8 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         if value1.type == VariantType.Null or value2.type == VariantType.Null:
             return result
 
-        # Converts second operant to the type of the first operand.
-        value2 = self.convert(value2,  VariantType.Integer)
+        # Converts second operand to the type of the first operand.
+        value2 = self.convert(value2, VariantType.Integer)
 
         if value1.type == VariantType.Array:
             return value1.get_by_index(value2.as_integer)

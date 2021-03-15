@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from typing import Union
 
 from pip_services3_expressions.mustache.tokenizers.MustacheSpecialState import MustacheSpecialState
 from pip_services3_expressions.tokenizers.AbstractTokenizer import AbstractTokenizer
+from pip_services3_expressions.tokenizers.ICommentState import ICommentState
+from pip_services3_expressions.tokenizers.INumberState import INumberState
 from pip_services3_expressions.tokenizers.ITokenizerState import ITokenizerState
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.GenericQuoteState import GenericQuoteState
@@ -19,7 +22,7 @@ class MustacheTokenizer(AbstractTokenizer):
         super(MustacheTokenizer, self).__init__()
 
         self.__special = True
-        self.__special_state: ITokenizerState = None
+        self.__special_state: Union[ITokenizerState, None] = None
 
         self.symbol_state = GenericSymbolState()
         self.symbol_state.add("{{", TokenType.Symbol)
@@ -27,11 +30,11 @@ class MustacheTokenizer(AbstractTokenizer):
         self.symbol_state.add("{{{", TokenType.Symbol)
         self.symbol_state.add("}}}", TokenType.Symbol)
 
-        self.number_state = None
+        self.number_state: Union[INumberState, None] = None
         self.quote_state = GenericQuoteState()
         self.whitespace_state = GenericWhitespaceState()
         self.word_state = GenericWordState()
-        self.comment_state = None
+        self.comment_state: Union[ICommentState, None] = None
         self.__special_state = MustacheSpecialState()
 
         self.clear_character_states()

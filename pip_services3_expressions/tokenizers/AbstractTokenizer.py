@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from abc import ABC
+from typing import Union
 
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.io.StringScanner import StringScanner
@@ -24,22 +25,22 @@ class AbstractTokenizer(ITokenizer, ABC):
 
     def __init__(self):
         self.__map = CharReferenceMap()
-        self.skip_unknown: bool = None
-        self.skip_whitespaces: bool = None
-        self.skip_comments: bool = None
-        self.skip_eof: bool = None
-        self.merge_whitespaces: bool = None
-        self.unify_numbers: bool = None
-        self.decode_strings: bool = None
-        self.comment_state: ICommentState = None
-        self.number_state: INumberState = None
-        self.quote_state: IQuoteState = None
-        self.symbol_state: ISymbolState = None
-        self.whitespace_state: IWhitespaceState = None
-        self.word_state: IWordState = None
+        self.skip_unknown: Union[bool, None] = None
+        self.skip_whitespaces: Union[bool, None] = None
+        self.skip_comments: Union[bool, None] = None
+        self.skip_eof: Union[bool, None] = None
+        self.merge_whitespaces: Union[bool, None] = None
+        self.unify_numbers: Union[bool, None] = None
+        self.decode_strings: Union[bool, None] = None
+        self.comment_state: Union[ICommentState, None] = None
+        self.number_state: Union[INumberState, None] = None
+        self.quote_state: Union[IQuoteState, None] = None
+        self.symbol_state: Union[ISymbolState, None] = None
+        self.whitespace_state: Union[IWhitespaceState, None] = None
+        self.word_state: Union[IWordState, None] = None
 
-        self._scanner: IScanner = None
-        self._next_token: Token = None
+        self._scanner: Union[IScanner, None] = None
+        self._next_token: Union[Token, None] = None
         self._last_token_type = TokenType.Unknown
 
     def get_character_state(self, symbol):

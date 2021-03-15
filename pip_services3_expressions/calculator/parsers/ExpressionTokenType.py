@@ -16,7 +16,7 @@ class ExpressionTokenType(Enum):
     Minus = auto()
     Star = auto()
     Slash = auto()
-    Procent = auto()
+    Percent = auto()
     Power = auto()
     Equal = auto()
     NotEqual = auto()
