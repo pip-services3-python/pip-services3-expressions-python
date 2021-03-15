@@ -183,17 +183,17 @@
 <dt id="pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.generic.GenericNumberState.</code><code class="sig-name descname">GenericNumberState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.INumberState.html#pip_services3_expressions.tokenizers.INumberState.INumberState" title="pip_services3_expressions.tokenizers.INumberState.INumberState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.INumberState.INumberState</span></code></a></p>
-<p>A NumberState object returns a number from a reader. This state’s idea of a number allows
+<p>A NumberState object returns a number from a scanner. This state’s idea of a number allows
 an optional, initial minus sign, followed by one or more digits. A decimal point and another string
 of digits may follow these digits.</p>
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState.next_token">
-<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState.next_token" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState.next_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the next token from the stream started from the character linked to this state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
 <li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
 </ul>
 </dd>

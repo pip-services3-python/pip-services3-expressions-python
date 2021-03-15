@@ -17,46 +17,46 @@ class ExpressionNumberState(GenericNumberState):
         self.EXP1 = ord('e')
         self.EXP2 = ord('E')
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner, tokenizer):
         """
         Gets the next token from the stream started from the character linked to this state.
         
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        if reader.peek() == self.MINUS:
-            return tokenizer.symbol_state.next_token(reader, tokenizer)
+        if scanner.peek() == self.MINUS:
+            return tokenizer.symbol_state.next_token(scanner, tokenizer)
 
         # Process numbers using base class algorithm.
-        token = super().next_token(reader, tokenizer)
+        token = super().next_token(scanner, tokenizer)
 
         # Exit if number was not detected.
         if token.type != TokenType.Integer and token.type != TokenType.Float:
             return token
 
         # Exit if number is not in scientific format.
-        next_char = reader.peek()
+        next_char = scanner.peek()
         if next_char != self.EXP1 and next_char != self.EXP2:
             return token
 
         token_value = ''
-        token_value = token_value + chr(reader.read())
+        token_value = token_value + chr(scanner.read())
 
         # Process '-' or '+' in mantissa
-        next_char = reader.peek()
+        next_char = scanner.peek()
         if next_char == self.MINUS or next_char == self.PLUS:
-            token_value += chr(reader.read())
-            next_char = reader.peek()
+            token_value += chr(scanner.read())
+            next_char = scanner.peek()
 
         # Exit if mantissa has no digits.
         if not CharValidator.is_digit(next_char):
-            reader.pushback_string(token_value)
+            scanner.unread_many(len(token_value))
             return token
 
         # Process matissa digits
         while CharValidator.is_digit(next_char):
-            token_value += chr(reader.read())
-            next_char = reader.peek()
+            token_value += chr(scanner.read())
+            next_char = scanner.peek()
 
         return Token(TokenType.Float, token.value + token_value)

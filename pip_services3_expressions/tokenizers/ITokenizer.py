@@ -2,11 +2,10 @@
 
 from abc import ABC
 
-from pip_services3_expressions.io.IPushbackReader import IPushbackReader
+from pip_services3_expressions.io.IScanner import IScanner
 from .ICommentState import ICommentState
 from .INumberState import INumberState
 from .IQuoteState import IQuoteState
-
 from .ISymbolState import ISymbolState
 from .IWhitespaceState import IWhitespaceState
 from .IWordState import IWordState
@@ -115,28 +114,28 @@ class ITokenizer(ABC):
     # A token state to process words or indentificators.
     word_state: IWordState
 
-    # The stream reader to tokenize.
-    reader: IPushbackReader
+    # The stream scanner to tokenize.
+    scanner: IScanner
 
     def has_next_token(self):
         """
         Checks if there is the next token exist.
 
-        :return: **True** if reader has the next token.
+        :return: **True** if scanner has the next token.
         """
 
     def next_token(self):
         """
-        Gets the next token from the reader.
+        Gets the next token from the scanner.
 
         :return: Next token of **null** if there are no more tokens left.
         """
 
-    def tokenize_stream(self, reader):
+    def tokenize_stream(self, scanner: IScanner):
         """
         Tokenizes a textual stream into a list of token structures.
 
-        :param reader: A textual stream to be tokenized.
+        :param scanner: A textual stream to be tokenized.
         :return: A list of token structures.
         """
 
@@ -148,11 +147,11 @@ class ITokenizer(ABC):
         :return: A list of token structures.
         """
 
-    def tokenize_stream_to_string(self, reader):
+    def tokenize_stream_to_string(self, scanner: IScanner):
         """
         Tokenizes a textual stream into a list of strings.
 
-        :param reader: A textual stream to be tokenized.
+        :param scanner: A textual stream to be tokenized.
         :return: A list of token strings.
         """
 

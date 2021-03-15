@@ -230,11 +230,11 @@ an ancestor that represents a valid symbol.</p>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.SymbolNode.SymbolNode.deepest_read">
-<code class="sig-name descname">deepest_read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.SymbolNode.SymbolNode.deepest_read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">deepest_read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.SymbolNode.SymbolNode.deepest_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the descendant that takes as many characters as possible from the input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>reader</strong> – </p>
+<dd class="field-odd"><p><strong>scanner</strong> – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -263,12 +263,12 @@ an ancestor that represents a valid symbol.</p>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.SymbolNode.SymbolNode.unread_to_valid">
-<code class="sig-name descname">unread_to_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.SymbolNode.SymbolNode.unread_to_valid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unread_to_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.SymbolNode.SymbolNode.unread_to_valid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unwind to a valid node; this node is “valid” if its ancestry represents a complete symbol.
 If this node is not valid, put back the character and ask the parent to unwind.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>reader</strong> – </p>
+<dd class="field-odd"><p><strong>scanner</strong> – </p>
 </dd>
 </dl>
 </dd></dl>

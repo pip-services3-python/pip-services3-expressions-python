@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from pip_services3_expressions.io.IPushbackReader import IPushbackReader
-from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
+from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.GenericCommentState import GenericCommentState
@@ -18,56 +17,61 @@ class CppCommentState(GenericCommentState):
         self.STAR = ord('*')
         self.SLASH = ord('/')
 
-    def get_multi_line_comment(self, reader):
+    def get_multi_line_comment(self, scanner: IScanner):
+        """
+        Ignore everything up to a closing star and slash, and then return the tokenizer's next token.
+
+        :param scanner:
+        """
         result = ''
         last_symbol = 0
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
 
         while not CharValidator.is_eof(next_symbol):
             result += chr(next_symbol)
             if last_symbol == self.STAR and next_symbol == self.SLASH:
                 break
             last_symbol = next_symbol
-            next_symbol = reader.read()
+            next_symbol = scanner.read()
         return result
 
-    def get_single_line_comment(self, reader):
+    def get_single_line_comment(self, scanner: IScanner):
         """
         Ignore everything up to an end-of-line and return the tokenizer's next token.
         """
         result = ''
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
 
         while not CharValidator.is_eof(next_symbol) and not CharValidator.is_eol(next_symbol):
             result = result + chr(next_symbol)
-            next_symbol = reader.read()
+            next_symbol = scanner.read()
 
         if CharValidator.is_eol(next_symbol):
-            reader.pushback(next_symbol)
+            scanner.unread()
 
         return result
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner, tokenizer):
         """
         Either delegate to a comment-handling state, or return a token with just a slash in it.
         
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        first_symbol = reader.read()
+        first_symbol = scanner.read()
         if first_symbol != self.SLASH:
-            reader.pushback(first_symbol)
+            scanner.unread()
             raise Exception('Incorrect usage of CppCommentState.')
 
-        second_symbol = reader.read()
+        second_symbol = scanner.read()
         if second_symbol == self.STAR:
-            return Token(TokenType.Comment, '/*' + self.get_multi_line_comment(reader))
+            return Token(TokenType.Comment, '/*' + self.get_multi_line_comment(scanner))
         elif second_symbol == self.SLASH:
-            return Token(TokenType.Comment, '//' + self.get_single_line_comment(reader))
+            return Token(TokenType.Comment, '//' + self.get_single_line_comment(scanner))
         else:
             if not CharValidator.is_eof(second_symbol):
-                reader.pushback(second_symbol)
+                scanner.unread()
             if not CharValidator.is_eof(first_symbol):
-                reader.pushback(first_symbol)
-            return tokenizer.symbol_state.next_token(reader, tokenizer)
+                scanner.unread()
+            return tokenizer.symbol_state.next_token(scanner, tokenizer)

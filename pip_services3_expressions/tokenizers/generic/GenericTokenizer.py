@@ -29,7 +29,7 @@ class GenericTokenizer(AbstractTokenizer):
         self.word_state = GenericWordState()
         self.comment_state = GenericCommentState()
 
-        self.clear_charatcter_states()
+        self.clear_character_states()
         self.set_character_state(0x0000, 0x00ff, self.symbol_state)
         self.set_character_state(0x0000, ord(' '), self.whitespace_state)
 

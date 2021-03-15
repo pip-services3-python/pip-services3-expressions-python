@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-from pip_services3_expressions.io.IPushbackReader import IPushbackReader
+from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.ISymbolState import ISymbolState
 from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
-from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.SymbolRootNode import SymbolRootNode
 
@@ -31,17 +30,17 @@ class GenericSymbolState(ISymbolState):
         super(GenericSymbolState, self).__init__()
         self.__symbols = SymbolRootNode()
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
         """
-        Return a symbol token from a reader.
+        Return a symbol token from a scanner.
 
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        return self.__symbols.next_token(reader)
+        return self.__symbols.next_token(scanner)
 
-    def add(self, value, token_type):
+    def add(self, value, token_type: TokenType):
         """
         Add a multi-character symbol.
         

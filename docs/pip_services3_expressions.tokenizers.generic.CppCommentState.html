@@ -186,23 +186,23 @@
 <p>This state will either delegate to a comment-handling state, or return a token with just a slash in it.</p>
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.get_multi_line_comment">
-<code class="sig-name descname">get_multi_line_comment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.get_multi_line_comment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_multi_line_comment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.get_multi_line_comment" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.get_single_line_comment">
-<code class="sig-name descname">get_single_line_comment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.get_single_line_comment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_single_line_comment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.get_single_line_comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore everything up to an end-of-line and return the tokenizer’s next token.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.next_token">
-<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.next_token" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.CppCommentState.CppCommentState.next_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Either delegate to a comment-handling state, or return a token with just a slash in it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
 <li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
 </ul>
 </dd>

@@ -18,11 +18,11 @@ class CsvSymbolState(GenericSymbolState):
         self.add("\r\n", TokenType.Eol)
         self.add("\n\r", TokenType.Eol)
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner, tokenizer):
         # Optimization...
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
         if next_symbol != CsvConstant.LF and next_symbol != CsvConstant.CR:
             return Token(TokenType.Symbol, chr(next_symbol))
         else:
-            reader.pushback(next_symbol)
-            return super().next_token(reader, tokenizer)
+            scanner.unread()
+            return super().next_token(scanner, tokenizer)

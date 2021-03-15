@@ -33,7 +33,7 @@ class MustacheTokenizer(AbstractTokenizer):
         self.comment_state = None
         self.__special_state = MustacheSpecialState()
 
-        self.clear_charatcter_states()
+        self.clear_character_states()
         self.set_character_state(0x0000, 0x00ff, self.symbol_state)
         self.set_character_state(0x0000, ord(' '), self.whitespace_state)
 
@@ -52,7 +52,7 @@ class MustacheTokenizer(AbstractTokenizer):
         self.skip_eof = True
 
     def _read_next_token(self):
-        if self._reader is None:
+        if self._scanner is None:
             return None
 
         # Check for initial state
@@ -61,7 +61,7 @@ class MustacheTokenizer(AbstractTokenizer):
 
         # Process quotes
         if self.__special:
-            token = self.__special_state.next_token(self._reader, self)
+            token = self.__special_state.next_token(self._scanner, self)
             if token is not None and token.value != '':
                 return token
 

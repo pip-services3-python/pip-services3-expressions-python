@@ -183,11 +183,11 @@
 <dt id="pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.generic.GenericQuoteState.</code><code class="sig-name descname">GenericQuoteState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</span></code></a></p>
-<p>A quoteState returns a quoted string token from a reader. This state will collect characters
+<p>A quoteState returns a quoted string token from a scanner. This state will collect characters
 until it sees a match to the character that the tokenizer used to switch to this state.
 For example, if a tokenizer uses a double-quote character to enter this state,
 then <a class="reference internal" href="#pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.next_token" title="pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.next_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">next_token</span></code></a> will search for another double-quote until it finds one
-or finds the end of the reader.</p>
+or finds the end of the scanner.</p>
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.decode_string">
 <code class="sig-name descname">decode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">quote_symbol</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.decode_string" title="Permalink to this definition">¶</a></dt>
@@ -224,14 +224,14 @@ or finds the end of the reader.</p>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.next_token">
-<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.next_token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a quoted string token from a reader. This method will collect
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericQuoteState.GenericQuoteState.next_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a quoted string token from a scanner. This method will collect
 characters until it sees a match to the character that the tokenizer used
 to switch to this state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
 <li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
 </ul>
 </dd>

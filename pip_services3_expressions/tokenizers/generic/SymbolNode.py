@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.utilities.CharReferenceMap import CharReferenceMap
 from pip_services3_expressions.tokenizers.utilities.CharValidator import CharValidator
@@ -74,18 +74,18 @@ class SymbolNode:
             self.__valid = True
             self.__token_type = token_type
 
-    def deepest_read(self, reader):
+    def deepest_read(self, scanner: IScanner):
         """
         Find the descendant that takes as many characters as possible from the input.
 
-        :param reader:
+        :param scanner:
         """
-        nex_symbol = reader.read()
+        nex_symbol = scanner.read()
         child_node = self.find_child_with_char(nex_symbol) if not CharValidator.is_eof(nex_symbol) else None
         if not child_node:
-            reader.pushback(nex_symbol)
+            scanner.unread()
             return self
-        return child_node.deepest_read(reader)
+        return child_node.deepest_read(scanner)
 
     def find_child_with_char(self, value):
         """
@@ -95,16 +95,16 @@ class SymbolNode:
         """
         return self.__children.lookup(value) if self.__children is not None else None
 
-    def unread_to_valid(self, reader):
+    def unread_to_valid(self, scanner: IScanner):
         """
         Unwind to a valid node; this node is "valid" if its ancestry represents a complete symbol.
         If this node is not valid, put back the character and ask the parent to unwind.
 
-        :param reader:
+        :param scanner:
         """
         if not self.__valid and self.__parent is not None:
-            reader.pushback(self.__character)
-            return self.__parent.unread_to_valid(reader)
+            scanner.unread()
+            return self.__parent.unread_to_valid(scanner)
 
         return self
 

@@ -183,7 +183,7 @@
 <dt id="pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.generic.GenericWordState.</code><code class="sig-name descname">GenericWordState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.IWordState.IWordState</span></code></a></p>
-<p>A wordState returns a word from a reader. Like other states, a tokenizer transfers the job
+<p>A wordState returns a word from a scanner. Like other states, a tokenizer transfers the job
 of reading to this state, depending on an initial character. Thus, the tokenizer decides
 which characters may begin a word, and this state determines which characters may appear
 as a second or later character in a word. These are typically different sets of characters;
@@ -222,12 +222,12 @@ The method <a class="reference internal" href="#pip_services3_expressions.tokeni
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState.next_token">
-<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState.next_token" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState.next_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore word (such as blanks and tabs), and return the tokenizer’s next token.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
 <li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
 </ul>
 </dd>

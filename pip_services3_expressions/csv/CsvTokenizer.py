@@ -102,7 +102,7 @@ class CsvTokenizer(AbstractTokenizer):
         """
         Assigns tokenizer states to correct characters.
         """
-        self.clear_charatcter_states()
+        self.clear_character_states()
         self.set_character_state(0x0000, 0xfffe, self.word_state)
         self.set_character_state(CsvConstant.CR, CsvConstant.CR, self.symbol_state)
         self.set_character_state(CsvConstant.LF, CsvConstant.LF, self.symbol_state)

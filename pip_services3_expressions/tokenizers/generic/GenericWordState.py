@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+from pip_services3_expressions.io.IScanner import IScanner
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.IWordState import IWordState
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
@@ -9,7 +10,7 @@ from pip_services3_expressions.tokenizers.utilities.CharValidator import CharVal
 
 class GenericWordState(IWordState):
     """
-    A wordState returns a word from a reader. Like other states, a tokenizer transfers the job
+    A wordState returns a word from a scanner. Like other states, a tokenizer transfers the job
     of reading to this state, depending on an initial character. Thus, the tokenizer decides
     which characters may begin a word, and this state determines which characters may appear
     as a second or later character in a word. These are typically different sets of characters;
@@ -50,23 +51,23 @@ class GenericWordState(IWordState):
         self.set_word_chars(0x00c0, 0x00ff, True)
         self.set_word_chars(0x0100, 0xfffe, True)
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
         """
         Ignore word (such as blanks and tabs), and return the tokenizer's next token.
         
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
         token_value = ''
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
 
         while self.__map.lookup(next_symbol):
             token_value = token_value + chr(next_symbol)
-            next_symbol = reader.read()
+            next_symbol = scanner.read()
 
         if not CharValidator.is_eof(next_symbol):
-            reader.pushback(next_symbol)
+            scanner.unread()
 
         return Token(TokenType.Word, token_value)
 

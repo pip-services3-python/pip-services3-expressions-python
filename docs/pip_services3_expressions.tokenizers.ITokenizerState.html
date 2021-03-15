@@ -181,8 +181,8 @@
 <dt id="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.ITokenizerState.</code><code class="sig-name descname">ITokenizerState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
-<p>A tokenizerState returns a token, given a reader, an initial character read from the reader,
-and a tokenizer that is conducting an overall tokenization of the reader. The tokenizer will
+<p>A tokenizerState returns a token, given a scanner, an initial character read from the scanner,
+and a tokenizer that is conducting an overall tokenization of the scanner. The tokenizer will
 typically have a character state table that decides which state to use, depending on an initial 
 character. If a single character is insufficient, a state such as <strong>SlashState</strong>
 will read a second character, and may delegate to another state, such as <strong>SlashStarState</strong>.
@@ -190,12 +190,12 @@ This prospect of delegation is the reason that the <a class="reference internal"
 method has a tokenizer argument.</p>
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState.next_token">
-<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState.next_token" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState.next_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the next token from the stream started from the character linked to this state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
 <li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
 </ul>
 </dd>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from pip_services3_expressions.io.IPushbackReader import IPushbackReader
+from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.SymbolNode import SymbolNode
@@ -28,18 +28,18 @@ class SymbolRootNode(SymbolNode):
             child_node.token_type = TokenType.Symbol
         child_node.add_descendant_line(value[1:], token_type)
 
-    def next_token(self, reader):
+    def next_token(self, scanner: IScanner):
         """
-        Return a symbol string from a reader.
+        Return a symbol string from a scanner.
         
-        :param reader: A reader to read from
-        :return: A symbol string from a reader
+        :param scanner: A scanner to read from
+        :return: A symbol string from a scanner
         """
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
         child_node = self.find_child_with_char(next_symbol)
         if child_node is not None:
-            child_node = child_node.deepest_read(reader)
-            child_node = child_node.unread_to_valid(reader)
+            child_node = child_node.deepest_read(scanner)
+            child_node = child_node.unread_to_valid(scanner)
             return Token(child_node.token_type, child_node.ancestry())
         else:
             return Token(TokenType.Symbol, chr(next_symbol))

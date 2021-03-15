@@ -217,13 +217,13 @@ implementation, but wrap one.</p>
 
 <dl class="py class">
 <dt id="io.BufferedRWPair">
-<em class="property">class </em><code class="sig-prename descclassname">io.</code><code class="sig-name descname">BufferedRWPair</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">writer</span></em>, <em class="sig-param"><span class="n">buffer_size</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.BufferedRWPair" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">io.</code><code class="sig-name descname">BufferedRWPair</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em>, <em class="sig-param"><span class="n">writer</span></em>, <em class="sig-param"><span class="n">buffer_size</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.BufferedRWPair" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_io._BufferedIOBase</span></code></p>
-<p>A buffered reader and writer object together.</p>
-<p>A buffered reader object and buffered writer object put together to
+<p>A buffered scanner and writer object together.</p>
+<p>A buffered scanner object and buffered writer object put together to
 form a sequential IO object that can read and write. This is typically
 used with a socket or two-way pipe.</p>
-<p>reader and writer are RawIOBase objects that are readable and
+<p>scanner and writer are RawIOBase objects that are readable and
 writeable respectively. If the buffer_size is omitted it defaults to
 DEFAULT_BUFFER_SIZE.</p>
 <dl class="py method">
@@ -324,7 +324,7 @@ underlying raw stream cannot accept more data at the moment.</p>
 <em class="property">class </em><code class="sig-prename descclassname">io.</code><code class="sig-name descname">BufferedRandom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raw</span></em>, <em class="sig-param"><span class="n">buffer_size</span><span class="o">=</span><span class="default_value">8192</span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.BufferedRandom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_io._BufferedIOBase</span></code></p>
 <p>A buffered interface to random access streams.</p>
-<p>The constructor creates a reader and writer for a seekable stream,
+<p>The constructor creates a scanner and writer for a seekable stream,
 raw, given in the first argument. If the buffer_size is omitted it
 defaults to DEFAULT_BUFFER_SIZE.</p>
 <dl class="py method">
@@ -501,7 +501,7 @@ underlying raw stream cannot accept more data at the moment.</p>
 <dt id="io.BufferedReader">
 <em class="property">class </em><code class="sig-prename descclassname">io.</code><code class="sig-name descname">BufferedReader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raw</span></em>, <em class="sig-param"><span class="n">buffer_size</span><span class="o">=</span><span class="default_value">8192</span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.BufferedReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_io._BufferedIOBase</span></code></p>
-<p>Create a new buffered reader using the given readable raw IO object.</p>
+<p>Create a new buffered scanner using the given readable raw IO object.</p>
 <dl class="py method">
 <dt id="io.BufferedReader.close">
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#io.BufferedReader.close" title="Permalink to this definition">¶</a></dt>

@@ -11,28 +11,28 @@ class CsvQuoteState(IQuoteState):
     Implements a quote string state object for CSV streams.
     """
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner, tokenizer):
         """
         Gets the next token from the stream started from the character linked to this state.
 
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        first_symbol = reader.read()
+        first_symbol = scanner.read()
         token_value = ""
         token_value = token_value + chr(first_symbol)
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
 
         while not CharValidator.is_eof(next_symbol):
             token_value = token_value + chr(next_symbol)
             if next_symbol == first_symbol:
-                if reader.peek() == first_symbol:
-                    next_symbol = reader.read()
+                if scanner.peek() == first_symbol:
+                    next_symbol = scanner.read()
                     token_value = token_value + chr(next_symbol)
                 else:
                     break
-            next_symbol = reader.read()
+            next_symbol = scanner.read()
 
         return Token(TokenType.Quoted, token_value)
 

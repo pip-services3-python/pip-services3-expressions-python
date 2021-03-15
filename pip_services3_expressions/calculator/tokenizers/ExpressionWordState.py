@@ -27,15 +27,15 @@ class ExpressionWordState(GenericWordState):
         self.set_word_chars(0x00c0, 0x00ff, True)
         self.set_word_chars(0x0100, 0xfffe, True)
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner, tokenizer):
         """
         Gets the next token from the stream started from the character linked to this state.
         
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        token = super().next_token(reader, tokenizer)
+        token = super().next_token(scanner, tokenizer)
         value = token.value.upper()
 
         for keyword in self.keywords:

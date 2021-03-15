@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
-
+from pip_services3_expressions.io.IScanner import IScanner
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.IWhitespaceState import IWhitespaceState
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
@@ -18,22 +18,22 @@ class GenericWhitespaceState(IWhitespaceState):
         self.__map = CharReferenceMap()
         self.set_whitespace_chars(0, ord(' '), True)
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner:IScanner, tokenizer:ITokenizer):
         """
         Ignore whitespace (such as blanks and tabs), and return the tokenizer's next token.
 
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
         token_value = ""
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
         while self.__map.lookup(next_symbol):
             token_value = token_value + chr(next_symbol)
-            next_symbol = reader.read()
+            next_symbol = scanner.read()
 
         if not CharValidator.is_eof(next_symbol):
-            reader.pushback(next_symbol)
+            scanner.unread()
 
         return Token(TokenType.Whitespace, token_value)
 

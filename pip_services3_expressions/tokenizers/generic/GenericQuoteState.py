@@ -8,32 +8,32 @@ from pip_services3_expressions.tokenizers.utilities.CharValidator import CharVal
 
 class GenericQuoteState(IQuoteState):
     """
-    A quoteState returns a quoted string token from a reader. This state will collect characters
+    A quoteState returns a quoted string token from a scanner. This state will collect characters
     until it sees a match to the character that the tokenizer used to switch to this state.
     For example, if a tokenizer uses a double-quote character to enter this state,
     then :func:`next_token <GenericQuoteState.next_token>` will search for another double-quote until it finds one
-    or finds the end of the reader.
+    or finds the end of the scanner.
     """
 
-    def next_token(self, reader, tokenizer):
+    def next_token(self, scanner, tokenizer):
         """
-        Return a quoted string token from a reader. This method will collect
+        Return a quoted string token from a scanner. This method will collect
         characters until it sees a match to the character that the tokenizer used
         to switch to this state.
         
-        :param reader: A textual string to be tokenized.
+        :param scanner: A textual string to be tokenized.
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        first_symbol = reader.read()
+        first_symbol = scanner.read()
         token_value = chr(first_symbol)
 
-        next_symbol = reader.read()
+        next_symbol = scanner.read()
         while not CharValidator.is_eof(next_symbol):
             token_value = token_value + chr(next_symbol)
             if next_symbol == first_symbol:
                 break
-            next_symbol = reader.read()
+            next_symbol = scanner.read()
 
         return Token(TokenType.Quoted, token_value)
 

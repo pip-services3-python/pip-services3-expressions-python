@@ -30,7 +30,7 @@ class ExpressionTokenizer(AbstractTokenizer):
         self.word_state = ExpressionWordState()
         self.comment_state = CppCommentState()
 
-        self.clear_charatcter_states()
+        self.clear_character_states()
         self.set_character_state(0x0000, 0xfffe, self.symbol_state)
         self.set_character_state(0, ord(' '), self.whitespace_state)
 

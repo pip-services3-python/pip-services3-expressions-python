@@ -8,7 +8,7 @@
 ## <a name="3.0.0"></a> 3.0.0 (2020-08-01)
 
 ### Features
-* IO Streaming: IPushbackReader and StringPushbackReader
+* IO Streaming: IScanner and StringScanner
 * Variant (dynamic) values
 * Tokenizers (Lexical analyzers)
 * Expression calculator

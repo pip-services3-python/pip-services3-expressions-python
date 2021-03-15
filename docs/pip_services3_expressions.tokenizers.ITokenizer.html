@@ -269,7 +269,7 @@ of what characters can be part of a word, after the first character.</p>
 <dd><p>Checks if there is the next token exist.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>True</strong> if reader has the next token.</p>
+<dd class="field-odd"><p><strong>True</strong> if scanner has the next token.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -282,7 +282,7 @@ of what characters can be part of a word, after the first character.</p>
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.next_token">
 <code class="sig-name descname">next_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.next_token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the next token from the reader.</p>
+<dd><p>Gets the next token from the scanner.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Next token of <strong>null</strong> if there are no more tokens left.</p>
@@ -301,8 +301,8 @@ of what characters can be part of a word, after the first character.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.reader">
-<code class="sig-name descname">reader</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.io.IPushbackReader.html#pip_services3_expressions.io.IPushbackReader.IPushbackReader" title="pip_services3_expressions.io.IPushbackReader.IPushbackReader">pip_services3_expressions.io.IPushbackReader.IPushbackReader</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.reader" title="Permalink to this definition">¶</a></dt>
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.scanner">
+<code class="sig-name descname">scanner</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.io.IPushbackReader.html#pip_services3_expressions.io.IPushbackReader.IPushbackReader" title="pip_services3_expressions.io.IPushbackReader.IPushbackReader">pip_services3_expressions.io.IPushbackReader.IPushbackReader</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.scanner" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -360,11 +360,11 @@ of what characters can be part of a word, after the first character.</p>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.tokenize_stream">
-<code class="sig-name descname">tokenize_stream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.tokenize_stream" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tokenize_stream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.tokenize_stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tokenizes a textual stream into a list of token structures.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>reader</strong> – A textual stream to be tokenized.</p>
+<dd class="field-odd"><p><strong>scanner</strong> – A textual stream to be tokenized.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A list of token structures.</p>
@@ -374,11 +374,11 @@ of what characters can be part of a word, after the first character.</p>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.tokenize_stream_to_string">
-<code class="sig-name descname">tokenize_stream_to_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.tokenize_stream_to_string" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tokenize_stream_to_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer.tokenize_stream_to_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tokenizes a textual stream into a list of strings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>reader</strong> – A textual stream to be tokenized.</p>
+<dd class="field-odd"><p><strong>scanner</strong> – A textual stream to be tokenized.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A list of token strings.</p>
