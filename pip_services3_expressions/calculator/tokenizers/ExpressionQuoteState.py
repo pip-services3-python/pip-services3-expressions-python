@@ -31,7 +31,7 @@ class ExpressionQuoteState(IQuoteState):
         while not CharValidator.is_eof(next_symbol):
             token_value += chr(next_symbol)
             if next_symbol == first_symbol:
-                if  reader.peek() == first_symbol:
+                if reader.peek() == first_symbol:
                     next_symbol = reader.read()
                     token_value += chr(next_symbol)
                 else:

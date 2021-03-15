@@ -7,6 +7,7 @@ The module contains the following packages:
 - **Calculator** - Expression calculator
 - **CSV** - CSV tokenizer
 - **IO** - input/output utility classes to support lexical analysis
+- **Mustache** - Mustache templating engine
 - **Tokenizers** - lexical analyzers to break incoming character streams into tokens
 - **Variants** - dynamic objects that can hold any values and operators for them
 
@@ -45,6 +46,14 @@ vars.add(Variable("B", Variant("3")))
 result = clalculator.evaluate_with_variables(vars)
 print('The result of the expression is ' + result.as_string)
 # ...
+```
+
+This is an example to process mustache templates.
+```python
+mustache = MustacheTemplate()
+mustache.template = "Hello, {{{NAME}}}{{#ESCLAMATION}}!{{/ESCLAMATION}}{{#unless ESCLAMATION}}.{{/unless}}"
+result = mustache.evaluate_with_variables({ 'NAME': 'Mike', 'ESCLAMATION': True }) 
+print("The result of template evaluation is '" + result + "'")
 ```
 
 ## Develop

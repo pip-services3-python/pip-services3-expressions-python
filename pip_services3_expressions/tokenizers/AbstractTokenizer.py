@@ -38,9 +38,9 @@ class AbstractTokenizer(ITokenizer, ABC):
         self.whitespace_state: IWhitespaceState = None
         self.word_state: IWordState = None
 
-        self.__reader: IPushbackReader = None
-        self.__next_token: Token = None
-        self.__last_token_type = TokenType.Unknown
+        self._reader: IPushbackReader = None
+        self._next_token: Token = None
+        self._last_token_type = TokenType.Unknown
 
     def get_character_state(self, symbol):
         return self.__map.lookup(symbol)
@@ -53,32 +53,32 @@ class AbstractTokenizer(ITokenizer, ABC):
 
     @property
     def reader(self):
-        return self.__reader
+        return self._reader
 
     @reader.setter
     def reader(self, value):
-        self.__reader = value
-        self.__next_token = None
-        self.__last_token_type = TokenType.Unknown
+        self._reader = value
+        self._next_token = None
+        self._last_token_type = TokenType.Unknown
 
     def has_next_token(self):
-        self.__next_token = self.__read_next_token() if self.__next_token is None else self.__next_token
-        return self.__next_token is not None
+        self._next_token = self._read_next_token() if self._next_token is None else self._next_token
+        return self._next_token is not None
 
     def next_token(self):
-        token = self.__read_next_token() if self.__next_token is None else self.__next_token
-        self.__next_token = None
+        token = self._read_next_token() if self._next_token is None else self._next_token
+        self._next_token = None
         return token
 
-    def __read_next_token(self):
-        if self.__reader is None:
+    def _read_next_token(self):
+        if self._reader is None:
             return None
 
         token = None
 
         while True:
             # Read character
-            next_char = self.__reader.peek()
+            next_char = self._reader.peek()
 
             # If reached Eof then exit
             if CharValidator.is_eof(next_char):
@@ -88,15 +88,15 @@ class AbstractTokenizer(ITokenizer, ABC):
             # Get state for character
             state = self.get_character_state(next_char)
             if state is not None:
-                token = state.next_token(self.__reader, self)
+                token = state.next_token(self._reader, self)
 
             # Check for unknown characters and endless loops...
             if token is None or token.value == '':
-                token = Token(TokenType.Unknown, chr(self.__reader.read()))
+                token = Token(TokenType.Unknown, chr(self._reader.read()))
 
             # Skip unknown characters if option set.
             if token.type == TokenType.Unknown and self.skip_unknown:
-                self.__last_token_type = token.type
+                self._last_token_type = token.type
                 continue
 
             # Decode strings is option set.
@@ -105,14 +105,14 @@ class AbstractTokenizer(ITokenizer, ABC):
 
             # Skips comments if option set.
             if token.type == TokenType.Comment and self.skip_comments:
-                self.__last_token_type = token.type
+                self._last_token_type = token.type
                 continue
 
             # Skips whitespaces if option set.
             if token.type == TokenType.Whitespace and \
-                    self.__last_token_type == TokenType.Whitespace and \
+                    self._last_token_type == TokenType.Whitespace and \
                     self.skip_whitespaces:
-                self.__last_token_type = token.type
+                self._last_token_type = token.type
                 continue
 
             # Unifies whitespaces if option set.
@@ -129,11 +129,11 @@ class AbstractTokenizer(ITokenizer, ABC):
             break
 
         # Adds an Eof if option is not set.
-        if token is None and self.__last_token_type != TokenType.Eof and not self.skip_eof:
+        if token is None and self._last_token_type != TokenType.Eof and not self.skip_eof:
             token = Token(TokenType.Eof, None)
 
         # Assigns the last token type
-        self.__last_token_type = token.type if token is not None else TokenType.Eof
+        self._last_token_type = token.type if token is not None else TokenType.Eof
 
         return token
 

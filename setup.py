@@ -16,15 +16,20 @@ Links
 from setuptools import setup
 from setuptools import find_packages
 
+try:
+    readme = open('readme.md').read()
+except:
+    readme = __doc__
+
 setup(
     name='pip_services3_expressions',
-    version='3.0.0',
+    version='3.1.0',
     url='http://github.com/pip-services3-python/pip-services3-expressions-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
     author='Conceptual Vision Consulting LLC',
     author_email='seroukhov@gmail.com',
-    long_description=__doc__,
+    long_description=readme,
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=['config', 'data', 'test']),
     include_package_data=True,

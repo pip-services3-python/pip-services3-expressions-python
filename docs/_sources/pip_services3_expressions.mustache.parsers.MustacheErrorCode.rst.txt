@@ -1,0 +1,7 @@
+pip\_services3\_expressions.mustache.parsers.MustacheErrorCode module
+=====================================================================
+
+.. automodule:: pip_services3_expressions.mustache.parsers.MustacheErrorCode
+   :members:
+   :undoc-members:
+   :show-inheritance:
