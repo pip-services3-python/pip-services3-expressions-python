@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-
+from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.INumberState import INumberState
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.utilities.CharValidator import CharValidator
@@ -18,7 +19,7 @@ class GenericNumberState(INumberState):
         self.MINUS = ord('-')
         self.DOT = ord('.')
 
-    def next_token(self, scanner, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
         """
         Gets the next token from the stream started from the character linked to this state.
         
@@ -26,6 +27,8 @@ class GenericNumberState(INumberState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek_line()
+        column = scanner.peek_column()
         absorbed_dot = False
         got_a_digit = False
         token_value = ""
@@ -66,4 +69,4 @@ class GenericNumberState(INumberState):
             else:
                 raise Exception('Tokenizer must have an assigned symbol state.')
 
-        return Token(TokenType.Float if absorbed_dot else TokenType.Integer, token_value)
+        return Token(TokenType.Float if absorbed_dot else TokenType.Integer, token_value, line, column)

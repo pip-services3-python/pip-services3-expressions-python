@@ -35,10 +35,12 @@ class ExpressionWordState(GenericWordState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek()
+        column = scanner.peek_column()
         token = super().next_token(scanner, tokenizer)
         value = token.value.upper()
 
         for keyword in self.keywords:
             if keyword == value:
-                return Token(TokenType.Keyword, token.value)
+                return Token(TokenType.Keyword, token.value, line, column)
         return token

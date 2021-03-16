@@ -10,13 +10,13 @@ class TestMustacheTokenizer:
     def test_template_1(self):
         token_string = "Hello, {{ Name }}!"
         expected_tokens = [
-            Token(TokenType.Special, "Hello, "),
-            Token(TokenType.Symbol, "{{"),
-            Token(TokenType.Whitespace, " "),
-            Token(TokenType.Word, "Name"),
-            Token(TokenType.Whitespace, " "),
-            Token(TokenType.Symbol, "}}"),
-            Token(TokenType.Special, "!"),
+            Token(TokenType.Special, "Hello, ", 0, 0),
+            Token(TokenType.Symbol, "{{", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Word, "Name", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Symbol, "}}", 0, 0),
+            Token(TokenType.Special, "!", 0, 0),
         ]
 
         tokenizer = MustacheTokenizer()
@@ -28,13 +28,13 @@ class TestMustacheTokenizer:
     def test_template_2(self):
         token_string = "Hello, {{{ Name }}}!"
         expected_tokens = [
-            Token(TokenType.Special, "Hello, "),
-            Token(TokenType.Symbol, "{{{"),
-            Token(TokenType.Whitespace, " "),
-            Token(TokenType.Word, "Name"),
-            Token(TokenType.Whitespace, " "),
-            Token(TokenType.Symbol, "}}}"),
-            Token(TokenType.Special, "!"),
+            Token(TokenType.Special, "Hello, ", 0, 0),
+            Token(TokenType.Symbol, "{{{", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Word, "Name", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Symbol, "}}}", 0, 0),
+            Token(TokenType.Special, "!", 0, 0),
         ]
 
         tokenizer = MustacheTokenizer()
@@ -46,11 +46,11 @@ class TestMustacheTokenizer:
     def test_template_3(self):
         token_string = "{{ Name }}}"
         expected_tokens = [
-            Token(TokenType.Symbol, "{{"),
-            Token(TokenType.Whitespace, " "),
-            Token(TokenType.Word, "Name"),
-            Token(TokenType.Whitespace, " "),
-            Token(TokenType.Symbol, "}}}")
+            Token(TokenType.Symbol, "{{", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Word, "Name", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Symbol, "}}}", 0, 0)
         ]
 
         tokenizer = MustacheTokenizer()
@@ -62,7 +62,7 @@ class TestMustacheTokenizer:
     def test_template_4(self):
         token_string = "Hello, World!"
         expected_tokens = [
-            Token(TokenType.Special, "Hello, World!")
+            Token(TokenType.Special, "Hello, World!", 0, 0)
         ]
 
         tokenizer = MustacheTokenizer()

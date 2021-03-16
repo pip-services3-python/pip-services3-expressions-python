@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.IQuoteState import IQuoteState
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.utilities.CharValidator import CharValidator
@@ -15,7 +17,7 @@ class ExpressionQuoteState(IQuoteState):
         super(ExpressionQuoteState, self).__init__()
         self.QUOTE = ord('"')
 
-    def next_token(self, scanner, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
         """
         Gets the next token from the stream started from the character linked to this state.
 
@@ -23,6 +25,9 @@ class ExpressionQuoteState(IQuoteState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek()
+        column = scanner.peek_column()
+
         first_symbol = scanner.read()
         token_value = ''
         token_value += chr(first_symbol)
@@ -38,7 +43,7 @@ class ExpressionQuoteState(IQuoteState):
                     break
             next_symbol = scanner.read()
 
-        return Token(TokenType.Word if first_symbol == self.QUOTE else TokenType.Quoted, token_value)
+        return Token(TokenType.Word if first_symbol == self.QUOTE else TokenType.Quoted, token_value, line, column)
 
     def encode_string(self, value, quote_symbol):
         """

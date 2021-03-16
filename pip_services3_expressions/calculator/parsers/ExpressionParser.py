@@ -132,7 +132,7 @@ class ExpressionParser:
         Checks are there more tokens available and throws exception if no more tokens available.
         """
         if not self.__has_more_tokens():
-            raise SyntaxException(None, SyntaxErrorCode.UNEXPECTED_END, 'Unexpected end of expression.')
+            raise SyntaxException(None, SyntaxErrorCode.UNEXPECTED_END, 'Unexpected end of expression.', 0, 0)
 
     def __get_current_token(self):
         """
@@ -158,14 +158,16 @@ class ExpressionParser:
         """
         self.__current_token_index += 1
 
-    def __add_token_to_result(self, type, value):
+    def __add_token_to_result(self, type, value, line, column):
         """
         Adds an expression to the result list
 
         :param type: The type of the token to be added.
         :param value: The value of the token to be added.
+        :param line: The line number where the token is.
+        :param column: The column number where the token is.
         """
-        self.__result_tokens.append(ExpressionToken(type, value))
+        self.__result_tokens.append(ExpressionToken(type, value, line, column))
 
     def __match_tokens_with_types(self, *types):
         """
@@ -209,7 +211,9 @@ class ExpressionParser:
             self.__perform_syntax_analysis()
             if self.__has_more_tokens():
                 token = self.__get_current_token()
-                raise SyntaxException(None, SyntaxErrorCode.ERROR_NEAR, f'Syntax error near {token.value}')
+                raise SyntaxException(None, SyntaxErrorCode.ERROR_NEAR, f'Syntax error near {token.value}',
+                                      token.line,
+                                      token.column)
 
     def __complete_lexical_analysis(self):
         """
@@ -253,9 +257,11 @@ class ExpressionParser:
                         break
 
             if token_type == ExpressionTokenType.Unknown:
-                raise SyntaxException(None, SyntaxErrorCode.UNKNOWN_SYMBOL, "Unknown symbol " + token.value)
+                raise SyntaxException(None, SyntaxErrorCode.UNKNOWN_SYMBOL, "Unknown symbol " + token.value,
+                                      token.line,
+                                      token.column)
 
-            self.__initial_tokens.append(ExpressionToken(token_type, token_value))
+            self.__initial_tokens.append(ExpressionToken(token_type, token_value, token.line, token.column))
 
     def __perform_syntax_analysis(self):
         """
@@ -268,7 +274,7 @@ class ExpressionParser:
             if token.type in [ExpressionTokenType.And, ExpressionTokenType.Or, ExpressionTokenType.Xor]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level1()
-                self.__add_token_to_result(token.type, Variant.Empty())
+                self.__add_token_to_result(token.type, Variant.Empty(), token.line, token.column)
                 continue
             break
 
@@ -281,7 +287,7 @@ class ExpressionParser:
         if token.type == ExpressionTokenType.Not:
             self.__move_to_next_token()
             self.__perform_syntax_analysis_at_level2()
-            self.__add_token_to_result(token.type, Variant.Empty())
+            self.__add_token_to_result(token.type, Variant.Empty(), token.line, token.column)
         else:
             self.__perform_syntax_analysis_at_level2()
 
@@ -297,7 +303,7 @@ class ExpressionParser:
                               ExpressionTokenType.Less, ExpressionTokenType.EqualMore, ExpressionTokenType.EqualLess]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level3()
-                self.__add_token_to_result(token.type, Variant.Empty())
+                self.__add_token_to_result(token.type, Variant.Empty(), token.line, token.column)
                 continue
             break
 
@@ -312,18 +318,18 @@ class ExpressionParser:
             if token.type in [ExpressionTokenType.Plus, ExpressionTokenType.Minus, ExpressionTokenType.Like]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level4()
-                self.__add_token_to_result(token.type, Variant.Empty())
+                self.__add_token_to_result(token.type, Variant.Empty(), token.line, token.column)
             elif self.__match_tokens_with_types(ExpressionTokenType.Is, ExpressionTokenType.Less):
                 self.__perform_syntax_analysis_at_level4()
-                self.__add_token_to_result(ExpressionTokenType.NotLike, Variant.Empty())
+                self.__add_token_to_result(ExpressionTokenType.NotLike, Variant.Empty(), token.line, token.column)
             elif self.__match_tokens_with_types(ExpressionTokenType.Is, ExpressionTokenType.Null):
-                self.__add_token_to_result(ExpressionTokenType.IsNull, Variant.Empty())
+                self.__add_token_to_result(ExpressionTokenType.IsNull, Variant.Empty(), token.line, token.column)
             elif self.__match_tokens_with_types(ExpressionTokenType.Is, ExpressionTokenType.Not,
                                                 ExpressionTokenType.Null):
-                self.__add_token_to_result(ExpressionTokenType.IsNotNull, Variant.Empty())
+                self.__add_token_to_result(ExpressionTokenType.IsNotNull, Variant.Empty(), token.line, token.column)
             elif self.__match_tokens_with_types(ExpressionTokenType.Not, ExpressionTokenType.In):
                 self.__perform_syntax_analysis_at_level4()
-                self.__add_token_to_result(ExpressionTokenType.NotIn, Variant.Empty())
+                self.__add_token_to_result(ExpressionTokenType.NotIn, Variant.Empty(), token.line, token.column)
             else:
                 break
 
@@ -338,7 +344,7 @@ class ExpressionParser:
             if token.type in [ExpressionTokenType.Star, ExpressionTokenType.Slash, ExpressionTokenType.Percent]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level5()
-                self.__add_token_to_result(token.type, Variant.Empty())
+                self.__add_token_to_result(token.type, Variant.Empty(), token.line, token.column)
                 continue
             break
 
@@ -354,7 +360,7 @@ class ExpressionParser:
                               ExpressionTokenType.ShiftRight]:
                 self.__move_to_next_token()
                 self.__perform_syntax_analysis_at_level6()
-                self.__add_token_to_result(token.type, Variant.Empty())
+                self.__add_token_to_result(token.type, Variant.Empty(), token.line, token.column)
                 continue
             break
 
@@ -369,7 +375,8 @@ class ExpressionParser:
             unary_token = None
             self.__move_to_next_token()
         elif unary_token.type == ExpressionTokenType.Minus:
-            unary_token = ExpressionToken(ExpressionTokenType.Unary, unary_token.value)
+            unary_token = ExpressionToken(ExpressionTokenType.Unary, unary_token.value,
+                                          unary_token.line, unary_token.column)
             self.__move_to_next_token()
         else:
             unary_token = None
@@ -381,11 +388,13 @@ class ExpressionParser:
         next_token = self.__get_next_token()
         if primitive_token.type == ExpressionTokenType.Variable and \
                 next_token is not None and next_token.type == ExpressionTokenType.LeftBrace:
-            primitive_token = ExpressionToken(ExpressionTokenType.Function, primitive_token.value)
+            primitive_token = ExpressionToken(ExpressionTokenType.Function, primitive_token.value,
+                                              primitive_token.line, primitive_token.column)
 
         if primitive_token.type == ExpressionTokenType.Constant:
             self.__move_to_next_token()
-            self.__add_token_to_result(primitive_token.type, primitive_token.value)
+            self.__add_token_to_result(primitive_token.type, primitive_token.value,
+                                       primitive_token.line, primitive_token.column)
         elif primitive_token.type == ExpressionTokenType.Variable:
             self.__move_to_next_token()
 
@@ -393,7 +402,8 @@ class ExpressionParser:
             if temp not in self.__variable_names:
                 self.__variable_names.append(temp)
 
-            self.__add_token_to_result(primitive_token.type, primitive_token.value)
+            self.__add_token_to_result(primitive_token.type, primitive_token.value,
+                                       primitive_token.line, primitive_token.column)
 
         elif primitive_token.type == ExpressionTokenType.LeftBrace:
             self.__move_to_next_token()
@@ -401,14 +411,16 @@ class ExpressionParser:
             self.__check_for_more_tokens()
             primitive_token = self.__get_current_token()
             if primitive_token.type != ExpressionTokenType.RightBrace:
-                raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ')' was not found")
+                raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ')' was not found",
+                                      primitive_token.line, primitive_token.column)
             self.__move_to_next_token()
 
         elif primitive_token.type == ExpressionTokenType.Function:
             self.__move_to_next_token()
             token = self.__get_current_token()
             if token.type != ExpressionTokenType.LeftBrace:
-                raise SyntaxException(None, SyntaxErrorCode.INTERNAL, "Internal error.")
+                raise SyntaxException(None, SyntaxErrorCode.INTERNAL, "Internal error.",
+                                      token.line, token.column)
             param_count = 0
 
             do = True
@@ -426,17 +438,21 @@ class ExpressionParser:
             self.__check_for_more_tokens()
 
             if token.type != ExpressionTokenType.RightBrace:
-                raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ')' was not found.")
+                raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ')' was not found.",
+                                      token.line, token.column)
 
             self.__move_to_next_token()
 
-            self.__add_token_to_result(ExpressionTokenType.Constant, Variant(param_count))
-            self.__add_token_to_result(primitive_token.type, primitive_token.value)
+            self.__add_token_to_result(ExpressionTokenType.Constant, Variant(param_count),
+                                       primitive_token.line, primitive_token.column)
+            self.__add_token_to_result(primitive_token.type, primitive_token.value,
+                                       primitive_token.line, primitive_token.column)
         else:
-            raise SyntaxException(None, SyntaxErrorCode.ERROR_AT, "Syntax error at " + primitive_token.value)
+            raise SyntaxException(None, SyntaxErrorCode.ERROR_AT, "Syntax error at " + primitive_token.value,
+                                  primitive_token.line, primitive_token.column)
 
         if unary_token is not None:
-            self.__add_token_to_result(unary_token.type, Variant.Empty())
+            self.__add_token_to_result(unary_token.type, Variant.Empty(), unary_token.line, unary_token.column)
 
         # Process [] operator.
         if self.__has_more_tokens():
@@ -447,6 +463,8 @@ class ExpressionParser:
                 self.__check_for_more_tokens()
                 primitive_token = self.__get_current_token()
                 if primitive_token.type != ExpressionTokenType.RightSquareBrace:
-                    raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ']' was not found")
+                    raise SyntaxException(None, SyntaxErrorCode.MISSED_CLOSE_PARENTHESIS, "Expected ']' was not found",
+                                          primitive_token.line, primitive_token.column)
                 self.__move_to_next_token()
-                self.__add_token_to_result(ExpressionTokenType.Element, Variant.Empty())
+                self.__add_token_to_result(ExpressionTokenType.Element, Variant.Empty(),
+                                           primitive_token.line, primitive_token.column)

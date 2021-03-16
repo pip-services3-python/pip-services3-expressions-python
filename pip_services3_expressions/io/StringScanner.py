@@ -117,6 +117,33 @@ class StringScanner(IScanner):
         """
         return self.__char_at(self.__position + 1)
 
+    def peek_line(self):
+        """
+        Gets the next character line number
+
+        :return: The next character line number in the stream
+        """
+        char_before = self.__char_at(self.__position)
+        char_at = self.__char_at(self.__position + 1)
+        char_after = self.__char_at(self.__position + 2)
+
+        return self.__line + 1 if self.is_line(char_before, char_at, char_after) else self.__line
+
+    def peek_column(self):
+        """
+        Gets the next character column number
+
+        :return: The next character column number in the stream
+        """
+        char_before = self.__char_at(self.__position)
+        char_at = self.__char_at(self.__position + 1)
+        char_after = self.__char_at(self.__position + 2)
+
+        if self.is_line(char_before, char_at, char_after):
+            return 0
+
+        return self.__column + 1 if self.is_column(char_at) else self.__column
+
     def unread(self):
         """
         Puts the one character back into the stream stream.

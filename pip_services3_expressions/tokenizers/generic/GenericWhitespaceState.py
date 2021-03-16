@@ -26,6 +26,8 @@ class GenericWhitespaceState(IWhitespaceState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek_line()
+        column = scanner.peek_column()
         token_value = ""
         next_symbol = scanner.read()
         while self.__map.lookup(next_symbol):
@@ -35,7 +37,7 @@ class GenericWhitespaceState(IWhitespaceState):
         if not CharValidator.is_eof(next_symbol):
             scanner.unread()
 
-        return Token(TokenType.Whitespace, token_value)
+        return Token(TokenType.Whitespace, token_value, line, column)
 
     def set_whitespace_chars(self, from_symbol, to_symbol, enable):
         """

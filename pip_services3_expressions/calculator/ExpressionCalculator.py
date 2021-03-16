@@ -142,7 +142,7 @@ class ExpressionCalculator:
     def evaluate_with_variables_and_functions(self, variables, functions):
         """
         Evaluates this expression using specified variables and functions.
-        
+
         :param variables: The list of variables
         :param functions: The list of functions
         """
@@ -151,15 +151,19 @@ class ExpressionCalculator:
         functions = functions or self.__default_functions
 
         for token in self.result_tokens:
-            self.__evaluate_constant(token, stack),
-            self.__evaluate_variable(token, stack, variables)
-            self.__evaluate_function(token, stack, functions)
-            self.__evaluate_logical(token, stack)
-            self.__evaluate_arithmetical(token, stack)
-            self.__evaluate_boolean(token, stack)
-            self.__evaluate_other(token, stack)
+            try:
+                self.__evaluate_constant(token, stack),
+                self.__evaluate_variable(token, stack, variables)
+                self.__evaluate_function(token, stack, functions)
+                self.__evaluate_logical(token, stack)
+                self.__evaluate_arithmetical(token, stack)
+                self.__evaluate_boolean(token, stack)
+                self.__evaluate_other(token, stack)
 
-        return self.__handling_result(stack)
+            except Exception as err:
+                self.__handling_result(stack, token, err)
+
+        return self.__handling_result(stack, None, None, True)
 
     def __check_processed(self, err, processed):
         if err is None and processed:
@@ -167,13 +171,16 @@ class ExpressionCalculator:
         elif err:
             raise err
 
-    def __handling_result(self, stack):
+    def __handling_result(self, stack, token, err=None, return_result=False):
         if stack.length != 1:
-            err = ExpressionException(None, "INTERNAL", "Internal error.")
-            raise err
+            if token:
+                raise ExpressionException(None, "INTERNAL", "Internal error.", token.line, token.column).with_cause(err)
+            else:
+                raise ExpressionException(None, "INTERNAL", "Internal error.", 0, 0).with_cause(err)
 
-        result = stack.pop()
-        return result
+        if return_result:
+            result = stack.pop()
+            return result
 
     def __evaluate_constant(self, token, stack):
         if token.type != ExpressionTokenType.Constant:
@@ -188,7 +195,8 @@ class ExpressionCalculator:
 
         variable = variables.find_by_name(token.value.as_string)
         if variable is None:
-            err = ExpressionException(None, "VAR_NOT_FOUND", "Variable " + token.value.as_string + " was not found.")
+            err = ExpressionException(None, "VAR_NOT_FOUND", "Variable " + token.value.as_string + " was not found.",
+                                      token.line, token.column)
             return self.__check_processed(err, False)
 
         stack.push(variable.value)

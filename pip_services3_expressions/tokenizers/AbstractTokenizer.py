@@ -67,13 +67,19 @@ class AbstractTokenizer(ITokenizer, ABC):
         return self._next_token is not None
 
     def next_token(self) -> Token:
-        token = self._read_next_token() if self._next_token is None else self._next_token
+        if self._next_token is None:
+            token = self._read_next_token()
+        else:
+            token = self._next_token
         self._next_token = None
         return token
 
     def _read_next_token(self):
         if self._scanner is None:
             return None
+
+        line = self._scanner.peek_line()
+        column = self._scanner.peek_column()
 
         token = None
 
@@ -93,7 +99,7 @@ class AbstractTokenizer(ITokenizer, ABC):
 
             # Check for unknown characters and endless loops...
             if token is None or token.value == '':
-                token = Token(TokenType.Unknown, chr(self._scanner.read()))
+                token = Token(TokenType.Unknown, chr(self._scanner.read()), line, column)
 
             # Skip unknown characters if option set.
             if token.type == TokenType.Unknown and self.skip_unknown:
@@ -102,7 +108,7 @@ class AbstractTokenizer(ITokenizer, ABC):
 
             # Decode strings is option set.
             if state is not None and hasattr(state, 'decode_string') and self.decode_strings:
-                token = Token(token.type, self.quote_state.decode_string(token.value, next_char))
+                token = Token(token.type, self.quote_state.decode_string(token.value, next_char), line, column)
 
             # Skips comments if option set.
             if token.type == TokenType.Comment and self.skip_comments:
@@ -118,20 +124,20 @@ class AbstractTokenizer(ITokenizer, ABC):
 
             # Unifies whitespaces if option set.
             if token.type == TokenType.Whitespace and self.merge_whitespaces:
-                token = Token(TokenType.Whitespace, " ")
+                token = Token(TokenType.Whitespace, " ", line, column)
 
             # Unifies numbers if option set.
             if self.unify_numbers and \
                     (token.type == TokenType.Integer or
                      token.type == TokenType.Float or
                      token.type == TokenType.HexDecimal):
-                token = Token(TokenType.Number, token.value)
+                token = Token(TokenType.Number, token.value, line, column)
 
             break
 
         # Adds an Eof if option is not set.
         if token is None and self._last_token_type != TokenType.Eof and not self.skip_eof:
-            token = Token(TokenType.Eof, None)
+            token = Token(TokenType.Eof, None, line, column)
 
         # Assigns the last token type
         self._last_token_type = token.type if token is not None else TokenType.Eof

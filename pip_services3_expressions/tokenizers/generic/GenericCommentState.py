@@ -25,6 +25,10 @@ class GenericCommentState(ICommentState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek_line()
+        column = scanner.peek_column()
+        line = scanner.peek_line()
+        column = scanner.peek_column()
         token_value = ''
         next_symbol = scanner.read()
         while not CharValidator.is_eof(next_symbol) and next_symbol != self.CR and next_symbol != self.LF:
@@ -33,4 +37,4 @@ class GenericCommentState(ICommentState):
         if not CharValidator.is_eof(next_symbol):
             scanner.unread()
 
-        return Token(TokenType.Comment, token_value)
+        return Token(TokenType.Comment, token_value, line, column)

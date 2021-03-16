@@ -185,8 +185,8 @@ class MustacheTemplate:
                     result += self.evaluate_tokens(token.tokens, variables)
 
             elif token.type == MustacheTokenType.Partial:
-                raise MustacheException(None, "PARTIALS_NOT_SUPPORTED", "Partials are not supported")
+                raise MustacheException(None, "PARTIALS_NOT_SUPPORTED", "Partials are not supported", token.line, token.column)
             else:
-                raise MustacheException(None, "INTERNAL", "Internal error")
+                raise MustacheException(None, "INTERNAL", "Internal error", token.line, token.column)
 
         return result

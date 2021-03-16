@@ -22,6 +22,8 @@ class MustacheSpecialState(ITokenizerState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek_line()
+        column = scanner.peek_column()
         token_value = ""
 
         next_symbol = scanner.read()
@@ -34,6 +36,6 @@ class MustacheSpecialState(ITokenizerState):
 
             next_symbol = scanner.read()
 
-        return Token(TokenType.Special, token_value)
+        return Token(TokenType.Special, token_value, line, column)
 
 

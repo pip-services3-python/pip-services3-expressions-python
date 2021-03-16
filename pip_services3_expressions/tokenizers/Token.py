@@ -9,15 +9,19 @@ class Token:
     to divide a string into tokens.
     """
 
-    def __init__(self, type, value):
+    def __init__(self, type, value, line, column):
         """
         Constructs this token with type and value.
 
         :param type: The type of this token.
         :param value: The token string value.
+        :param line: The line number where the token is.
+        :param column: The column number where the token is.
         """
         self.__type = type
         self.__value = value
+        self.__line = line
+        self.__column = column
 
     @property
     def type(self):
@@ -32,6 +36,20 @@ class Token:
         The token value.
         """
         return self.__value
+
+    @property
+    def line(self):
+        """
+        The line number where the token is.
+        """
+        return self.__line
+
+    @property
+    def column(self):
+        """
+        The column number where the token is.
+        """
+        return self.__column
 
     def equals(self, obj):
         if isinstance(obj, Token):

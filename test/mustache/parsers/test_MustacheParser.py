@@ -11,14 +11,14 @@ class TestMustacheParser:
         parser = MustacheParser()
         parser.template = "Hello, {{{NAME}}}{{ #if ESCLAMATION }}!{{/if}}{{{^ESCLAMATION}}}.{{{/ESCLAMATION}}}"
         expected_tokens = [
-            MustacheToken(MustacheTokenType.Value, "Hello, "),
-            MustacheToken(MustacheTokenType.EscapedVariable, "NAME"),
-            MustacheToken(MustacheTokenType.Section, "ESCLAMATION"),
-            MustacheToken(MustacheTokenType.Value, "!"),
-            MustacheToken(MustacheTokenType.SectionEnd, None),
-            MustacheToken(MustacheTokenType.InvertedSection, "ESCLAMATION"),
-            MustacheToken(MustacheTokenType.Value, "."),
-            MustacheToken(MustacheTokenType.SectionEnd, "ESCLAMATION"),
+            MustacheToken(MustacheTokenType.Value, "Hello, ", 0, 0),
+            MustacheToken(MustacheTokenType.EscapedVariable, "NAME", 0, 0),
+            MustacheToken(MustacheTokenType.Section, "ESCLAMATION", 0, 0),
+            MustacheToken(MustacheTokenType.Value, "!", 0, 0),
+            MustacheToken(MustacheTokenType.SectionEnd, None, 0, 0),
+            MustacheToken(MustacheTokenType.InvertedSection, "ESCLAMATION", 0, 0),
+            MustacheToken(MustacheTokenType.Value, ".", 0, 0),
+            MustacheToken(MustacheTokenType.SectionEnd, "ESCLAMATION", 0, 0),
         ]
 
         tokens = parser.initial_tokens
@@ -33,10 +33,10 @@ class TestMustacheParser:
         parser.template = "Hello, {{{NAME}}}{{ #if ESCLAMATION }}!{{/if}}{{{^ESCLAMATION}}}.{{{/ESCLAMATION}}}"
 
         expected_tokens = [
-            MustacheToken(MustacheTokenType.Value, "Hello, "),
-            MustacheToken(MustacheTokenType.EscapedVariable, "NAME"),
-            MustacheToken(MustacheTokenType.Section, "ESCLAMATION"),
-            MustacheToken(MustacheTokenType.InvertedSection, "ESCLAMATION"),
+            MustacheToken(MustacheTokenType.Value, "Hello, ", 0, 0),
+            MustacheToken(MustacheTokenType.EscapedVariable, "NAME", 0, 0),
+            MustacheToken(MustacheTokenType.Section, "ESCLAMATION", 0, 0),
+            MustacheToken(MustacheTokenType.InvertedSection, "ESCLAMATION", 0, 0),
         ]
 
         tokens = parser.result_tokens

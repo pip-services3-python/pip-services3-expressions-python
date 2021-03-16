@@ -109,7 +109,7 @@ class MustacheParser:
         Checks are there more tokens available and throws exception if no more tokens available.
         """
         if not self.__has_more_tokens():
-            raise MustacheException(None, MustacheErrorCode.UNEXPECTED_END, "Unexpected end of mustache.")
+            raise MustacheException(None, MustacheErrorCode.UNEXPECTED_END, "Unexpected end of mustache.", 0, 0)
 
     def __get_current_token(self):
         """
@@ -135,14 +135,16 @@ class MustacheParser:
         """
         self.__current_token_index += 1
 
-    def __add_token_to_result(self, type: MustacheTokenType, value: str):
+    def __add_token_to_result(self, type: MustacheTokenType, value: str, line, column):
         """
         Adds an mustache to the result list
 
         :param type: The type of the token to be added.
         :param value: The value of the token to be added.
+        :param line: The line where the token is.
+        :param column: The column number where the token is.
         """
-        token = MustacheToken(type, value)
+        token = MustacheToken(type, value, line, column)
         self.__result_tokens.append(token)
         return token
 
@@ -173,7 +175,8 @@ class MustacheParser:
             self.__perform_syntax_analysis()
             if self.__has_more_tokens():
                 token = self.__get_current_token()
-                raise MustacheException(None, MustacheErrorCode.ERROR_NEAR, "Syntax error near " + token.value)
+                raise MustacheException(None, MustacheErrorCode.ERROR_NEAR, "Syntax error near " + token.value,
+                                        token.line, token.column)
             self.__lookup_variables()
 
     def __complete_lexical_analysis(self):
@@ -221,7 +224,8 @@ class MustacheParser:
                 if state == MustacheLexicalState.Closure and (token.value == "}}" or token.value == "}}}"):
                     if closing_bracket != token.value:
                         raise MustacheException(None, MustacheErrorCode.MISMATCHED_BRACKETS,
-                                                "Mismatched brackets. Expected '" + closing_bracket + "'")
+                                                "Mismatched brackets. Expected '" + closing_bracket + "'",
+                                                token.line, token.column)
 
                     if operator1 == '#' and (operator2 is None or operator2 == "if"):
                         token_type = MustacheTokenType.Section
@@ -244,7 +248,8 @@ class MustacheParser:
                         token_value = variable
 
                     if token_value == MustacheTokenType.Unknown:
-                        raise MustacheException(None, MustacheErrorCode.INTERNAL, "Internal error")
+                        raise MustacheException(None, MustacheErrorCode.INTERNAL, "Internal error",
+                                                token.line, token.column)
 
                     operator1 = None
                     operator2 = None
@@ -273,12 +278,12 @@ class MustacheParser:
 
             if token_type == MustacheTokenType.Unknown:
                 raise MustacheException(None, MustacheErrorCode.UNEXPECTED_SYMBOL,
-                                        "Unexpected symbol '" + token.value + "'")
+                                        "Unexpected symbol '" + token.value + "'", token.line, token.column)
 
-            self.__initial_tokens.append(MustacheToken(token_type, token_value))
+            self.__initial_tokens.append(MustacheToken(token_type, token_value, token.line, token.column))
 
         if state != MustacheLexicalState.Value:
-            raise MustacheException(None, MustacheErrorCode.UNEXPECTED_END, "Unexpected end of file")
+            raise MustacheException(None, MustacheErrorCode.UNEXPECTED_END, "Unexpected end of file", 0, 0)
 
     def __perform_syntax_analysis(self):
         """
@@ -291,9 +296,10 @@ class MustacheParser:
 
             if token.type == MustacheTokenType.SectionEnd:
                 raise MustacheException(None, MustacheErrorCode.UNEXPECTED_SECTION_END,
-                                        "Unexpected section end for variable '" + token.value + "'")
+                                        "Unexpected section end for variable '" + token.value + "'",
+                                        token.line, token.column)
 
-            result = self.__add_token_to_result(token.type, token.value)
+            result = self.__add_token_to_result(token.type, token.value, token.line, token.column)
 
             if token.type == MustacheTokenType.Section or token.type == MustacheTokenType.InvertedSection:
                 result.tokens.append(*self.__perform_syntax_analysis_for_section(token.value))
@@ -311,17 +317,21 @@ class MustacheParser:
 
             if token.type == MustacheTokenType.SectionEnd:
                 raise MustacheException(None, MustacheErrorCode.UNEXPECTED_SECTION_END,
-                                        "Unexpected section end for variable '" + variable + "'")
+                                        "Unexpected section end for variable '" + variable + "'",
+                                        token.line, token.column)
 
-            result_token = MustacheToken(token.type, token.value)
+            result_token = MustacheToken(token.type, token.value, token.line, token.column)
 
             if token.type == MustacheTokenType.Section or token.type == MustacheTokenType.InvertedSection:
                 result_token.tokens.append(*self.__perform_syntax_analysis_for_section(token.value))
 
             result.append(result_token)
 
+        token = self.__get_current_token()
+
         raise MustacheException(None, MustacheErrorCode.NOT_CLOSED_SECTION,
-                                "Not closed section for variable '" + variable + "'")
+                                "Not closed section for variable '" + variable + "'",
+                                token.line, token.column)
 
     def __lookup_variables(self):
         """

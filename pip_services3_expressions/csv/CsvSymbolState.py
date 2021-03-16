@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from pip_services3_expressions.csv.CsvConstant import CsvConstant
+from pip_services3_expressions.io.IScanner import IScanner
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.GenericSymbolState import GenericSymbolState
@@ -18,11 +20,14 @@ class CsvSymbolState(GenericSymbolState):
         self.add("\r\n", TokenType.Eol)
         self.add("\n\r", TokenType.Eol)
 
-    def next_token(self, scanner, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+        line = scanner.peek()
+        column = scanner.peek_column()
+
         # Optimization...
         next_symbol = scanner.read()
         if next_symbol != CsvConstant.LF and next_symbol != CsvConstant.CR:
-            return Token(TokenType.Symbol, chr(next_symbol))
+            return Token(TokenType.Symbol, chr(next_symbol), line, column)
         else:
             scanner.unread()
             return super().next_token(scanner, tokenizer)

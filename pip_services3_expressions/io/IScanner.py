@@ -37,6 +37,20 @@ class IScanner(ABC):
         :return: A character from the top of the stream or **-1** if stream is empty.
         """
 
+    def peek_line(self):
+        """
+        Gets the next character line number
+
+        :return: The next character line number in the stream
+        """
+
+    def peek_column(self):
+        """
+        Gets the next character column number
+
+        :return: The next character column number in the stream
+        """
+
     def unread(self):
         """
         Puts the one character back into the stream stream.

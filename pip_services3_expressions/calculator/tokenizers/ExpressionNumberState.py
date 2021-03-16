@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+from pip_services3_expressions.io.IScanner import IScanner
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.GenericNumberState import GenericNumberState
@@ -17,7 +18,7 @@ class ExpressionNumberState(GenericNumberState):
         self.EXP1 = ord('e')
         self.EXP2 = ord('E')
 
-    def next_token(self, scanner, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
         """
         Gets the next token from the stream started from the character linked to this state.
         
@@ -25,6 +26,9 @@ class ExpressionNumberState(GenericNumberState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        line = scanner.peek()
+        column = scanner.peek_column()
+
         if scanner.peek() == self.MINUS:
             return tokenizer.symbol_state.next_token(scanner, tokenizer)
 
@@ -40,8 +44,7 @@ class ExpressionNumberState(GenericNumberState):
         if next_char != self.EXP1 and next_char != self.EXP2:
             return token
 
-        token_value = ''
-        token_value = token_value + chr(scanner.read())
+        token_value = chr(scanner.read())
 
         # Process '-' or '+' in mantissa
         next_char = scanner.peek()
@@ -59,4 +62,4 @@ class ExpressionNumberState(GenericNumberState):
             token_value += chr(scanner.read())
             next_char = scanner.peek()
 
-        return Token(TokenType.Float, token.value + token_value)
+        return Token(TokenType.Float, token.value + token_value, line, column)

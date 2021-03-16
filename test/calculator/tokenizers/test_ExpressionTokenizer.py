@@ -11,10 +11,10 @@ class TestExpressionTokenizer:
     def tests_quote_token(self):
         token_string = "A'xyz'\"abc\ndeg\" 'jkl\"def'\"ab\"\"de\"'df''er'"
         expected_tokens = [
-            Token(TokenType.Word, "A"), Token(TokenType.Quoted, "xyz"),
-            Token(TokenType.Word, "abc\ndeg"), Token(TokenType.Whitespace, " "),
-            Token(TokenType.Quoted, "jkl\"def"), Token(TokenType.Word, "ab\"de"),
-            Token(TokenType.Quoted, "df'er")
+            Token(TokenType.Word, "A", 0, 0), Token(TokenType.Quoted, "xyz", 0, 0),
+            Token(TokenType.Word, "abc\ndeg", 0, 0), Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Quoted, "jkl\"def", 0, 0), Token(TokenType.Word, "ab\"de", 0, 0),
+            Token(TokenType.Quoted, "df'er", 0, 0)
         ]
 
         tokenizer = ExpressionTokenizer()
@@ -26,9 +26,9 @@ class TestExpressionTokenizer:
 
     def test_word_token(self):
         token_string = "A'xyz'Ebf_2\n2_2"
-        expected_tokens = [Token(TokenType.Word, "A"), Token(TokenType.Quoted, "xyz"),
-                           Token(TokenType.Word, "Ebf_2"), Token(TokenType.Whitespace, "\n"),
-                           Token(TokenType.Integer, "2"), Token(TokenType.Word, "_2")]
+        expected_tokens = [Token(TokenType.Word, "A", 0, 0), Token(TokenType.Quoted, "xyz", 0, 0),
+                           Token(TokenType.Word, "Ebf_2", 0, 0), Token(TokenType.Whitespace, "\n", 0, 0),
+                           Token(TokenType.Integer, "2", 0, 0), Token(TokenType.Word, "_2", 0, 0)]
         tokenizer = ExpressionTokenizer()
         tokenizer.skip_eof = True
         tokenizer.decode_strings = True
@@ -39,17 +39,17 @@ class TestExpressionTokenizer:
     def test_number_token(self):
         token_string = "123-321 .543-.76-. 123.456 123e45 543.11E+43 1e 3E-"
         expected_tokens = [
-            Token(TokenType.Integer, "123"), Token(TokenType.Symbol, "-"),
-            Token(TokenType.Integer, "321"), Token(TokenType.Whitespace, " "),
-            Token(TokenType.Float, ".543"), Token(TokenType.Symbol, "-"),
-            Token(TokenType.Float, ".76"), Token(TokenType.Symbol, "-"),
-            Token(TokenType.Symbol, "."), Token(TokenType.Whitespace, " "),
-            Token(TokenType.Float, "123.456"), Token(TokenType.Whitespace, " "),
-            Token(TokenType.Float, "123e45"), Token(TokenType.Whitespace, " "),
-            Token(TokenType.Float, "543.11E+43"), Token(TokenType.Whitespace, " "),
-            Token(TokenType.Integer, "1"), Token(TokenType.Word, "e"),
-            Token(TokenType.Whitespace, " "), Token(TokenType.Integer, "3"),
-            Token(TokenType.Word, "E"), Token(TokenType.Symbol, "-")
+            Token(TokenType.Integer, "123", 0, 0), Token(TokenType.Symbol, "-", 0, 0),
+            Token(TokenType.Integer, "321", 0, 0), Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Float, ".543", 0, 0), Token(TokenType.Symbol, "-", 0, 0),
+            Token(TokenType.Float, ".76", 0, 0), Token(TokenType.Symbol, "-", 0, 0),
+            Token(TokenType.Symbol, ".", 0, 0), Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Float, "123.456", 0, 0), Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Float, "123e45", 0, 0), Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Float, "543.11E+43", 0, 0), Token(TokenType.Whitespace, " ", 0, 0),
+            Token(TokenType.Integer, "1", 0, 0), Token(TokenType.Word, "e", 0, 0),
+            Token(TokenType.Whitespace, " ", 0, 0), Token(TokenType.Integer, "3", 0, 0),
+            Token(TokenType.Word, "E", 0, 0), Token(TokenType.Symbol, "-", 0, 0)
         ]
 
         tokenizer = ExpressionTokenizer()
