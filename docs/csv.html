@@ -181,7 +181,7 @@ basic APIs: reading, writing, and registration of dialects.</p>
 handle on a group of settings.  When the dialect argument is a string,
 it identifies one of the dialects previously registered with the module.
 If it is a class or instance, the attributes of the argument are used as
-the settings for the scanner or writer:</p>
+the settings for the reader or writer:</p>
 <blockquote>
 <div><dl class="simple">
 <dt>class excel:</dt><dd><p>delimiter = ‘,’
@@ -426,10 +426,10 @@ names = csv.list_dialects()</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="csv.scanner">
-<code class="sig-prename descclassname">csv.</code><code class="sig-name descname">scanner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csv.scanner" title="Permalink to this definition">¶</a></dt>
+<dt id="csv.reader">
+<code class="sig-prename descclassname">csv.</code><code class="sig-name descname">reader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csv.reader" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
-<dt>csv_reader = scanner(iterable [, dialect=’excel’]</dt><dd><blockquote>
+<dt>csv_reader = reader(iterable [, dialect=’excel’]</dt><dd><blockquote>
 <div><p>[optional keyword args])</p>
 </div></blockquote>
 <dl class="simple">

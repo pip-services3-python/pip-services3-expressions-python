@@ -179,16 +179,28 @@
 <span id="pip-services3-expressions-tokenizers-token-module"></span><h1>pip_services3_expressions.tokenizers.Token module<a class="headerlink" href="#module-pip_services3_expressions.tokenizers.Token" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="pip_services3_expressions.tokenizers.Token.Token">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.Token.</code><code class="sig-name descname">Token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.Token" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.Token.</code><code class="sig-name descname">Token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">line</span></em>, <em class="sig-param"><span class="n">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.Token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A token represents a logical chunk of a string. For example, a typical tokenizer would break
 the string “1.23 &amp;lt;= 12.3” into three tokens: the number 1.23, a less-than-or-equal symbol,
 and the number 12.3. A token is a receptacle, and relies on a tokenizer to decide precisely how
 to divide a string into tokens.</p>
 <dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.Token.column">
+<em class="property">property </em><code class="sig-name descname">column</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.Token.column" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.Token.Token.equals">
 <code class="sig-name descname">equals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.Token.equals" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.Token.line">
+<em class="property">property </em><code class="sig-name descname">line</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.Token.line" title="Permalink to this definition">¶</a></dt>
+<dd><p>The line number where the token is.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_expressions.tokenizers.Token.Token.type">

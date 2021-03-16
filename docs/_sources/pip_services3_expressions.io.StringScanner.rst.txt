@@ -1,0 +1,7 @@
+pip\_services3\_expressions.io.StringScanner module
+===================================================
+
+.. automodule:: pip_services3_expressions.io.StringScanner
+   :members:
+   :undoc-members:
+   :show-inheritance:

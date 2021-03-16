@@ -10,7 +10,6 @@ Submodules
    pip_services3_expressions.tokenizers.utilities.CharReferenceInterval
    pip_services3_expressions.tokenizers.utilities.CharReferenceMap
    pip_services3_expressions.tokenizers.utilities.CharValidator
-   pip_services3_expressions.tokenizers.utilities.CsvTokenizer
 
 Module contents
 ---------------

@@ -1,7 +1,7 @@
-io.IPushbackReader module
+io.IScanner module
 =========================
 
-.. automodule:: io.IPushbackReader
+.. automodule:: io.IScanner
    :members:
    :undoc-members:
    :show-inheritance:

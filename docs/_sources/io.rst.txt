@@ -7,8 +7,8 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   io.IPushbackReader
-   io.StringPushbackReader
+   io.IScanner
+   io.StringScanner
 
 Module contents
 ---------------

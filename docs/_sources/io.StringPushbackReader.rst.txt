@@ -1,7 +1,7 @@
-io.StringPushbackReader module
+io.StringScanner module
 ==============================
 
-.. automodule:: io.StringPushbackReader
+.. automodule:: io.StringScanner
    :members:
    :undoc-members:
    :show-inheritance:
