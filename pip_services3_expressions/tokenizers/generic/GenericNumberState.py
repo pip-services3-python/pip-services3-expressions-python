@@ -27,12 +27,12 @@ class GenericNumberState(INumberState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        line = scanner.peek_line()
-        column = scanner.peek_column()
         absorbed_dot = False
         got_a_digit = False
         token_value = ""
         next_symbol = scanner.read()
+        line = scanner.peek_line()
+        column = scanner.peek_column()
 
         # Parses leading minus.
         if next_symbol == self.MINUS:

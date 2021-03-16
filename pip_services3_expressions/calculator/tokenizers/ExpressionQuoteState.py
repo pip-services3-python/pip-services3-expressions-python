@@ -25,10 +25,9 @@ class ExpressionQuoteState(IQuoteState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        first_symbol = scanner.read()
         line = scanner.peek()
         column = scanner.peek_column()
-
-        first_symbol = scanner.read()
         token_value = ''
         token_value += chr(first_symbol)
 

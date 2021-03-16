@@ -26,10 +26,10 @@ class GenericQuoteState(IQuoteState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
-        line = scanner.peek_line()
-        column = scanner.peek_column()
         first_symbol = scanner.read()
         token_value = chr(first_symbol)
+        line = scanner.peek_line()
+        column = scanner.peek_column()
 
         next_symbol = scanner.read()
         while not CharValidator.is_eof(next_symbol):

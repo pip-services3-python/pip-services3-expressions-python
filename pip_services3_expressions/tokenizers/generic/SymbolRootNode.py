@@ -35,9 +35,10 @@ class SymbolRootNode(SymbolNode):
         :param scanner: A scanner to read from
         :return: A symbol string from a scanner
         """
+        next_symbol = scanner.read()
         line = scanner.peek_line()
         column = scanner.peek_column()
-        next_symbol = scanner.read()
+
         child_node = self.find_child_with_char(next_symbol)
         if child_node is not None:
             child_node = child_node.deepest_read(scanner)

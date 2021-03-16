@@ -20,9 +20,9 @@ class CCommentState(CppCommentState):
         :param tokenizer: A tokenizer class that controls the process.
         :return: The next token from the top of the stream.
         """
+        first_symbol = scanner.read()
         line = scanner.peek_line()
         column = scanner.peek_column()
-        first_symbol = scanner.read()
         if first_symbol != self.SLASH:
             scanner.unread()
             raise Exception('Incorrect usage of CCommentState.')
