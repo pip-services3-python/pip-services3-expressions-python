@@ -23,7 +23,7 @@ except:
 
 setup(
     name='pip_services3_expressions',
-    version='3.1.0',
+    version='3.2.0',
     url='http://github.com/pip-services3-python/pip-services3-expressions-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
