@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from typing import List
-from urllib import parse
 
 from pip_services3_expressions.mustache.MustacheException import MustacheException
 from pip_services3_expressions.mustache.parsers.MustacheParser import MustacheParser
@@ -150,6 +149,16 @@ class MustacheTemplate:
     def __is__defined_variable(self, variables, name):
         value = self.get_variables(variables, name)
         return value is not None and value != "" and value != 0 and value is not False
+    
+    def __escape_string(self, value):
+        return value.replace('\\', '\\\\') \
+            .replace('"', '\\\"') \
+            .replace('/', '\\/') \
+            .replace('\b', '\\b') \
+            .replace('\f', '\\f') \
+            .replace('\n', '\\n') \
+            .replace('\r', '\\r') \
+            .replace('\t', '\\t')
 
     def evaluate_tokens(self, tokens: List[MustacheToken], variables):
         if tokens is None:
@@ -171,7 +180,7 @@ class MustacheTemplate:
 
             elif token.type == MustacheTokenType.EscapedVariable:
                 value2 = self.get_variables(variables, token.value)
-                value2 = parse.quote_plus(value2)
+                value2 = self.__escape_string(value2)
                 result += value2 or ""
 
             elif token.type == MustacheTokenType.Section:
