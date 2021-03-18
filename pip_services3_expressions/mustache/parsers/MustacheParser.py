@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import List
 
-from pip_services3_expressions.calculator.tokenizers.MustacheTokenizer import MustacheTokenizer
+from pip_services3_expressions.mustache.tokenizers.MustacheTokenizer import MustacheTokenizer
 from pip_services3_expressions.mustache.MustacheException import MustacheException
 from pip_services3_expressions.mustache.parsers.MustacheErrorCode import MustacheErrorCode
 from pip_services3_expressions.mustache.parsers.MustacheLexicalState import MustacheLexicalState
@@ -247,7 +247,7 @@ class MustacheParser:
                         token_type = MustacheTokenType.Variable if closing_bracket == "}}" else MustacheTokenType.EscapedVariable
                         token_value = variable
 
-                    if token_value == MustacheTokenType.Unknown:
+                    if token_type == MustacheTokenType.Unknown:
                         raise MustacheException(None, MustacheErrorCode.INTERNAL, "Internal error",
                                                 token.line, token.column)
 

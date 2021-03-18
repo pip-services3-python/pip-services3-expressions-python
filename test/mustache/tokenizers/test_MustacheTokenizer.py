@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pip_services3_expressions.calculator.tokenizers.MustacheTokenizer import MustacheTokenizer
+from pip_services3_expressions.mustache.tokenizers.MustacheTokenizer import MustacheTokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from test.tokenizers.TokenizerFixture import TokenizerFixture
