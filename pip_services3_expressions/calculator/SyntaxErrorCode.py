@@ -6,19 +6,19 @@ class SyntaxErrorCode:
     """
 
     # The unknown
-    UNKNOWN = 'UNKNOWN'
+    UNKNOWN: str = 'UNKNOWN'
     # The internal error
-    INTERNAL = 'INTERNAL'
+    INTERNAL: str = 'INTERNAL'
     # The unexpected end.
-    UNEXPECTED_END = 'UNEXPECTED_END'
+    UNEXPECTED_END: str = 'UNEXPECTED_END'
     # The error near
-    ERROR_NEAR = 'ERROR_NEAR'
+    ERROR_NEAR: str = 'ERROR_NEAR'
     # The error at
-    ERROR_AT = 'ERROR_AT'
+    ERROR_AT: str = 'ERROR_AT'
     # The unknown symbol
-    UNKNOWN_SYMBOL = 'UNKNOWN_SYMBOL'
+    UNKNOWN_SYMBOL: str = 'UNKNOWN_SYMBOL'
     # The missed close parenthesis
-    MISSED_CLOSE_PARENTHESIS = 'MISSED_CLOSE_PARENTHESIS'
+    MISSED_CLOSE_PARENTHESIS: str = 'MISSED_CLOSE_PARENTHESIS'
     # The missed close square bracket
-    MISSED_CLOSE_SQUARE_BRACKET = 'MISSED_CLOSE_SQUARE_BRACKET'
+    MISSED_CLOSE_SQUARE_BRACKET: str = 'MISSED_CLOSE_SQUARE_BRACKET'
 

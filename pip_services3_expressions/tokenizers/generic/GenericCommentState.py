@@ -17,7 +17,7 @@ class GenericCommentState(ICommentState):
         self.LF = ord('\r')
         self.CR = ord('\n')
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Either delegate to a comment-handling state, or return a token with just a slash in it.
         

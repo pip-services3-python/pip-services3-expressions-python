@@ -12,7 +12,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
     Implements an abstract variant operations manager object.
     """
 
-    def _type_to_string(self, value):
+    def _type_to_string(self, value: VariantType) -> str:
         """
         Convert variant type to string representation
 
@@ -37,7 +37,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         except KeyError as e:
             return 'Unknown'
 
-    def convert(self, value, new_type):
+    def convert(self, value: Variant, new_type: VariantType) -> Variant:
         """
         Converts variant to specified type
 
@@ -46,7 +46,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         :return: A converted Variant value.
         """
 
-    def add(self, value1, value2):
+    def add(self, value1: Variant, value2: Variant) -> Variant:
         result = Variant()
 
         # Processes VariantType.Null values.
@@ -78,7 +78,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '+' is not supported for type {self._type_to_string(value1.type)}")
 
-    def sub(self, value1, value2):
+    def sub(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '-' operation for two variants.
 
@@ -117,7 +117,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '-' is not supported for type {self._type_to_string(value1.type)}")
 
-    def mul(self, value1, value2):
+    def mul(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '*' operation for two variants.
 
@@ -150,7 +150,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '*' is not supported for type {self._type_to_string(value1.type)}")
 
-    def div(self, value1, value2):
+    def div(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '/' operation for two variants.
 
@@ -183,7 +183,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '/' is not supported for type {self._type_to_string(value1.type)}")
 
-    def mod(self, value1, value2):
+    def mod(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '%' operation for two variants.
 
@@ -210,7 +210,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '%' is not supported for type {self._type_to_string(value1.type)}")
 
-    def pow(self, value1, value2):
+    def pow(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '^' operation for two variants.
 
@@ -233,7 +233,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '^' is not supported for type {self._type_to_string(value1.type)}")
 
-    def and_(self, value1, value2):
+    def and_(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs AND operation for two variants.
 
@@ -263,7 +263,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation 'AND' is not supported for type {self._type_to_string(value1.type)}")
 
-    def or_(self, value1, value2):
+    def or_(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs OR operation for two variants.
 
@@ -293,7 +293,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation 'OR' is not supported for type {self._type_to_string(value1.type)}")
 
-    def xor(self, value1, value2):
+    def xor(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs XOR operation for two variants.
 
@@ -323,7 +323,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation 'XOR' is not supported for type {self._type_to_string(value1.type)}")
 
-    def lsh(self, value1, value2):
+    def lsh(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<<' operation for two variants.
 
@@ -350,7 +350,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '<<' is not supported for type {self._type_to_string(value1.type)}")
 
-    def rsh(self, value1, value2):
+    def rsh(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '>>' operation for two variants.
 
@@ -377,7 +377,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '>>' is not supported for type {self._type_to_string(value1.type)}")
 
-    def not_(self, value):
+    def not_(self, value: Variant) -> Variant:
         """
         Performs NOT operation for a variant.
 
@@ -400,7 +400,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation NOT is not supported for type {self._type_to_string(value.type)}")
 
-    def negative(self, value):
+    def negative(self, value: Variant) -> Variant:
         """
         Performs unary '-' operation for a variant.
 
@@ -425,7 +425,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '-' is not supported for type {self._type_to_string(value.type)}")
 
-    def equal(self, value1, value2):
+    def equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '=' operation for two variants.
 
@@ -478,7 +478,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '==' is not supported for type {self._type_to_string(value1.type)}")
 
-    def not_equal(self, value1, value2):
+    def not_equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<>' operation for two variants.
 
@@ -531,7 +531,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '<>' is not supported for type {self._type_to_string(value1.type)}")
 
-    def more(self, value1, value2):
+    def more(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '>' operation for two variants.
 
@@ -574,7 +574,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '>' is not supported for type {self._type_to_string(value1.type)}")
 
-    def less(self, value1, value2):
+    def less(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<' operation for two variants.
 
@@ -617,7 +617,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '<' is not supported for type {self._type_to_string(value1.type)}")
 
-    def more_equal(self, value1, value2):
+    def more_equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '>=' operation for two variants.
 
@@ -660,7 +660,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '>=' is not supported for type {self._type_to_string(value1.type)}")
 
-    def less_equal(self, value1, value2):
+    def less_equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<=' operation for two variants.
 
@@ -703,7 +703,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         raise Exception(f"Operation '<=' is not supported for type {self._type_to_string(value1.type)}")
 
-    def in_(self, value1, value2):
+    def in_(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs IN operation for two variants.
 
@@ -736,7 +736,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
 
         return self.equal(value1, value2)
 
-    def get_element(self, value1, value2):
+    def get_element(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs [] operation for two variants.
         

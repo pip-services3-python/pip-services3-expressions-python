@@ -10,7 +10,7 @@ class IWhitespaceState(ITokenizerState, ABC):
     Defines an interface for tokenizer state that processes whitespaces (' ', '\t')
     """
 
-    def set_whitespace_chars(self, from_symbol, to_symbol, enable):
+    def set_whitespace_chars(self, from_symbol: int, to_symbol: int, enable: bool):
         """
         Establish the given characters as whitespace to ignore.
         

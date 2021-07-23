@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import List
 
 from pip_services3_expressions.csv.CsvConstant import CsvConstant
 from pip_services3_expressions.tokenizers.generic.GenericWordState import GenericWordState
@@ -9,7 +10,7 @@ class CsvWordState(GenericWordState):
     Implements a word state to tokenize CSV stream.
     """
 
-    def __init__(self, filed_separators, quote_symbols):
+    def __init__(self, filed_separators: List[int], quote_symbols: List[int]):
         """
         Constructs this object with specified parameters.
         :param filed_separators: Separators for fields in CSV stream.

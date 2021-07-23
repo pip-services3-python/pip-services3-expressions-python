@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from abc import ABC
-from typing import Union
+from typing import Union, List
 
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.io.StringScanner import StringScanner
@@ -10,6 +10,7 @@ from .INumberState import INumberState
 from .IQuoteState import IQuoteState
 from .ISymbolState import ISymbolState
 from .ITokenizer import ITokenizer
+from .ITokenizerState import ITokenizerState
 from .IWhitespaceState import IWhitespaceState
 from .IWordState import IWordState
 from .Token import Token
@@ -43,10 +44,10 @@ class AbstractTokenizer(ITokenizer, ABC):
         self._next_token: Union[Token, None] = None
         self._last_token_type = TokenType.Unknown
 
-    def get_character_state(self, symbol):
+    def get_character_state(self, symbol: int) -> ITokenizerState:
         return self.__map.lookup(symbol)
 
-    def set_character_state(self, from_symbol, to_symbol, state):
+    def set_character_state(self, from_symbol: int, to_symbol: int, state: ITokenizerState):
         self.__map.add_interval(from_symbol, to_symbol, state)
 
     def clear_character_states(self):
@@ -62,7 +63,7 @@ class AbstractTokenizer(ITokenizer, ABC):
         self._next_token = None
         self._last_token_type = TokenType.Unknown
 
-    def has_next_token(self):
+    def has_next_token(self) -> bool:
         self._next_token = self._read_next_token() if self._next_token is None else self._next_token
         return self._next_token is not None
 
@@ -74,7 +75,7 @@ class AbstractTokenizer(ITokenizer, ABC):
         self._next_token = None
         return token
 
-    def _read_next_token(self):
+    def _read_next_token(self) -> Token:
         if self._scanner is None:
             return None
 
@@ -144,7 +145,7 @@ class AbstractTokenizer(ITokenizer, ABC):
 
         return token
 
-    def tokenize_stream(self, scanner: IScanner):
+    def tokenize_stream(self, scanner: IScanner) -> List[Token]:
         self.scanner = scanner
         tokenize_list = []
         token = self.next_token()
@@ -155,11 +156,11 @@ class AbstractTokenizer(ITokenizer, ABC):
 
         return tokenize_list
 
-    def tokenize_buffer(self, buffer):
+    def tokenize_buffer(self, buffer: str) -> List[Token]:
         scanner = StringScanner(buffer)
         return self.tokenize_stream(scanner)
 
-    def tokenize_stream_to_string(self, scanner: IScanner):
+    def tokenize_stream_to_string(self, scanner: IScanner) -> List[str]:
         self.scanner = scanner
         string_list = []
         token = self.next_token()
@@ -170,6 +171,6 @@ class AbstractTokenizer(ITokenizer, ABC):
 
         return string_list
 
-    def tokenize_buffer_to_strings(self, buffer):
+    def tokenize_buffer_to_strings(self, buffer: str) -> List[str]:
         scanner = StringScanner(buffer)
         return self.tokenize_stream_to_string(scanner)

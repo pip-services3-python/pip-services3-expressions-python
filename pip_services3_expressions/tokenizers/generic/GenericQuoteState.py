@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
+
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.IQuoteState import IQuoteState
 from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
@@ -16,7 +18,7 @@ class GenericQuoteState(IQuoteState):
     or finds the end of the scanner.
     """
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Return a quoted string token from a scanner. This method will collect
         characters until it sees a match to the character that the tokenizer used
@@ -40,7 +42,7 @@ class GenericQuoteState(IQuoteState):
 
         return Token(TokenType.Quoted, token_value, line, column)
 
-    def encode_string(self, value, quote_symbol):
+    def encode_string(self, value: str, quote_symbol: int) -> Optional[str]:
         """
         Encodes a string value.
 
@@ -53,7 +55,7 @@ class GenericQuoteState(IQuoteState):
         result = chr(quote_symbol) + value + chr(quote_symbol)
         return result
 
-    def decode_string(self, value, quote_symbol):
+    def decode_string(self, value: str, quote_symbol: int) -> Optional[str]:
         """
         Decodes a string value.
         

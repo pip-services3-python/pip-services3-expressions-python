@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from typing import Any
+
+from pip_services3_expressions.tokenizers.TokenType import TokenType
 
 
 class Token:
@@ -9,7 +12,7 @@ class Token:
     to divide a string into tokens.
     """
 
-    def __init__(self, type, value, line, column):
+    def __init__(self, type: TokenType, value: str, line: int, column: int):
         """
         Constructs this token with type and value.
 
@@ -24,34 +27,34 @@ class Token:
         self.__column = column
 
     @property
-    def type(self):
+    def type(self) -> TokenType:
         """
         The token type.
         """
         return self.__type
 
     @property
-    def value(self):
+    def value(self) -> str:
         """
         The token value.
         """
         return self.__value
 
     @property
-    def line(self):
+    def line(self) -> int:
         """
         The line number where the token is.
         """
         return self.__line
 
     @property
-    def column(self):
+    def column(self) -> int:
         """
         The column number where the token is.
         """
         return self.__column
 
-    def equals(self, obj):
+    def equals(self, obj: Any) -> bool:
         if isinstance(obj, Token):
             token = obj
             return token.__type == self.__type and token.__value == self.__value

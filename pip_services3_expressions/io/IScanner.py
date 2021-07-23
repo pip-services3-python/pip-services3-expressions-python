@@ -9,42 +9,42 @@ class IScanner(ABC):
     This scanner is used by tokenizers to process input streams.
     """
 
-    def read(self):
+    def read(self) -> int:
         """
         Reads character from the top of the stream.
 
         :return: A read character or **-1** if stream processed to the end.
         """
 
-    def line(self):
+    def line(self) -> int:
         """
         Gets the current line number
 
         :return: The current line number in the stream
         """
 
-    def column(self):
+    def column(self) -> int:
         """
         Gets the column in the current line
 
         :return: The column in the current line in the stream
         """
 
-    def peek(self):
+    def peek(self) -> int:
         """
         Returns the character from the top of the stream without moving the stream pointer.
 
         :return: A character from the top of the stream or **-1** if stream is empty.
         """
 
-    def peek_line(self):
+    def peek_line(self) -> int:
         """
         Gets the next character line number
 
         :return: The next character line number in the stream
         """
 
-    def peek_column(self):
+    def peek_column(self) -> int:
         """
         Gets the next character column number
 
@@ -58,7 +58,7 @@ class IScanner(ABC):
         :return: A character to be pushed back.
         """
 
-    def unread_many(self, count):
+    def unread_many(self, count: int):
         """
         Pushes the specified number of characters to the top of the stream.
 

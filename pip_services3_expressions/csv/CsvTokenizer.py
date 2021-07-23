@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Union
+from typing import Union, List
 
 from pip_services3_expressions.csv.CsvConstant import CsvConstant
 from pip_services3_expressions.csv.CsvQuoteState import CsvQuoteState
@@ -22,9 +22,9 @@ class CsvTokenizer(AbstractTokenizer):
         """
         super(CsvTokenizer, self).__init__()
 
-        self.__field_separators = [ord(',')]
-        self.__quote_symbols = [ord('"')]
-        self.__end_of_line = "\n\r"
+        self.__field_separators: List[int] = [ord(',')]
+        self.__quote_symbols: List[int] = [ord('"')]
+        self.__end_of_line: str = "\n\r"
 
         self.number_state: Union[INumberState, None] = None
         self.whitespace_state: Union[IWhitespaceState, None] = None
@@ -35,14 +35,14 @@ class CsvTokenizer(AbstractTokenizer):
         self.__assign_states()
 
     @property
-    def field_separators(self):
+    def field_separators(self) -> List[int]:
         """
         Separator for fields in CSV stream.
         """
         return self.__field_separators
 
     @field_separators.setter
-    def field_separators(self, value):
+    def field_separators(self, value: List[int]):
         """
         Separator for fields in CSV stream.
         """
@@ -62,28 +62,28 @@ class CsvTokenizer(AbstractTokenizer):
         self.__assign_states()
 
     @property
-    def end_of_line(self):
+    def end_of_line(self) -> str:
         """
         Separator for rows in CSV stream.
         """
         return self.__end_of_line
 
     @end_of_line.setter
-    def end_of_line(self, value):
+    def end_of_line(self, value: str):
         """
         Separator for rows in CSV stream.
         """
         self.__end_of_line = value
 
     @property
-    def quote_symbols(self):
+    def quote_symbols(self) -> List[int]:
         """
         Character to quote strings.
         """
         return self.__quote_symbols
 
     @quote_symbols.setter
-    def quote_symbols(self, value):
+    def quote_symbols(self, value: List[int]):
         """
         Character to quote strings.
         """

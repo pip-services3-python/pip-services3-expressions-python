@@ -26,12 +26,9 @@ class TestDefaultFunctionCollection:
         func = collection.find_by_name("sum")
         assert func is not None
 
-        def inner(err, result):
-            assert err is None
-            assert VariantType.Integer == result.type
-            assert 6 == result.as_integer
-
-        func.calculate(params, operations, inner)
+        result = func.calculate(params, operations)
+        assert VariantType.Integer == result.type
+        assert 6 == result.as_integer
 
     def test_date_functions(self):
         collection = DefaultFunctionCollection()
@@ -41,11 +38,8 @@ class TestDefaultFunctionCollection:
         func = collection.find_by_name("now")
         assert func is not None
 
-        def inner(err, result):
-            assert err is None
-            assert VariantType.DateTime == result.type
-
-        func.calculate(params, operations, inner)
+        result = func.calculate(params, operations)
+        assert VariantType.DateTime == result.type
 
         collection = DefaultFunctionCollection()
         params = [
@@ -58,9 +52,6 @@ class TestDefaultFunctionCollection:
         func = collection.find_by_name("date")
         assert func is not None
 
-        def inner(err, result):
-            assert err is None
-            assert VariantType.DateTime == result.type
-            assert StringConverter.to_string(datetime.date(1975, 3, 8)) == StringConverter.to_string(result.as_datetime)
-
-        func.calculate(params, operations, inner)
+        result = func.calculate(params, operations)
+        assert VariantType.DateTime == result.type
+        assert StringConverter.to_string(datetime.datetime(1975, 3, 8)) == StringConverter.to_string(result.as_datetime)

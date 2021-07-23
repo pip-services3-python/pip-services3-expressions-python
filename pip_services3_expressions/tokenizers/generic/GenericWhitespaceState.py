@@ -18,7 +18,7 @@ class GenericWhitespaceState(IWhitespaceState):
         self.__map = CharReferenceMap()
         self.set_whitespace_chars(0, ord(' '), True)
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Ignore whitespace (such as blanks and tabs), and return the tokenizer's next token.
 
@@ -39,7 +39,7 @@ class GenericWhitespaceState(IWhitespaceState):
 
         return Token(TokenType.Whitespace, token_value, line, column)
 
-    def set_whitespace_chars(self, from_symbol, to_symbol, enable):
+    def set_whitespace_chars(self, from_symbol: int, to_symbol: int, enable: bool):
         """
         Establish the given characters as whitespace to ignore.
         

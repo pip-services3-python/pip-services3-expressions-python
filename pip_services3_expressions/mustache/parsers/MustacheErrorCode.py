@@ -6,31 +6,31 @@ class MustacheErrorCode:
     """
 
     # The unknown
-    UNKNOWN = "UNKNOWN"
+    UNKNOWN: str = "UNKNOWN"
 
     # The internal error
-    INTERNAL = "INTERNAL"
+    INTERNAL: str = "INTERNAL"
 
     # The unexpected end.
-    UNEXPECTED_END = "UNEXPECTED_END"
+    UNEXPECTED_END: str = "UNEXPECTED_END"
 
     # The error near
-    ERROR_NEAR = "ERROR_NEAR"
+    ERROR_NEAR: str = "ERROR_NEAR"
 
     # The error at
-    ERROR_AT = "ERROR_AT"
+    ERROR_AT: str = "ERROR_AT"
 
     # The unexpected symbol
-    UNEXPECTED_SYMBOL = "UNEXPECTED_SYMBOL"
+    UNEXPECTED_SYMBOL: str = "UNEXPECTED_SYMBOL"
 
     # The mismatched brackets
-    MISMATCHED_BRACKETS = "MISMATCHED_BRACKETS"
+    MISMATCHED_BRACKETS: str = "MISMATCHED_BRACKETS"
 
     # The missing variable
-    MISSING_VARIABLE = "MISSING_VARIABLE"
+    MISSING_VARIABLE: str = "MISSING_VARIABLE"
 
     # Not closed section
-    NOT_CLOSED_SECTION = "NOT_CLOSED_SECTION"
+    NOT_CLOSED_SECTION: str = "NOT_CLOSED_SECTION"
 
     # Unexpected section end
-    UNEXPECTED_SECTION_END = "UNEXPECTED_SECTION_END"
+    UNEXPECTED_SECTION_END: str = "UNEXPECTED_SECTION_END"

@@ -4,11 +4,11 @@ import math
 from datetime import datetime
 
 from pip_services3_commons.convert import StringConverter, IntegerConverter, LongConverter, FloatConverter, \
-    DateTimeConverter, BooleanConverter
+    DateTimeConverter, BooleanConverter, DoubleConverter
 
+from .AbstractVariantOperations import AbstractVariantOperations
 from .Variant import Variant
 from .VariantType import VariantType
-from .AbstractVariantOperations import AbstractVariantOperations
 
 
 class TypeUnsafeVariantOperations(AbstractVariantOperations):
@@ -16,7 +16,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
     Implements a type unsafe variant operations manager object.
     """
 
-    def convert(self, value, new_type):
+    def convert(self, value: Variant, new_type: VariantType) -> Variant:
         """
         Converts variant to specified type
         
@@ -56,7 +56,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_null(self, new_type):
+    def __convert_from_null(self, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -92,7 +92,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
 
         raise Exception(f"Variant convertion from Null to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_integer(self, value, new_type):
+    def __convert_from_integer(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Long:
@@ -117,7 +117,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_long(self, value, new_type):
+    def __convert_from_long(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -142,7 +142,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_float(self, value, new_type):
+    def __convert_from_float(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -161,7 +161,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)}" +
                         f" to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_double(self, value, new_type):
+    def __convert_from_double(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -180,7 +180,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_string(self, value, new_type):
+    def __convert_from_string(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -192,10 +192,9 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         elif new_type == VariantType.Float:
             result.as_float = FloatConverter.to_float(value.as_string)
             return result
-        # elif new_type == VariantType.Double:
-        # TODO: DoubleConverter absent in commons
-        # result.as_double = DoubleConverter.to_double(value.as_string)
-        # return result
+        elif new_type == VariantType.Double:
+            result.as_double = DoubleConverter.to_double(value.as_string)
+            return result
         elif new_type == VariantType.DateTime:
             result.as_datetime = DateTimeConverter.to_datetime(value.as_string)
             return result
@@ -209,7 +208,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_boolean(self, value, new_type):
+    def __convert_from_boolean(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -231,7 +230,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_datetime(self, value, new_type):
+    def __convert_from_datetime(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:
@@ -247,7 +246,7 @@ class TypeUnsafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_time_span(self, value: Variant, new_type):
+    def __convert_from_time_span(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Integer:

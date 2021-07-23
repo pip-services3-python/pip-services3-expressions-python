@@ -20,7 +20,7 @@ class CsvSymbolState(GenericSymbolState):
         self.add("\r\n", TokenType.Eol)
         self.add("\n\r", TokenType.Eol)
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
 
         # Optimization...
         next_symbol = scanner.read()

@@ -2,13 +2,16 @@
 
 from abc import ABC
 
+from pip_services3_expressions.variants.Variant import Variant
+from pip_services3_expressions.variants.VariantType import VariantType
+
 
 class IVariantOperations(ABC):
     """
     Defines an interface for variant operations manager.
     """
 
-    def convert(self, value, new_type):
+    def convert(self, value: Variant, new_type: VariantType) -> Variant:
         """
         Converts variant to specified type
 
@@ -17,7 +20,7 @@ class IVariantOperations(ABC):
         :return: A converted Variant value.
         """
 
-    def add(self, value1, value2):
+    def add(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '+' operation for two variants.
 
@@ -26,7 +29,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def sub(self, value1, value2):
+    def sub(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '-' operation for two variants.
 
@@ -35,7 +38,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def mul(self, value1, value2):
+    def mul(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '*' operation for two variants.
 
@@ -44,7 +47,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def div(self, value1, value2):
+    def div(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '/' operation for two variants.
 
@@ -53,7 +56,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def mod(self, value1, value2):
+    def mod(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '%' operation for two variants.
 
@@ -62,7 +65,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def pow(self, value1, value2):
+    def pow(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '^' operation for two variants.
 
@@ -71,7 +74,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def and_(self, value1, value2):
+    def and_(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs AND operation for two variants.
 
@@ -80,7 +83,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def or_(self, value1, value2):
+    def or_(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs OR operation for two variants.
 
@@ -89,7 +92,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def xor(self, value1, value2):
+    def xor(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs XOR operation for two variants.
 
@@ -98,7 +101,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def lsh(self, value1, value2):
+    def lsh(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs << operation for two variants.
 
@@ -107,7 +110,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def rsh(self, value1, value2):
+    def rsh(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs >> operation for two variants.
 
@@ -116,7 +119,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def not_(self, value):
+    def not_(self, value: Variant) -> Variant:
         """
         Performs NOT operation for two variants.
 
@@ -124,7 +127,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def negative(self, value):
+    def negative(self, value: Variant) -> Variant:
         """
         Performs unary '-' operation for a variant.
 
@@ -132,7 +135,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def equal(self, value1, value2):
+    def equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '=' operation for two variants.
 
@@ -141,7 +144,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def not_equal(self, value1, value2):
+    def not_equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<>' operation for two variants.
 
@@ -150,7 +153,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def more(self, value1, value2):
+    def more(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<' operation for two variants.
 
@@ -159,7 +162,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def less(self, value1, value2):
+    def less(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '>' operation for two variants.
 
@@ -168,7 +171,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def more_equal(self, value1, value2):
+    def more_equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '<=' operation for two variants.
 
@@ -177,7 +180,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def less_equal(self, value1, value2):
+    def less_equal(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs '>=' operation for two variants.
 
@@ -186,7 +189,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def in_(self, value1, value2):
+    def in_(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs IN operation for two variants.
 
@@ -195,7 +198,7 @@ class IVariantOperations(ABC):
         :return: A result variant object.
         """
 
-    def get_element(self, value1, value2):
+    def get_element(self, value1: Variant, value2: Variant) -> Variant:
         """
         Performs [] operation for two variants.
         

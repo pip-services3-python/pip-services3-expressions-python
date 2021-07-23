@@ -51,7 +51,7 @@ class GenericWordState(IWordState):
         self.set_word_chars(0x00c0, 0x00ff, True)
         self.set_word_chars(0x0100, 0xfffe, True)
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Ignore word (such as blanks and tabs), and return the tokenizer's next token.
         
@@ -73,7 +73,7 @@ class GenericWordState(IWordState):
 
         return Token(TokenType.Word, token_value, line, column)
 
-    def set_word_chars(self, from_symbol, to_symbol, enable):
+    def set_word_chars(self, from_symbol: int, to_symbol: int, enable: bool):
         """
         Establish characters in the given range as valid characters for part of a word after
         the first character. Note that the tokenizer must determine which characters are valid

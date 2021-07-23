@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from abc import ABC
+from typing import List
 
 from pip_services3_expressions.io.IScanner import IScanner
 from .ICommentState import ICommentState
@@ -9,6 +10,7 @@ from .IQuoteState import IQuoteState
 from .ISymbolState import ISymbolState
 from .IWhitespaceState import IWhitespaceState
 from .IWordState import IWordState
+from .Token import Token
 
 
 class ITokenizer(ABC):
@@ -117,21 +119,21 @@ class ITokenizer(ABC):
     # The stream scanner to tokenize.
     scanner: IScanner
 
-    def has_next_token(self):
+    def has_next_token(self) -> bool:
         """
         Checks if there is the next token exist.
 
         :return: **True** if scanner has the next token.
         """
 
-    def next_token(self):
+    def next_token(self) -> Token:
         """
         Gets the next token from the scanner.
 
         :return: Next token of **null** if there are no more tokens left.
         """
 
-    def tokenize_stream(self, scanner: IScanner):
+    def tokenize_stream(self, scanner: IScanner) -> List[Token]:
         """
         Tokenizes a textual stream into a list of token structures.
 
@@ -139,7 +141,7 @@ class ITokenizer(ABC):
         :return: A list of token structures.
         """
 
-    def tokenize_buffer(self, buffer):
+    def tokenize_buffer(self, buffer: str) -> List[Token]:
         """
         Tokenizes a string buffer into a list of tokens structures.
 
@@ -147,7 +149,7 @@ class ITokenizer(ABC):
         :return: A list of token structures.
         """
 
-    def tokenize_stream_to_string(self, scanner: IScanner):
+    def tokenize_stream_to_string(self, scanner: IScanner) -> List[str]:
         """
         Tokenizes a textual stream into a list of strings.
 
@@ -155,7 +157,7 @@ class ITokenizer(ABC):
         :return: A list of token strings.
         """
 
-    def tokenize_buffer_to_strings(self, buffer):
+    def tokenize_buffer_to_strings(self, buffer: str) -> List[str]:
         """
         Tokenizes a string buffer into a list of strings.
         

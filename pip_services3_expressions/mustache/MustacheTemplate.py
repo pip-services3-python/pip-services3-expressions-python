@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
+from typing import List, Optional, Any
 
 from pip_services3_expressions.mustache.MustacheException import MustacheException
 from pip_services3_expressions.mustache.parsers.MustacheParser import MustacheParser
@@ -14,28 +14,28 @@ class MustacheTemplate:
     Implements an mustache template class.
     """
 
-    def __init__(self, template=None):
+    def __init__(self, template: Optional[str] = None):
         """
         Constructs this class and assigns mustache template.
 
         :param template: The mustache template.
         """
         self.__default_variables = {}
-        self.__parser = MustacheParser()
-        self.__auto_variables = True
+        self.__parser: MustacheParser = MustacheParser()
+        self.__auto_variables: bool = True
 
         if self.template is not None:
             self.template = template
 
     @property
-    def template(self):
+    def template(self) -> str:
         """
         The mustache template.
         """
         return self.__parser.template
 
     @template.setter
-    def template(self, value):
+    def template(self, value: str):
         """
         The mustache template.
         """
@@ -54,21 +54,21 @@ class MustacheTemplate:
             self.create_variables(self.__default_variables)
 
     @property
-    def auto_variables(self):
+    def auto_variables(self) -> bool:
         """
         Gets the flag to turn on auto creation of variables for specified mustache.
         """
         return self.__auto_variables
 
     @auto_variables.setter
-    def auto_variables(self, value):
+    def auto_variables(self, value: bool):
         """
         Sets the flag to turn on auto creation of variables for specified mustache.
         """
         self.__auto_variables = value
 
     @property
-    def default_variables(self):
+    def default_variables(self) -> Any:
         """
         The list with default variables.
         """
@@ -82,13 +82,13 @@ class MustacheTemplate:
         return self.__parser.initial_tokens
 
     @property
-    def result_tokens(self):
+    def result_tokens(self) -> List[MustacheToken]:
         """
         The list of processed mustache tokens.
         """
         return self.__parser.result_tokens
 
-    def get_variables(self, variables, name):
+    def get_variables(self, variables: Any, name: str) -> Any:
         """
         Gets a variable value from the collection of variables
 
@@ -108,7 +108,7 @@ class MustacheTemplate:
 
         return result
 
-    def create_variables(self, variables):
+    def create_variables(self, variables: Any):
         """
         Populates the specified variables list with variables from parsed mustache.
         """
@@ -127,7 +127,7 @@ class MustacheTemplate:
         self.__parser.clear()
         self.__default_variables = {}
 
-    def evaluate(self):
+    def evaluate(self) -> str:
         """
         Evaluates this mustache template using default variables.
 
@@ -135,7 +135,7 @@ class MustacheTemplate:
         """
         return self.evaluate_with_variables(None)
 
-    def evaluate_with_variables(self, variables):
+    def evaluate_with_variables(self, variables: Any) -> str:
         """
         Evaluates this mustache using specified variables.
 
@@ -146,11 +146,11 @@ class MustacheTemplate:
 
         return self.evaluate_tokens(self.__parser.result_tokens, variables)
 
-    def __is__defined_variable(self, variables, name):
+    def __is__defined_variable(self, variables: Any, name: str) -> bool:
         value = self.get_variables(variables, name)
         return value is not None and value != "" and value != 0 and value is not False
-    
-    def __escape_string(self, value):
+
+    def __escape_string(self, value: str) -> str:
         return value.replace('\\', '\\\\') \
             .replace('"', '\\\"') \
             .replace('/', '\\/') \
@@ -160,7 +160,7 @@ class MustacheTemplate:
             .replace('\r', '\\r') \
             .replace('\t', '\\t')
 
-    def evaluate_tokens(self, tokens: List[MustacheToken], variables):
+    def evaluate_tokens(self, tokens: List[MustacheToken], variables: Any) -> Optional[str]:
         if tokens is None:
             return None
 
@@ -194,7 +194,8 @@ class MustacheTemplate:
                     result += self.evaluate_tokens(token.tokens, variables)
 
             elif token.type == MustacheTokenType.Partial:
-                raise MustacheException(None, "PARTIALS_NOT_SUPPORTED", "Partials are not supported", token.line, token.column)
+                raise MustacheException(None, "PARTIALS_NOT_SUPPORTED", "Partials are not supported", token.line,
+                                        token.column)
             else:
                 raise MustacheException(None, "INTERNAL", "Internal error", token.line, token.column)
 

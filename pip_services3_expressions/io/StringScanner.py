@@ -8,9 +8,9 @@ class StringScanner(IScanner):
     Scan characters in a string that allows tokenizers
     to look ahead through stream to perform lexical analysis.
     """
-    Eof = -1
+    Eof: int = -1
 
-    def __init__(self, content):
+    def __init__(self, content: str):
         """
         Creates an instance of this class.
 
@@ -19,12 +19,12 @@ class StringScanner(IScanner):
         if content is None:
             raise Exception("Content cannot be null")
 
-        self.__content = content
-        self.__position = -1
-        self.__line = 1
-        self.__column = 0
+        self.__content: str = content
+        self.__position: int = -1
+        self.__line: int = 1
+        self.__column: int = 0
 
-    def __char_at(self, position):
+    def __char_at(self, position: int) -> int:
         """
         Returns character from a specified position in the stream
 
@@ -36,7 +36,7 @@ class StringScanner(IScanner):
 
         return ord(self.__content[position])
 
-    def is_line(self, char_before, char_at, char_after):
+    def is_line(self, char_before: int, char_at: int, char_after: int) -> bool:
         """
         Checks if the current character represents a new line
 
@@ -52,7 +52,7 @@ class StringScanner(IScanner):
 
         return True
 
-    def is_column(self, char_at):
+    def is_column(self, char_at: int) -> bool:
         """
         Checks if the current character represents a column
 
@@ -64,7 +64,7 @@ class StringScanner(IScanner):
 
         return True
 
-    def line(self):
+    def line(self) -> int:
         """
         Gets the current line number
 
@@ -72,7 +72,7 @@ class StringScanner(IScanner):
         """
         return self.__line
 
-    def column(self):
+    def column(self) -> int:
         """
         Gets the column in the current line
 
@@ -80,7 +80,7 @@ class StringScanner(IScanner):
         """
         return self.__column
 
-    def read(self):
+    def read(self) -> int:
         """
         Reads character from the top of the stream.
         A read character or **-1** if stream processed to the end.
@@ -109,7 +109,7 @@ class StringScanner(IScanner):
 
         return char_at
 
-    def peek(self):
+    def peek(self) -> int:
         """
         Returns the character from the top of the stream without moving the stream pointer.
 
@@ -117,7 +117,7 @@ class StringScanner(IScanner):
         """
         return self.__char_at(self.__position + 1)
 
-    def peek_line(self):
+    def peek_line(self) -> int:
         """
         Gets the next character line number
 
@@ -129,7 +129,7 @@ class StringScanner(IScanner):
 
         return self.__line + 1 if self.is_line(char_before, char_at, char_after) else self.__line
 
-    def peek_column(self):
+    def peek_column(self) -> int:
         """
         Gets the next character column number
 
@@ -182,7 +182,7 @@ class StringScanner(IScanner):
             if self.is_column(char_at):
                 self.__column += 1
 
-    def unread_many(self, count):
+    def unread_many(self, count: int):
         """
         Pushes the specified number of characters to the top of the stream.
 

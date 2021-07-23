@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
 
 from pip_services3_expressions.calculator.variables.IVariable import IVariable
 from pip_services3_expressions.variants.Variant import Variant
@@ -9,7 +10,7 @@ class Variable(IVariable):
     Implements a variable holder object.
     """
 
-    def __init__(self, name, value=None):
+    def __init__(self, name: str, value: Optional[Variant] = None):
         """
         Constructs this variable with name and value.
         
@@ -22,19 +23,19 @@ class Variable(IVariable):
         self.__value = value or Variant()
 
     @property
-    def name(self):
+    def name(self) -> str:
         """
         The variable name.
         """
         return self.__name
 
     @property
-    def value(self):
+    def value(self) -> Variant:
         """
         The variable value.
         """
         return self.__value
 
     @value.setter
-    def value(self, value):
+    def value(self, value: Variant):
         self.__value = value

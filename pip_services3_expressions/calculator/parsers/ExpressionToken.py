@@ -8,7 +8,7 @@ class ExpressionToken:
     Defines an expression token holder.
     """
 
-    def __init__(self, type: ExpressionTokenType, value: Variant, line, column):
+    def __init__(self, type: ExpressionTokenType, value: Variant, line: int, column: int):
         """
         Creates an instance of this token and initializes it with specified values.
         
@@ -23,25 +23,25 @@ class ExpressionToken:
         self.__column = column
 
     @property
-    def type(self):
+    def type(self) -> ExpressionTokenType:
         """
         The type of this token.
         """
         return self.__type
 
     @property
-    def value(self):
+    def value(self) -> Variant:
         return self.__value
 
     @property
-    def line(self):
+    def line(self) -> int:
         """
         The line number where the token is.
         """
         return self.__line
 
     @property
-    def column(self):
+    def column(self) -> int:
         """
         The column number where the token is.
         """

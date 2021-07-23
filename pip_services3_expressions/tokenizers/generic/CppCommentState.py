@@ -18,7 +18,7 @@ class CppCommentState(GenericCommentState):
         self.STAR = ord('*')
         self.SLASH = ord('/')
 
-    def get_multi_line_comment(self, scanner: IScanner):
+    def get_multi_line_comment(self, scanner: IScanner) -> str:
         """
         Ignore everything up to a closing star and slash, and then return the tokenizer's next token.
 
@@ -36,7 +36,7 @@ class CppCommentState(GenericCommentState):
             next_symbol = scanner.read()
         return result
 
-    def get_single_line_comment(self, scanner: IScanner):
+    def get_single_line_comment(self, scanner: IScanner) -> str:
         """
         Ignore everything up to an end-of-line and return the tokenizer's next token.
         """
@@ -52,7 +52,7 @@ class CppCommentState(GenericCommentState):
 
         return result
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Either delegate to a comment-handling state, or return a token with just a slash in it.
         

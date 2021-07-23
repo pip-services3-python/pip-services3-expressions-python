@@ -18,7 +18,7 @@ class IFunctionCollection:
         :param func: a function to be added.
         """
 
-    def get(self, index):
+    def get(self, index: int) -> IFunction:
         """
         Get a function by its index.
 
@@ -26,14 +26,14 @@ class IFunctionCollection:
         :return: a retrieved function
         """
 
-    def get_all(self):
+    def get_all(self) -> IFunction:
         """
         Get all functions stores in the collection
         
         :return: a list with functions.
         """
 
-    def find_index_by_name(self, name):
+    def find_index_by_name(self, name: str) -> int:
         """
         Finds function index in the list by it's name.
 
@@ -41,7 +41,7 @@ class IFunctionCollection:
         :return: Function index in the list or **-1** if function was not found.
         """
 
-    def find_by_name(self, name):
+    def find_by_name(self, name: str) -> IFunction:
         """
         Finds function in the list by it's name.
 
@@ -49,14 +49,14 @@ class IFunctionCollection:
         :return: A function or **None** if function was not found.
         """
 
-    def remove(self, index):
+    def remove(self, index: int):
         """
         Removes a function by its index.
 
         :param index: a index of the function to be removed.
         """
 
-    def remove_by_name(self, name):
+    def remove_by_name(self, name: str):
         """
         Removes function by it's name.
 

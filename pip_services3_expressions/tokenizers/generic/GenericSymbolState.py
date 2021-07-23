@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from tokenize import Token
 
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.ISymbolState import ISymbolState
@@ -30,7 +30,7 @@ class GenericSymbolState(ISymbolState):
         super(GenericSymbolState, self).__init__()
         self.__symbols = SymbolRootNode()
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Return a symbol token from a scanner.
 

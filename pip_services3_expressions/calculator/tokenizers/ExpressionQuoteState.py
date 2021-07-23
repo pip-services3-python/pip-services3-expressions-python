@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
 
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.IQuoteState import IQuoteState
@@ -17,7 +18,7 @@ class ExpressionQuoteState(IQuoteState):
         super(ExpressionQuoteState, self).__init__()
         self.QUOTE = ord('"')
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
 
@@ -44,7 +45,7 @@ class ExpressionQuoteState(IQuoteState):
 
         return Token(TokenType.Word if first_symbol == self.QUOTE else TokenType.Quoted, token_value, line, column)
 
-    def encode_string(self, value, quote_symbol):
+    def encode_string(self, value: str, quote_symbol: int) -> Optional[str]:
         """
         Encodes a string value.
 
@@ -58,7 +59,7 @@ class ExpressionQuoteState(IQuoteState):
         result = quote_string + value.replace(quote_string, quote_string + quote_string) + quote_string
         return result
 
-    def decode_string(self, value, quote_symbol):
+    def decode_string(self, value: str, quote_symbol: int) -> Optional[str]:
         """
         Decodes a string value.
         

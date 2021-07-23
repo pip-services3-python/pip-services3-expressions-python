@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
 
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.IQuoteState import IQuoteState
@@ -13,7 +14,7 @@ class CsvQuoteState(IQuoteState):
     Implements a quote string state object for CSV streams.
     """
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
 
@@ -40,7 +41,7 @@ class CsvQuoteState(IQuoteState):
 
         return Token(TokenType.Quoted, token_value, line, column)
 
-    def encode_string(self, value, quote_symbol):
+    def encode_string(self, value: str, quote_symbol: int) -> Optional[str]:
         """
         Encodes a string value.
 
@@ -55,7 +56,7 @@ class CsvQuoteState(IQuoteState):
         else:
             return None
 
-    def decode_string(self, value, quote_symbol):
+    def decode_string(self, value: str, quote_symbol: int) -> Optional[str]:
         """
         Decodes a string value.
         

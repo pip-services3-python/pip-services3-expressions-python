@@ -10,7 +10,7 @@ class IWordState(ITokenizerState, ABC):
     Defines an interface for tokenizer state that processes words, identificators or keywords
     """
 
-    def set_word_chars(self, from_symbol, to_symbol, enable):
+    def set_word_chars(self, from_symbol: int, to_symbol: int, enable: bool):
         """
         Establish characters in the given range as valid characters for part of a word after
         the first character. Note that the tokenizer must determine which characters are valid

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from typing import List
 
-from pip_services3_expressions.mustache.tokenizers.MustacheTokenizer import MustacheTokenizer
 from pip_services3_expressions.mustache.MustacheException import MustacheException
 from pip_services3_expressions.mustache.parsers.MustacheErrorCode import MustacheErrorCode
 from pip_services3_expressions.mustache.parsers.MustacheLexicalState import MustacheLexicalState
 from pip_services3_expressions.mustache.parsers.MustacheToken import MustacheToken
 from pip_services3_expressions.mustache.parsers.MustacheTokenType import MustacheTokenType
+from pip_services3_expressions.mustache.tokenizers.MustacheTokenizer import MustacheTokenizer
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 
@@ -17,23 +18,23 @@ class MustacheParser:
     """
 
     def __init__(self):
-        self.__tokenizer = MustacheTokenizer()
-        self.__template = ""
-        self.__original_tokens = []
-        self.__initial_tokens = []
-        self.__current_token_index = None
-        self.__variable_names = []
-        self.__result_tokens = []
+        self.__tokenizer: ITokenizer = MustacheTokenizer()
+        self.__template: str = ""
+        self.__original_tokens: List[Token] = []
+        self.__initial_tokens: List[MustacheToken] = []
+        self.__current_token_index: int = None
+        self.__variable_names: List[str] = []
+        self.__result_tokens: List[MustacheToken] = []
 
     @property
-    def template(self):
+    def template(self) -> str:
         """
         The mustache template.
         """
         return self.__template
 
     @template.setter
-    def template(self, value):
+    def template(self, value: str):
         self.parse_string(value)
 
     @property
@@ -59,13 +60,13 @@ class MustacheParser:
         return self.__result_tokens
 
     @property
-    def variable_names(self):
+    def variable_names(self) -> List[str]:
         """
         The list of found variable names.
         """
         return self.__variable_names
 
-    def parse_string(self, mustache):
+    def parse_string(self, mustache: str):
         """
         Sets a new mustache string and parses it into internal byte code.
 
@@ -96,7 +97,7 @@ class MustacheParser:
         self.__current_token_index = 0
         self.__variable_names = []
 
-    def __has_more_tokens(self):
+    def __has_more_tokens(self) -> bool:
         """
         Checks are there more tokens for processing.
 
@@ -111,7 +112,7 @@ class MustacheParser:
         if not self.__has_more_tokens():
             raise MustacheException(None, MustacheErrorCode.UNEXPECTED_END, "Unexpected end of mustache.", 0, 0)
 
-    def __get_current_token(self):
+    def __get_current_token(self) -> MustacheToken:
         """
         Gets the current token object.
 
@@ -120,7 +121,7 @@ class MustacheParser:
         return self.initial_tokens[self.__current_token_index] if self.__current_token_index < len(
             self.__initial_tokens) else None
 
-    def __get_next_token(self):
+    def __get_next_token(self) -> MustacheToken:
         """
         Gets the next token object.
 
@@ -135,7 +136,7 @@ class MustacheParser:
         """
         self.__current_token_index += 1
 
-    def __add_token_to_result(self, type: MustacheTokenType, value: str, line, column):
+    def __add_token_to_result(self, type: MustacheTokenType, value: str, line: int, column: int) -> MustacheToken:
         """
         Adds an mustache to the result list
 
@@ -148,7 +149,7 @@ class MustacheParser:
         self.__result_tokens.append(token)
         return token
 
-    def __tokenize_mustache(self, mustache):
+    def __tokenize_mustache(self, mustache: str) -> List[Token]:
         if mustache is not None:
             mustache = mustache.strip()
         else:
@@ -162,7 +163,7 @@ class MustacheParser:
         else:
             return []
 
-    def __compose_mustache(self, tokens):
+    def __compose_mustache(self, tokens: List[Token]) -> str:
         builder = ""
         for token in tokens:
             builder = builder + token.value
@@ -304,7 +305,7 @@ class MustacheParser:
             if token.type == MustacheTokenType.Section or token.type == MustacheTokenType.InvertedSection:
                 result.tokens.append(*self.__perform_syntax_analysis_for_section(token.value))
 
-    def __perform_syntax_analysis_for_section(self, variable) -> List[MustacheToken]:
+    def __perform_syntax_analysis_for_section(self, variable: str) -> List[MustacheToken]:
         result = []
 
         self.__check_for_more_tokens()

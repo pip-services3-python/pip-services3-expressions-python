@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
+
 from pip_services3_expressions.io.IScanner import IScanner
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.utilities.CharReferenceMap import CharReferenceMap
@@ -32,21 +34,21 @@ class SymbolNode:
     an ancestor that represents a valid symbol.
     """
 
-    def __init__(self, parent, character):
+    def __init__(self, parent: Optional['SymbolNode'], character: int):
         """
         Constructs a SymbolNode with the given parent, representing the given character.
 
         :param parent: This node's parent
         :param character: This node's associated character.
         """
-        self.__children = None
-        self.__token_type = TokenType.Unknown
-        self.__valid = None
-        self.__ancestry = None
-        self.__parent = parent
-        self.__character = character
+        self.__children: CharReferenceMap = None
+        self.__token_type: TokenType = TokenType.Unknown
+        self.__valid: bool = None
+        self.__ancestry: str = None
+        self.__parent: SymbolNode = parent
+        self.__character: int = character
 
-    def ensure_child_with_char(self, value):
+    def ensure_child_with_char(self, value: int):
         """
         Find or create a child for the given character.
         """
@@ -60,7 +62,7 @@ class SymbolNode:
 
         return child_node
 
-    def add_descendant_line(self, value, token_type):
+    def add_descendant_line(self, value: str, token_type: TokenType):
         """
         Add a line of descendants that represent the characters in the given string.
 
@@ -74,7 +76,7 @@ class SymbolNode:
             self.__valid = True
             self.__token_type = token_type
 
-    def deepest_read(self, scanner: IScanner):
+    def deepest_read(self, scanner: IScanner) -> 'SymbolNode':
         """
         Find the descendant that takes as many characters as possible from the input.
 
@@ -87,7 +89,7 @@ class SymbolNode:
             return self
         return child_node.deepest_read(scanner)
 
-    def find_child_with_char(self, value):
+    def find_child_with_char(self, value) -> 'SymbolNode':
         """
         Find a child with the given character.
 
@@ -95,7 +97,7 @@ class SymbolNode:
         """
         return self.__children.lookup(value) if self.__children is not None else None
 
-    def unread_to_valid(self, scanner: IScanner):
+    def unread_to_valid(self, scanner: IScanner) -> 'SymbolNode':
         """
         Unwind to a valid node; this node is "valid" if its ancestry represents a complete symbol.
         If this node is not valid, put back the character and ask the parent to unwind.
@@ -109,22 +111,22 @@ class SymbolNode:
         return self
 
     @property
-    def valid(self):
+    def valid(self) -> bool:
         return self.__valid
 
     @valid.setter
-    def valid(self, value):
+    def valid(self, value: bool):
         self.__valid = value
 
     @property
-    def token_type(self):
+    def token_type(self) -> TokenType:
         return self.__token_type
 
     @token_type.setter
-    def token_type(self, value):
+    def token_type(self, value: bool):
         self.__token_type = value
 
-    def ancestry(self):
+    def ancestry(self) -> str:
         """
         Show the symbol this node represents.
         

@@ -12,9 +12,9 @@ class MustacheSpecialState(ITokenizerState):
     Implements a quote string state object for Mustache templates.
     """
 
-    _Bracket = ord("{")
+    __Bracket: str = ord("{")
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
 
@@ -28,8 +28,8 @@ class MustacheSpecialState(ITokenizerState):
 
         next_symbol = scanner.read()
         while not CharValidator.is_eof(next_symbol):
-            if next_symbol == MustacheSpecialState._Bracket:
-                if scanner.peek() == MustacheSpecialState._Bracket:
+            if next_symbol == MustacheSpecialState.__Bracket:
+                if scanner.peek() == MustacheSpecialState.__Bracket:
                     scanner.unread()
                     break
             token_value = token_value + chr(next_symbol)
@@ -37,5 +37,3 @@ class MustacheSpecialState(ITokenizerState):
             next_symbol = scanner.read()
 
         return Token(TokenType.Special, token_value, line, column)
-
-

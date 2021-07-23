@@ -2,6 +2,10 @@
 
 from abc import ABC
 
+from pip_services3_expressions.io.IScanner import IScanner
+from pip_services3_expressions.tokenizers.ITokenizer import *
+from pip_services3_expressions.tokenizers.Token import Token
+
 
 class ITokenizerState(ABC):
     """
@@ -14,7 +18,7 @@ class ITokenizerState(ABC):
     method has a tokenizer argument.
     """
 
-    def next_token(self, scanner, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: 'ITokenizer') -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
         

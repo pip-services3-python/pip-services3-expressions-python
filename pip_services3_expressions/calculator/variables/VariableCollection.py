@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import copy
+from typing import List
 
+from pip_services3_expressions.calculator.variables.IVariable import IVariable
 from pip_services3_expressions.calculator.variables.IVariableCollection import IVariableCollection
 from pip_services3_expressions.calculator.variables.Variable import Variable
 from pip_services3_expressions.variants.Variant import Variant
@@ -13,9 +15,9 @@ class VariableCollection(IVariableCollection):
 
     def __init__(self):
         super(VariableCollection, self).__init__()
-        self.__variables = []
+        self.__variables: List[IVariable] = []
 
-    def add(self, variable):
+    def add(self, variable: IVariable):
         """
         Adds a new variable to the collection.
 
@@ -26,7 +28,7 @@ class VariableCollection(IVariableCollection):
         self.__variables.append(variable)
 
     @property
-    def length(self):
+    def length(self) -> int:
         """
         Gets a number of variables stored in the collection.
 
@@ -34,7 +36,7 @@ class VariableCollection(IVariableCollection):
         """
         return len(self.__variables)
 
-    def get(self, index):
+    def get(self, index: int) -> IVariable:
         """
         Get a variable by its index.
 
@@ -43,16 +45,16 @@ class VariableCollection(IVariableCollection):
         """
         return self.__variables[index]
 
-    def get_all(self):
+    def get_all(self) -> List[IVariable]:
         """
         Get all variables stores in the collection
         
         :return: a list with variables.
         """
-        result = [copy.deepcopy(self.__variables)]
+        result = copy.deepcopy(self.__variables)
         return result
 
-    def find_index_by_name(self, name):
+    def find_index_by_name(self, name: str) -> int:
         """
         Finds variable index in the list by it's name.
 
@@ -66,7 +68,7 @@ class VariableCollection(IVariableCollection):
                 return i
         return -1
 
-    def find_by_name(self, name):
+    def find_by_name(self, name: str) -> IVariable:
         """
         Finds variable in the list by it's name.
 
@@ -76,7 +78,7 @@ class VariableCollection(IVariableCollection):
         index = self.find_index_by_name(name)
         return self.__variables[index] if index >= 0 else None
 
-    def locate(self, name):
+    def locate(self, name: str) -> IVariable:
         """
         Finds variable in the list or create a new one if variable was not found.
         
@@ -90,7 +92,7 @@ class VariableCollection(IVariableCollection):
 
         return v
 
-    def remove(self, index):
+    def remove(self, index: int):
         """
         Removes a variable by its index.
 
@@ -98,7 +100,7 @@ class VariableCollection(IVariableCollection):
         """
         self.__variables.pop(index)
 
-    def remove_by_name(self, name):
+    def remove_by_name(self, name: str):
         """
         Removes variable by it's name.
 

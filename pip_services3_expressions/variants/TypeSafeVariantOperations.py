@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from .AbstractVariantOperations import AbstractVariantOperations
 from .Variant import Variant
 from .VariantType import VariantType
-from .AbstractVariantOperations import AbstractVariantOperations
 
 
 class TypeSafeVariantOperations(AbstractVariantOperations):
@@ -10,7 +10,7 @@ class TypeSafeVariantOperations(AbstractVariantOperations):
     Implements a strongly typed (type safe) variant operations manager object.
     """
 
-    def convert(self, value, new_type):
+    def convert(self, value: Variant, new_type: VariantType) -> Variant:
         """
         Converts variant to specified type
         
@@ -36,7 +36,7 @@ class TypeSafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f"to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_integer(self, value, new_type):
+    def __convert_from_integer(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Long:
@@ -52,7 +52,7 @@ class TypeSafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f" to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_long(self, value, new_type):
+    def __convert_from_long(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Float:
@@ -65,7 +65,7 @@ class TypeSafeVariantOperations(AbstractVariantOperations):
         raise Exception(f"Variant convertion from {self._type_to_string(value.type)} " +
                         f" to {self._type_to_string(new_type)} is not supported.")
 
-    def __convert_from_float(self, value, new_type):
+    def __convert_from_float(self, value: Variant, new_type: VariantType) -> Variant:
         result = Variant()
 
         if new_type == VariantType.Double:

@@ -10,7 +10,7 @@ class IQuoteState(ITokenizerState, ABC):
     Defines an interface for tokenizer state that processes quoted strings.
     """
 
-    def encode_string(self, value, quote_symbol):
+    def encode_string(self, value: str, quote_symbol: int) -> str:
         """
         Encodes a string value.
 
@@ -19,7 +19,7 @@ class IQuoteState(ITokenizerState, ABC):
         :return: An encoded string.
         """
 
-    def decode_string(self, value, quote_symbol):
+    def decode_string(self, value: str, quote_symbol: int) -> str:
         """
         Decodes a string value.
         

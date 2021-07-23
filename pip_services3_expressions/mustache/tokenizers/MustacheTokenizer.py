@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from typing import Union
+from typing import Union, Optional
 
 from pip_services3_expressions.mustache.tokenizers.MustacheSpecialState import MustacheSpecialState
 from pip_services3_expressions.tokenizers.AbstractTokenizer import AbstractTokenizer
 from pip_services3_expressions.tokenizers.ICommentState import ICommentState
 from pip_services3_expressions.tokenizers.INumberState import INumberState
 from pip_services3_expressions.tokenizers.ITokenizerState import ITokenizerState
+from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.GenericQuoteState import GenericQuoteState
 from pip_services3_expressions.tokenizers.generic.GenericSymbolState import GenericSymbolState
@@ -55,7 +56,7 @@ class MustacheTokenizer(AbstractTokenizer):
         self.skip_comments = True
         self.skip_eof = True
 
-    def _read_next_token(self):
+    def _read_next_token(self) -> Optional[Token]:
         if self._scanner is None:
             return None
 

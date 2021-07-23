@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import copy
+from typing import List
 
+from pip_services3_expressions.calculator.functions.IFunction import IFunction
 from pip_services3_expressions.calculator.functions.IFunctionCollection import IFunctionCollection
 
 
@@ -12,9 +14,9 @@ class FunctionCollection(IFunctionCollection):
 
     def __init__(self):
         super(FunctionCollection, self).__init__()
-        self.__functions = []
+        self.__functions: List[IFunction] = []
 
-    def add(self, func):
+    def add(self, func: IFunction):
         """
         Adds a new function to the collection.
         
@@ -25,7 +27,7 @@ class FunctionCollection(IFunctionCollection):
         self.__functions.append(func)
 
     @property
-    def length(self):
+    def length(self) -> int:
         """
         Gets a number of functions stored in the collection.
 
@@ -33,7 +35,7 @@ class FunctionCollection(IFunctionCollection):
         """
         return len(self.__functions)
 
-    def get(self, index):
+    def get(self, index: int) -> IFunction:
         """
         Get a function by its index.
 
@@ -42,16 +44,16 @@ class FunctionCollection(IFunctionCollection):
         """
         return self.__functions[index]
 
-    def get_all(self):
+    def get_all(self) -> List[IFunction]:
         """
         Get all functions stores in the collection
 
         :return: a list with functions.
         """
-        result = [copy.deepcopy(self.__functions)]
+        result = copy.deepcopy(self.__functions)
         return result
 
-    def find_index_by_name(self, name):
+    def find_index_by_name(self, name: str) -> int:
         """
         Finds function index in the list by it's name.
 
@@ -65,7 +67,7 @@ class FunctionCollection(IFunctionCollection):
                 return i
         return -1
 
-    def find_by_name(self, name):
+    def find_by_name(self, name: str) -> IFunction:
         """
         Finds function in the list by it's name.
 
@@ -75,7 +77,7 @@ class FunctionCollection(IFunctionCollection):
         index = self.find_index_by_name(name)
         return self.__functions[index] if index >= 0 else None
 
-    def remove(self, index):
+    def remove(self, index: int):
         """
         Removes a function by its index.
 
@@ -83,7 +85,7 @@ class FunctionCollection(IFunctionCollection):
         """
         self.__functions.pop(index)
 
-    def remove_by_name(self, name):
+    def remove_by_name(self, name: str):
         """
         Removes function by it's name.
 

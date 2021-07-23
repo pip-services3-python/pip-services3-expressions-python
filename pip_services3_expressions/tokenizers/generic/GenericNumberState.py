@@ -19,7 +19,7 @@ class GenericNumberState(INumberState):
         self.MINUS = ord('-')
         self.DOT = ord('.')
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
         

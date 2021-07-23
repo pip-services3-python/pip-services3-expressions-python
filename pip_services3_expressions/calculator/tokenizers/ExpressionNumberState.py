@@ -18,7 +18,7 @@ class ExpressionNumberState(GenericNumberState):
         self.EXP1 = ord('e')
         self.EXP2 = ord('E')
 
-    def next_token(self, scanner: IScanner, tokenizer: ITokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
         

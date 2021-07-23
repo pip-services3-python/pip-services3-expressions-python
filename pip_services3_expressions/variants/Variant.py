@@ -3,8 +3,10 @@
 import copy
 from datetime import datetime
 from decimal import Decimal
+from typing import Any, Iterable
 
 from pip_services3_commons.convert.StringConverter import StringConverter
+
 from .VariantType import VariantType
 
 
@@ -22,17 +24,17 @@ class Variant:
         :param value: value a value to be assigned to this variant.
         """
         self.__type: VariantType
-        self.__value = None
-        self.as_object = value
+        self.__value: Any = None
+        self.as_object: Any = value
 
     @staticmethod
-    def Empty():
+    def Empty() -> 'Variant':
         if Variant.__empty is None:
             Variant.__empty = Variant(None)
         return Variant.__empty
 
     @property
-    def type(self):
+    def type(self) -> VariantType:
         """
         Gets a type of the variant value
 
@@ -41,14 +43,14 @@ class Variant:
         return self.__type
 
     @property
-    def as_integer(self):
+    def as_integer(self) -> int:
         """
         Sets variant value as integer
         """
         return self.__value
 
     @as_integer.setter
-    def as_integer(self, value):
+    def as_integer(self, value: int):
         """
         Sets variant value as integer
 
@@ -58,7 +60,7 @@ class Variant:
         self.__value = value
 
     @property
-    def as_long(self):
+    def as_long(self) -> int:
         """
         Gets variant value as long
 
@@ -67,7 +69,7 @@ class Variant:
         return self.__value
 
     @as_long.setter
-    def as_long(self, value):
+    def as_long(self, value: int):
         """
         Sets variant value as long
         """
@@ -75,14 +77,14 @@ class Variant:
         self.__value = value
 
     @property
-    def as_boolean(self):
+    def as_boolean(self) -> bool:
         """
         Gets variant value as boolean
         """
         return self.__value
 
     @as_boolean.setter
-    def as_boolean(self, value):
+    def as_boolean(self, value: bool):
         """
         Sets variant value as boolean
 
@@ -92,14 +94,14 @@ class Variant:
         self.__value = value
 
     @property
-    def as_float(self):
+    def as_float(self) -> float:
         """
         Gets variant value as float
         """
         return self.__value
 
     @as_float.setter
-    def as_float(self, value):
+    def as_float(self, value: float):
         """
         Sets variant value as float
 
@@ -116,7 +118,7 @@ class Variant:
         return self.__value
 
     @as_double.setter
-    def as_double(self, value):
+    def as_double(self, value: float):
         """
         Sets variant value as double
 
@@ -126,14 +128,14 @@ class Variant:
         self.__value = value
 
     @property
-    def as_string(self):
+    def as_string(self) -> str:
         """
         Gets variant value as string
         """
         return self.__value
 
     @as_string.setter
-    def as_string(self, value):
+    def as_string(self, value: str):
         """
         Sets variant value as string
 
@@ -143,14 +145,14 @@ class Variant:
         self.__value = value
 
     @property
-    def as_datetime(self):
+    def as_datetime(self) -> datetime:
         """
         Gets variant value as datetime
         """
         return self.__value
 
     @as_datetime.setter
-    def as_datetime(self, value):
+    def as_datetime(self, value: datetime):
         """
         Sets variant value as datetime
 
@@ -160,14 +162,14 @@ class Variant:
         self.__value = value
 
     @property
-    def as_time_span(self):
+    def as_time_span(self) -> int:
         """
         Gets variant value as time span
         """
         return self.__value
 
     @as_time_span.setter
-    def as_time_span(self, value):
+    def as_time_span(self, value: int):
         """
         Sets variant value as :class:`TimeSpan <VariantType.TimeSpan>`
 
@@ -177,14 +179,14 @@ class Variant:
         self.__value = value
 
     @property
-    def as_object(self):
+    def as_object(self) -> Any:
         """
         Gets variant value as Object
         """
         return self.__value
 
     @as_object.setter
-    def as_object(self, value):
+    def as_object(self, value: Any):
         """
         Sets variant value as Object
 
@@ -214,14 +216,14 @@ class Variant:
             self.__type = VariantType.Object
 
     @property
-    def as_array(self):
+    def as_array(self) -> Iterable:
         """
         Gets variant value as variant array
         """
         return self.__value
 
     @as_array.setter
-    def as_array(self, value):
+    def as_array(self, value: Iterable):
         """
         Sets variant value as variant array
 
@@ -234,7 +236,7 @@ class Variant:
             self.__value = None
 
     @property
-    def length(self):
+    def length(self) -> int:
         """
         Gets length of the array
         
@@ -245,7 +247,7 @@ class Variant:
         return 0
 
     @length.setter
-    def length(self, value):
+    def length(self, value: int):
         if self.__type == VariantType.Array:
             self.__value = copy.deepcopy(self.__value)
 
@@ -254,7 +256,7 @@ class Variant:
         else:
             raise Exception('Cannot set array length for non-array data type.')
 
-    def get_by_index(self, index):
+    def get_by_index(self, index: int):
         """
         Gets an array element by its index.
 
@@ -269,7 +271,7 @@ class Variant:
         else:
             raise Exception('Cannot access array element for none-array data type.')
 
-    def set_by_index(self, index, element):
+    def set_by_index(self, index: int, element: 'Variant'):
         """
         Sets an array element by its index.
 
@@ -287,7 +289,7 @@ class Variant:
         else:
             raise Exception('Cannot access array element for none-array data type.')
 
-    def is_null(self):
+    def is_null(self) -> bool:
         """
         Checks is this variant value Null.
 
@@ -295,7 +297,7 @@ class Variant:
         """
         return self.__type == VariantType.Null
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """
         Checks is this variant value empty.
 
@@ -303,7 +305,7 @@ class Variant:
         """
         return self.__value is None
 
-    def assign(self, value):
+    def assign(self, value: 'Variant'):
         """
         Assigns a new value to this object.
 
@@ -323,7 +325,7 @@ class Variant:
         self.__type = VariantType.Null
         self.__value = None
 
-    def to_string(self):
+    def to_string(self) -> str:
         """
         Returns a string value for this object.
 
@@ -334,7 +336,7 @@ class Variant:
         else:
             return StringConverter.to_string(self.__value)
 
-    def equals(self, obj):
+    def equals(self, obj: Any) -> bool:
         """
         Compares this object to the specified one.
 
@@ -351,7 +353,7 @@ class Variant:
 
         return False
 
-    def clone(self):
+    def clone(self) -> 'Variant':
         """
         Cloning the variant value
 
@@ -360,7 +362,7 @@ class Variant:
         return Variant(copy.deepcopy(self))
 
     @staticmethod
-    def from_integer(value):
+    def from_integer(value: int):
         """
         Creates a new variant from Integer value.
 
@@ -372,7 +374,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_long(value):
+    def from_long(value: int):
         """
         Creates a new variant from Long value.
 
@@ -384,7 +386,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_boolean(value):
+    def from_boolean(value: bool):
         """
         Creates a new variant from Boolean value.
 
@@ -396,7 +398,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_float(value):
+    def from_float(value: float):
         """
         Creates a new variant from Float value.
 
@@ -408,7 +410,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_double(value):
+    def from_double(value: float):
         """
         Creates a new variant from Double value.
 
@@ -420,7 +422,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_string(value):
+    def from_string(value: str):
         """
         Creates a new variant from String value.
 
@@ -432,7 +434,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_datetime(value):
+    def from_datetime(value: datetime):
         """
         Creates a new variant from DateTime value.
 
@@ -444,7 +446,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_time_span(value):
+    def from_time_span(value: int):
         """
         Creates a new variant from TimeSpan value.
 
@@ -456,7 +458,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_object(value):
+    def from_object(value: Any):
         """
         Creates a new variant from Object value.
 
@@ -468,7 +470,7 @@ class Variant:
         return result
 
     @staticmethod
-    def from_array(value):
+    def from_array(value: Iterable):
         """
         Creates a new variant from Array value.
 

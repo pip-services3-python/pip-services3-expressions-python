@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class CsvConstant:
-    Nil = 0
-    CR = ord('\r')
-    LF = ord('\n')
+    Nil: int = 0
+    CR: int = ord('\r')
+    LF: int = ord('\n')

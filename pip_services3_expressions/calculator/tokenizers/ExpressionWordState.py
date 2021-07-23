@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+from typing import List
 
+from pip_services3_expressions.io.IScanner import IScanner
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
 from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.tokenizers.generic.GenericWordState import GenericWordState
@@ -15,7 +18,8 @@ class ExpressionWordState(GenericWordState):
         Constructs an instance of this class.
         """
         super(ExpressionWordState, self).__init__()
-        self.keywords = [
+
+        self.keywords: List[str] = [
             "AND", "OR", "NOT", "XOR", "LIKE", "IS", "IN", "NULL", "TRUE", "FALSE"
         ]
 
@@ -27,7 +31,7 @@ class ExpressionWordState(GenericWordState):
         self.set_word_chars(0x00c0, 0x00ff, True)
         self.set_word_chars(0x0100, 0xfffe, True)
 
-    def next_token(self, scanner, tokenizer):
+    def next_token(self, scanner: IScanner, tokenizer: ITokenizer) -> Token:
         """
         Gets the next token from the stream started from the character linked to this state.
         

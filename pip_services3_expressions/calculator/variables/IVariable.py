@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from abc import ABC
+from abc import ABC, abstractproperty, abstractmethod
 
 from pip_services3_expressions.variants.Variant import Variant
 
@@ -10,9 +10,27 @@ class IVariable(ABC):
     Defines a variable interface.
     """
 
-    # The variable name.
-    name: str
+    @property
+    @abstractmethod
+    def name(self) -> str:
+        """
+        :return: The variable name.
+        """
+        pass
 
-    # The variable value.
-    value: Variant
+    @property
+    @abstractmethod
+    def value(self) -> Variant:
+        """
+        :return: The variable value.
+        """
+        pass
+
+    @value.setter
+    @abstractmethod
+    def value(self, value: Variant):
+        """
+        :param value: The variable value.
+        """
+        pass
 

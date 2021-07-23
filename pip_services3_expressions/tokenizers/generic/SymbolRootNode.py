@@ -18,7 +18,7 @@ class SymbolRootNode(SymbolNode):
         """
         super(SymbolRootNode, self).__init__(None, 0)
 
-    def add(self, value, token_type):
+    def add(self, value: str, token_type: TokenType):
         if value == '':
             raise Exception('Value must have at least 1 character')
 
@@ -28,7 +28,7 @@ class SymbolRootNode(SymbolNode):
             child_node.token_type = TokenType.Symbol
         child_node.add_descendant_line(value[1:], token_type)
 
-    def next_token(self, scanner: IScanner):
+    def next_token(self, scanner: IScanner) -> Token:
         """
         Return a symbol string from a scanner.
         

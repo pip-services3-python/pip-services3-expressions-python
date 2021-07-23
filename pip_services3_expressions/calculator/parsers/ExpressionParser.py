@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import List
 
 from pip_services3_commons.convert import IntegerConverter, FloatConverter
 
@@ -7,6 +8,8 @@ from pip_services3_expressions.calculator.SyntaxException import SyntaxException
 from pip_services3_expressions.calculator.parsers.ExpressionToken import ExpressionToken
 from pip_services3_expressions.calculator.parsers.ExpressionTokenType import ExpressionTokenType
 from pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer import ExpressionTokenizer
+from pip_services3_expressions.tokenizers.ITokenizer import ITokenizer
+from pip_services3_expressions.tokenizers.Token import Token
 from pip_services3_expressions.tokenizers.TokenType import TokenType
 from pip_services3_expressions.variants.Variant import Variant
 
@@ -20,13 +23,13 @@ class ExpressionParser:
         """
         Defines a list of operators.
         """
-        self.__OPERATORS = [
+        self.__OPERATORS: List[str] = [
             "(", ")", "[", "]", "+", "-", "*", "/", "%", "^",
             "=", "<>", "!=", ">", "<", ">=", "<=", "<<", ">>",
             "AND", "OR", "XOR", "NOT", "IS", "IN", "NULL", "LIKE", ","
         ]
 
-        self.__OPERATOR_TYPES = [
+        self.__OPERATOR_TYPES: List[ExpressionTokenType] = [
             ExpressionTokenType.LeftBrace, ExpressionTokenType.RightBrace,
             ExpressionTokenType.LeftSquareBrace, ExpressionTokenType.RightSquareBrace,
             ExpressionTokenType.Plus, ExpressionTokenType.Minus,
@@ -43,55 +46,55 @@ class ExpressionParser:
             ExpressionTokenType.Like, ExpressionTokenType.Comma
         ]
 
-        self.__tokenizer = ExpressionTokenizer()
-        self.__expression = ''
-        self.__original_tokens = []
-        self.__initial_tokens = []
-        self.__current_token_index = 0
-        self.__variable_names = []
-        self.__result_tokens = []
+        self.__tokenizer: ITokenizer = ExpressionTokenizer()
+        self.__expression: str = ''
+        self.__original_tokens: List[Token] = []
+        self.__initial_tokens: List[ExpressionToken] = []
+        self.__current_token_index: int = 0
+        self.__variable_names: List[str] = []
+        self.__result_tokens: List[ExpressionToken] = []
 
     @property
-    def expression(self):
+    def expression(self)->str:
         """
         The expression string.
         """
         return self.__expression
 
     @expression.setter
-    def expression(self, value):
+    def expression(self, value: str):
         self.parse_string(value)
 
     @property
-    def original_tokens(self):
+    def original_tokens(self) -> List[Token]:
         return self.__original_tokens
 
     @original_tokens.setter
-    def original_tokens(self, value):
+    def original_tokens(self, value: List[Token]):
         self.__original_tokens = value
 
     @property
-    def initial_tokens(self):
+    def initial_tokens(self) -> List[ExpressionToken]:
         """
         The list of original expression tokens.
         """
         return self.__initial_tokens
 
     @property
-    def result_tokens(self):
+    def result_tokens(self) -> List[ExpressionToken]:
         """
         The list of parsed expression tokens.
         """
         return self.__result_tokens
 
     @property
-    def variable_names(self):
+    def variable_names(self) -> List[str]:
         """
         The list of found variable names.
         """
         return self.__variable_names
 
-    def parse_string(self, expression):
+    def parse_string(self, expression: str):
         """
         Sets a new expression string and parses it into internal byte code.
 
@@ -102,7 +105,7 @@ class ExpressionParser:
         self.__original_tokens = self.__tokenize_expression(self.__expression)
         self.__perform_parsing()
 
-    def parse_tokens(self, tokens):
+    def parse_tokens(self, tokens: List[Token]):
         self.clear()
         self.__original_tokens = tokens
         self.__expression = self.__compose_expression(tokens)
@@ -119,7 +122,7 @@ class ExpressionParser:
         self.__current_token_index = 0
         self.__variable_names = []
 
-    def __has_more_tokens(self):
+    def __has_more_tokens(self) -> bool:
         """
         Checks are there more tokens for processing.
 
@@ -134,7 +137,7 @@ class ExpressionParser:
         if not self.__has_more_tokens():
             raise SyntaxException(None, SyntaxErrorCode.UNEXPECTED_END, 'Unexpected end of expression.', 0, 0)
 
-    def __get_current_token(self):
+    def __get_current_token(self) -> ExpressionToken:
         """
         Gets the current token object.
 
@@ -143,7 +146,7 @@ class ExpressionParser:
         return self.__initial_tokens[self.__current_token_index] if self.__current_token_index < len(
             self.__initial_tokens) else None
 
-    def __get_next_token(self):
+    def __get_next_token(self) -> ExpressionToken:
         """
         Gets the next token object.
 
@@ -169,7 +172,7 @@ class ExpressionParser:
         """
         self.__result_tokens.append(ExpressionToken(type, value, line, column))
 
-    def __match_tokens_with_types(self, *types):
+    def __match_tokens_with_types(self, *types) -> bool:
         """
         Matches available tokens types with types from the list.
         If tokens matches then shift the list.
@@ -188,7 +191,7 @@ class ExpressionParser:
             self.__current_token_index += len(types)
         return matches
 
-    def __tokenize_expression(self, expression):
+    def __tokenize_expression(self, expression: str) -> List[Token]:
         expression = expression.strip() if expression is not None else ''
         if len(expression) > 0:
             self.__tokenizer.skip_whitespaces = True
@@ -199,7 +202,7 @@ class ExpressionParser:
         else:
             return []
 
-    def __compose_expression(self, tokens):
+    def __compose_expression(self, tokens: List[Token]) -> str:
         builder = ''
         for token in tokens:
             builder += token.value
