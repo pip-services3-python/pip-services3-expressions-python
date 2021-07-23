@@ -393,10 +393,13 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         # Performs operation.
         if value.type == VariantType.Integer:
             result.as_integer = ~value.as_integer
+            return result
         elif value.type == VariantType.Long:
             result.as_long = ~value.as_long
+            return result
         elif value.type == VariantType.Boolean:
             result.as_boolean = ~value.as_boolean
+            return result
 
         raise Exception(f"Operation NOT is not supported for type {self._type_to_string(value.type)}")
 
@@ -416,12 +419,16 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         # Performs operation.
         if value.type == VariantType.Integer:
             result.as_integer = -value.as_integer
+            return result
         elif value.type == VariantType.Long:
             result.as_long = -value.as_long
+            return result
         elif value.type == VariantType.Float:
             result.as_float = -value.as_float
+            return result
         elif value.type == VariantType.Double:
             result.as_double = -value.as_double
+            return result
 
         raise Exception(f"Operation '-' is not supported for type {self._type_to_string(value.type)}")
 

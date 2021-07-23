@@ -132,7 +132,7 @@ class Variant:
         """
         Gets variant value as string
         """
-        return self.__value
+        return str(self.__value)
 
     @as_string.setter
     def as_string(self, value: str):

@@ -41,7 +41,7 @@ clalculator = ExpressionCalculator()
 clalculator.expression = "A + b / (3 - Max(-123, 1)*2)"
 vars = VariableCollection()
 vars.add(Variable("A", Variant(1)))
-vars.add(Variable("B", Variant("3")))
+vars.add(Variable("B", Variant(3)))
 
 result = clalculator.evaluate_with_variables(vars)
 print('The result of the expression is ' + result.as_string)
