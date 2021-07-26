@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from .IVariantOperations import IVariantOperations
 from .Variant import Variant
@@ -37,6 +37,7 @@ class AbstractVariantOperations(IVariantOperations, ABC):
         except KeyError as e:
             return 'Unknown'
 
+    @abstractmethod
     def convert(self, value: Variant, new_type: VariantType) -> Variant:
         """
         Converts variant to specified type

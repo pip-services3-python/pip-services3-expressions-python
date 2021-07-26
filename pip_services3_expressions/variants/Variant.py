@@ -17,7 +17,7 @@ class Variant:
 
     __empty = None
 
-    def __init__(self, value=None):
+    def __init__(self, value: Any = None):
         """
         Constructs this class and Assigns another variant value.
 

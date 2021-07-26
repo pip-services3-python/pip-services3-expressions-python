@@ -55,7 +55,7 @@ class ExpressionParser:
         self.__result_tokens: List[ExpressionToken] = []
 
     @property
-    def expression(self)->str:
+    def expression(self) -> str:
         """
         The expression string.
         """

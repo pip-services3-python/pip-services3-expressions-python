@@ -8,7 +8,8 @@ from pip_services3_expressions.variants.Variant import Variant
 
 class DelegatedFunction(IFunction):
 
-    def __init__(self, name: str, calculator: Callable[[List[Variant], IVariantOperations], Variant], context: Optional[Any] = None):
+    def __init__(self, name: str, calculator: Callable[[List[Variant], IVariantOperations], Variant],
+                 context: Optional[Any] = None):
         """
         Constructs this function class with specified parameters.
 
@@ -24,14 +25,17 @@ class DelegatedFunction(IFunction):
         self.__context = context
 
     @property
-    def name(self):
+    def name(self) -> str:
         """
         The function name.
         """
         return self.__name
 
-    def __calculate_with_context(self, context: Any, params: List[Variant], variant_operations: IVariantOperations)->Variant:
-        self = context
+    def __calculate_with_context(self, context: Any, params: List[Variant],
+                                 variant_operations: IVariantOperations) -> Variant:
+        # update context current object
+        self.__dict__.update(context.__dict__)
+
         return self.__calculator(params, variant_operations)
 
     def calculate(self, params: List[Variant], variant_operations: IVariantOperations) -> Variant:
@@ -46,5 +50,3 @@ class DelegatedFunction(IFunction):
             return self.__calculator(params, variant_operations)
         else:
             return self.__calculate_with_context(self.__context, params, variant_operations)
-
-
