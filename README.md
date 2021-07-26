@@ -87,4 +87,7 @@ Before committing changes run dockerized build and test as:
 
 ## Contacts
 
-The module is created and maintained by **Sergey Seroukhov**
+The module is created and maintained by:
+- **Sergey Seroukhov**
+- **Danil Prisiazhnyi**
+

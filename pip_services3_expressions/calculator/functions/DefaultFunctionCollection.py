@@ -84,7 +84,7 @@ class DefaultFunctionCollection(FunctionCollection):
 
     def _ticks_function_calculator(self, params: List[Variant], variant_operations: IVariantOperations) -> Variant:
         self._check_param_count(params, 0)
-        return Variant.from_long(datetime.now().timestamp() / 1000)
+        return Variant.from_long(int(datetime.now().timestamp() / 1000))
 
     def _time_span_function_calculator(self, params: List[Variant], variant_operations: IVariantOperations) -> Variant:
         param_count = len(params)
@@ -209,7 +209,7 @@ class DefaultFunctionCollection(FunctionCollection):
 
         if param_count < param_index + 1:
             raise ExpressionException(None, "WRONG_PARAM_COUNT",
-                                      "Expected at least " + (param_index + 1) + " parameters")
+                                      "Expected at least " + str((param_index + 1)) + " parameters")
 
         return self._get_parameter(params, param_index)
 

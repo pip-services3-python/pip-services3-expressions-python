@@ -76,7 +76,7 @@ class VariableCollection(IVariableCollection):
         :return: A variable or **None** if function was not found.
         """
         index = self.find_index_by_name(name)
-        return self.__variables[index] if index >= 0 else None
+        return None if index < 0 else self.__variables[index]
 
     def locate(self, name: str) -> IVariable:
         """

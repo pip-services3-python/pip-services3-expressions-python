@@ -18,14 +18,14 @@ class TestExpressionCalculator:
         assert VariantType.Integer == result.type
         assert 4 == result.as_integer
 
-    def function_expression(self):
+    def test_function_expression(self):
         calculator = ExpressionCalculator()
         calculator.expression = "A + b / (3 - Max(-123, 1)*2)"
 
         assert 'A' == calculator.default_variables.find_by_name('a').name
         assert 'b' == calculator.default_variables.find_by_name('b').name
-        assert calculator.default_variables.find_by_name('a').value == Variant('xyz')
-        assert calculator.default_variables.find_by_name('b').value == Variant('123')
+        calculator.default_variables.find_by_name('a').value = Variant('xyz')
+        calculator.default_variables.find_by_name('b').value = Variant(123)
 
         result = calculator.evaluate()
         assert result is not None
