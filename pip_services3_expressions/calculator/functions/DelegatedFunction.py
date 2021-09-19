@@ -8,8 +8,7 @@ from pip_services3_expressions.variants.Variant import Variant
 
 class DelegatedFunction(IFunction):
 
-    def __init__(self, name: str, calculator: Callable[[List[Variant], IVariantOperations], Variant],
-                 context: Optional[Any] = None):
+    def __init__(self, name: str, calculator: Callable[[List[Variant], IVariantOperations], Variant]):
         """
         Constructs this function class with specified parameters.
 
@@ -22,7 +21,6 @@ class DelegatedFunction(IFunction):
             raise Exception('Calculator parameter cannot be null')
         self.__name: str = name
         self.__calculator: Callable[[List[Variant], IVariantOperations], Variant] = calculator
-        self.__context = context
 
     @property
     def name(self) -> str:
@@ -46,7 +44,4 @@ class DelegatedFunction(IFunction):
         :param variant_operations: Variants operations manager.
         :return: return function result.
         """
-        if self.__context is None:
-            return self.__calculator(params, variant_operations)
-        else:
-            return self.__calculate_with_context(self.__context, params, variant_operations)
+        return self.__calculator(params, variant_operations)

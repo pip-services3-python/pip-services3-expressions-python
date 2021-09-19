@@ -12,7 +12,6 @@ Submodules
    pip_services3_expressions.calculator.tokenizers.ExpressionSymbolState
    pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer
    pip_services3_expressions.calculator.tokenizers.ExpressionWordState
-   pip_services3_expressions.calculator.tokenizers.MustacheTokenizer
 
 Module contents
 ---------------
