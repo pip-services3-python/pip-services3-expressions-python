@@ -97,6 +97,312 @@
 </section>
 <section id="module-pip_services3_expressions.calculator.variables">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.calculator.variables" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.variables.IVariable">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.variables.</code><code class="sig-name descname">IVariable</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariable" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines a variable interface.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariable.name">
+<em class="property">abstract property </em><code class="sig-name descname">name</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariable.name" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The variable name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariable.value">
+<em class="property">abstract property </em><code class="sig-name descname">value</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariable.value" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The variable value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.variables.</code><code class="sig-name descname">IVariableCollection</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines a variables list.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.add" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new variable to the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variable</strong> – a variable to be added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears the collection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.clear_values">
+<code class="sig-name descname">clear_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.clear_values" title="Permalink to this definition"></a></dt>
+<dd><p>Clears all stored variables (assigns null values).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.find_by_name">
+<code class="sig-name descname">find_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.find_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds variable in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A variable or <strong>None</strong> if function was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.find_index_by_name">
+<code class="sig-name descname">find_index_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.find_index_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds variable index in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Variable index in the list or <strong>-1</strong> if variable was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get a variable by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a variable index.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a retrieved variable.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.get_all">
+<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.get_all" title="Permalink to this definition"></a></dt>
+<dd><p>Get all variables stores in the collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list with variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.length">
+<code class="sig-name descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.length" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a number of variables stored in the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>return a number of stored variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.locate">
+<code class="sig-name descname">locate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.locate" title="Permalink to this definition"></a></dt>
+<dd><p>Finds variable in the list or create a new one if variable was not found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Found or created variable.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Removes a variable by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a index of the variable to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.IVariableCollection.remove_by_name">
+<code class="sig-name descname">remove_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.IVariableCollection.remove_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Removes variable by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.variables.Variable">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.variables.</code><code class="sig-name descname">Variable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.Variable" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.calculator.variables.IVariable.IVariable</span></code></a></p>
+<p>Implements a variable holder object.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.Variable.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.Variable.name" title="Permalink to this definition"></a></dt>
+<dd><p>The variable name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.Variable.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.Variable.value" title="Permalink to this definition"></a></dt>
+<dd><p>The variable value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.variables.</code><code class="sig-name descname">VariableCollection</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariableCollection.html#pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection" title="pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection</span></code></a></p>
+<p>Implements a variables list.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.add" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new variable to the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variable</strong> – a variable to be added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears the collection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.clear_values">
+<code class="sig-name descname">clear_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.clear_values" title="Permalink to this definition"></a></dt>
+<dd><p>Clears all stored variables (assigns null values).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.find_by_name">
+<code class="sig-name descname">find_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.find_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds variable in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A variable or <strong>None</strong> if function was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.find_index_by_name">
+<code class="sig-name descname">find_index_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.find_index_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds variable index in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Variable index in the list or <strong>-1</strong> if variable was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get a variable by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a variable index.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a retrieved variable.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.get_all">
+<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.get_all" title="Permalink to this definition"></a></dt>
+<dd><p>Get all variables stores in the collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list with variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.length">
+<em class="property">property </em><code class="sig-name descname">length</code><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.length" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a number of variables stored in the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a number of stored variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.locate">
+<code class="sig-name descname">locate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariable.html#pip_services3_expressions.calculator.variables.IVariable.IVariable" title="pip_services3_expressions.calculator.variables.IVariable.IVariable">pip_services3_expressions.calculator.variables.IVariable.IVariable</a><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.locate" title="Permalink to this definition"></a></dt>
+<dd><p>Finds variable in the list or create a new one if variable was not found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Found or created variable.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Removes a variable by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a index of the variable to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.variables.VariableCollection.remove_by_name">
+<code class="sig-name descname">remove_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.variables.VariableCollection.remove_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Removes variable by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The variable name to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

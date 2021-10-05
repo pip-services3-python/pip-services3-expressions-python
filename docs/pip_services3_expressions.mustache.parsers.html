@@ -98,6 +98,195 @@
 </section>
 <section id="module-pip_services3_expressions.mustache.parsers">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.mustache.parsers" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.parsers.</code><code class="sig-name descname">MustacheErrorCode</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>General syntax errors.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.ERROR_AT">
+<code class="sig-name descname">ERROR_AT</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'ERROR_AT'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.ERROR_AT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.ERROR_NEAR">
+<code class="sig-name descname">ERROR_NEAR</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'ERROR_NEAR'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.ERROR_NEAR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.INTERNAL">
+<code class="sig-name descname">INTERNAL</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'INTERNAL'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.INTERNAL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.MISMATCHED_BRACKETS">
+<code class="sig-name descname">MISMATCHED_BRACKETS</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'MISMATCHED_BRACKETS'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.MISMATCHED_BRACKETS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.MISSING_VARIABLE">
+<code class="sig-name descname">MISSING_VARIABLE</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'MISSING_VARIABLE'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.MISSING_VARIABLE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.NOT_CLOSED_SECTION">
+<code class="sig-name descname">NOT_CLOSED_SECTION</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'NOT_CLOSED_SECTION'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.NOT_CLOSED_SECTION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNEXPECTED_END">
+<code class="sig-name descname">UNEXPECTED_END</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'UNEXPECTED_END'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNEXPECTED_END" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNEXPECTED_SECTION_END">
+<code class="sig-name descname">UNEXPECTED_SECTION_END</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'UNEXPECTED_SECTION_END'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNEXPECTED_SECTION_END" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNEXPECTED_SYMBOL">
+<code class="sig-name descname">UNEXPECTED_SYMBOL</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'UNEXPECTED_SYMBOL'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNEXPECTED_SYMBOL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNKNOWN">
+<code class="sig-name descname">UNKNOWN</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><em class="property"> = 'UNKNOWN'</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheErrorCode.UNKNOWN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.parsers.</code><code class="sig-name descname">MustacheLexicalState</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>Define states in mustache lexical analysis.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState.Closure">
+<code class="sig-name descname">Closure</code><em class="property"> = 5</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState.Closure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState.Comment">
+<code class="sig-name descname">Comment</code><em class="property"> = 4</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState.Comment" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState.Operator1">
+<code class="sig-name descname">Operator1</code><em class="property"> = 1</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState.Operator1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState.Operator2">
+<code class="sig-name descname">Operator2</code><em class="property"> = 2</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState.Operator2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState.Value">
+<code class="sig-name descname">Value</code><em class="property"> = 0</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState.Value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheLexicalState.Variable">
+<code class="sig-name descname">Variable</code><em class="property"> = 3</em><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheLexicalState.Variable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.parsers.</code><code class="sig-name descname">MustacheParser</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Implements an mustache parser class.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears parsing results.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.initial_tokens">
+<em class="property">property </em><code class="sig-name descname">initial_tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.initial_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of original mustache tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.original_tokens">
+<em class="property">property </em><code class="sig-name descname">original_tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.original_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.parse_string">
+<code class="sig-name descname">parse_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mustache</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.parse_string" title="Permalink to this definition"></a></dt>
+<dd><p>Sets a new mustache string and parses it into internal byte code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mustache</strong> – A new mustache string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.parse_tokens">
+<code class="sig-name descname">parse_tokens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.parse_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.result_tokens">
+<em class="property">property </em><code class="sig-name descname">result_tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.result_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of parsed mustache tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.template">
+<em class="property">property </em><code class="sig-name descname">template</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.template" title="Permalink to this definition"></a></dt>
+<dd><p>The mustache template.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheParser.variable_names">
+<em class="property">property </em><code class="sig-name descname">variable_names</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheParser.variable_names" title="Permalink to this definition"></a></dt>
+<dd><p>The list of found variable names.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheToken">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.parsers.</code><code class="sig-name descname">MustacheToken</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.mustache.parsers.MustacheTokenType.html#pip_services3_expressions.mustache.parsers.MustacheTokenType.MustacheTokenType" title="pip_services3_expressions.mustache.parsers.MustacheTokenType.MustacheTokenType">pip_services3_expressions.mustache.parsers.MustacheTokenType.MustacheTokenType</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">column</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheToken" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Defines a mustache token holder.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheToken.column">
+<em class="property">property </em><code class="sig-name descname">column</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheToken.column" title="Permalink to this definition"></a></dt>
+<dd><p>The column number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheToken.line">
+<em class="property">property </em><code class="sig-name descname">line</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheToken.line" title="Permalink to this definition"></a></dt>
+<dd><p>The line number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheToken.tokens">
+<em class="property">property </em><code class="sig-name descname">tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheToken.tokens" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a list of subtokens is this token a section.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheToken.type">
+<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheToken.type" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the token value or variable name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.parsers.MustacheToken.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#pip_services3_expressions.mustache.parsers.MustacheToken.value" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the token value or variable name.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

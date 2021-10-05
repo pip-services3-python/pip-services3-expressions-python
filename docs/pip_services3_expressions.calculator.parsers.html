@@ -96,6 +96,286 @@
 </section>
 <section id="module-pip_services3_expressions.calculator.parsers">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.calculator.parsers" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.parsers.</code><code class="sig-name descname">ExpressionParser</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Implements an expression parser class.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears parsing results.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.expression">
+<em class="property">property </em><code class="sig-name descname">expression</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.expression" title="Permalink to this definition"></a></dt>
+<dd><p>The expression string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.initial_tokens">
+<em class="property">property </em><code class="sig-name descname">initial_tokens</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.initial_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of original expression tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.original_tokens">
+<em class="property">property </em><code class="sig-name descname">original_tokens</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.original_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.parse_string">
+<code class="sig-name descname">parse_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.parse_string" title="Permalink to this definition"></a></dt>
+<dd><p>Sets a new expression string and parses it into internal byte code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>expression</strong> – A new expression string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.parse_tokens">
+<code class="sig-name descname">parse_tokens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.parse_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.result_tokens">
+<em class="property">property </em><code class="sig-name descname">result_tokens</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.result_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of parsed expression tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionParser.variable_names">
+<em class="property">property </em><code class="sig-name descname">variable_names</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionParser.variable_names" title="Permalink to this definition"></a></dt>
+<dd><p>The list of found variable names.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionToken">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.parsers.</code><code class="sig-name descname">ExpressionToken</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.parsers.ExpressionTokenType.html#pip_services3_expressions.calculator.parsers.ExpressionTokenType.ExpressionTokenType" title="pip_services3_expressions.calculator.parsers.ExpressionTokenType.ExpressionTokenType">pip_services3_expressions.calculator.parsers.ExpressionTokenType.ExpressionTokenType</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a></span></em>, <em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">column</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionToken" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Defines an expression token holder.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionToken.column">
+<em class="property">property </em><code class="sig-name descname">column</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionToken.column" title="Permalink to this definition"></a></dt>
+<dd><p>The column number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionToken.line">
+<em class="property">property </em><code class="sig-name descname">line</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionToken.line" title="Permalink to this definition"></a></dt>
+<dd><p>The line number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionToken.type">
+<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionToken.type" title="Permalink to this definition"></a></dt>
+<dd><p>The type of this token.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionToken.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionToken.value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.parsers.</code><code class="sig-name descname">ExpressionTokenType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>Define types of expression tokens.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.And">
+<code class="sig-name descname">And</code><em class="property"> = 19</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.And" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Comma">
+<code class="sig-name descname">Comma</code><em class="property"> = 32</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Comma" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Constant">
+<code class="sig-name descname">Constant</code><em class="property"> = 36</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Constant" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Element">
+<code class="sig-name descname">Element</code><em class="property"> = 25</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Element" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Equal">
+<code class="sig-name descname">Equal</code><em class="property"> = 11</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Equal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.EqualLess">
+<code class="sig-name descname">EqualLess</code><em class="property"> = 16</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.EqualLess" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.EqualMore">
+<code class="sig-name descname">EqualMore</code><em class="property"> = 15</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.EqualMore" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Function">
+<code class="sig-name descname">Function</code><em class="property"> = 34</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Function" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.In">
+<code class="sig-name descname">In</code><em class="property"> = 23</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.In" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Is">
+<code class="sig-name descname">Is</code><em class="property"> = 22</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Is" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.IsNotNull">
+<code class="sig-name descname">IsNotNull</code><em class="property"> = 31</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.IsNotNull" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.IsNull">
+<code class="sig-name descname">IsNull</code><em class="property"> = 30</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.IsNull" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.LeftBrace">
+<code class="sig-name descname">LeftBrace</code><em class="property"> = 1</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.LeftBrace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.LeftSquareBrace">
+<code class="sig-name descname">LeftSquareBrace</code><em class="property"> = 3</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.LeftSquareBrace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Less">
+<code class="sig-name descname">Less</code><em class="property"> = 14</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Less" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Like">
+<code class="sig-name descname">Like</code><em class="property"> = 28</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Like" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Minus">
+<code class="sig-name descname">Minus</code><em class="property"> = 6</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Minus" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.More">
+<code class="sig-name descname">More</code><em class="property"> = 13</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.More" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Not">
+<code class="sig-name descname">Not</code><em class="property"> = 27</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Not" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.NotEqual">
+<code class="sig-name descname">NotEqual</code><em class="property"> = 12</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.NotEqual" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.NotIn">
+<code class="sig-name descname">NotIn</code><em class="property"> = 24</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.NotIn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.NotLike">
+<code class="sig-name descname">NotLike</code><em class="property"> = 29</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.NotLike" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Null">
+<code class="sig-name descname">Null</code><em class="property"> = 26</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Null" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Or">
+<code class="sig-name descname">Or</code><em class="property"> = 20</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Or" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Percent">
+<code class="sig-name descname">Percent</code><em class="property"> = 9</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Percent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Plus">
+<code class="sig-name descname">Plus</code><em class="property"> = 5</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Plus" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Power">
+<code class="sig-name descname">Power</code><em class="property"> = 10</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Power" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.RightBrace">
+<code class="sig-name descname">RightBrace</code><em class="property"> = 2</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.RightBrace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.RightSquareBrace">
+<code class="sig-name descname">RightSquareBrace</code><em class="property"> = 4</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.RightSquareBrace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.ShiftLeft">
+<code class="sig-name descname">ShiftLeft</code><em class="property"> = 17</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.ShiftLeft" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.ShiftRight">
+<code class="sig-name descname">ShiftRight</code><em class="property"> = 18</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.ShiftRight" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Slash">
+<code class="sig-name descname">Slash</code><em class="property"> = 8</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Slash" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Star">
+<code class="sig-name descname">Star</code><em class="property"> = 7</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Star" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Unary">
+<code class="sig-name descname">Unary</code><em class="property"> = 33</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Unary" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Unknown">
+<code class="sig-name descname">Unknown</code><em class="property"> = 0</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Variable">
+<code class="sig-name descname">Variable</code><em class="property"> = 35</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Variable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.parsers.ExpressionTokenType.Xor">
+<code class="sig-name descname">Xor</code><em class="property"> = 21</em><a class="headerlink" href="#pip_services3_expressions.calculator.parsers.ExpressionTokenType.Xor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

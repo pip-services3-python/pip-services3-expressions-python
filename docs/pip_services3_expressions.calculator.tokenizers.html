@@ -98,6 +98,191 @@
 </section>
 <section id="module-pip_services3_expressions.calculator.tokenizers">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.calculator.tokenizers" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionNumberState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.tokenizers.</code><code class="sig-name descname">ExpressionNumberState</code><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionNumberState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.generic.GenericNumberState.html#pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState" title="pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.generic.GenericNumberState.GenericNumberState</span></code></a></p>
+<p>Implements an Expression-specific number state object.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionNumberState.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizer.html#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer" title="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer">pip_services3_expressions.tokenizers.ITokenizer.ITokenizer</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionNumberState.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the stream started from the character linked to this state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The next token from the top of the stream.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.tokenizers.</code><code class="sig-name descname">ExpressionQuoteState</code><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</span></code></a></p>
+<p>Implements an Expression-specific quote string state object.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState.decode_string">
+<code class="sig-name descname">decode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState.decode_string" title="Permalink to this definition"></a></dt>
+<dd><p>Decodes a string value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – A string value to be decoded.</p></li>
+<li><p><strong>quote_symbol</strong> – A string quote character.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An decoded string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState.encode_string">
+<code class="sig-name descname">encode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState.encode_string" title="Permalink to this definition"></a></dt>
+<dd><p>Encodes a string value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – A string value to be encoded.</p></li>
+<li><p><strong>quote_symbol</strong> – A string quote character.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An encoded string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizer.html#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer" title="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer">pip_services3_expressions.tokenizers.ITokenizer.ITokenizer</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionQuoteState.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the stream started from the character linked to this state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The next token from the top of the stream.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionSymbolState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.tokenizers.</code><code class="sig-name descname">ExpressionSymbolState</code><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionSymbolState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.generic.GenericSymbolState.html#pip_services3_expressions.tokenizers.generic.GenericSymbolState.GenericSymbolState" title="pip_services3_expressions.tokenizers.generic.GenericSymbolState.GenericSymbolState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.generic.GenericSymbolState.GenericSymbolState</span></code></a></p>
+<p>Constructs an instance of this class.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.tokenizers.</code><code class="sig-name descname">ExpressionTokenizer</code><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.AbstractTokenizer.html#pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer" title="pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer</span></code></a></p>
+<p>Implement tokenizer to perform lexical analysis for expressions.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.comment_state">
+<code class="sig-name descname">comment_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ICommentState.html#pip_services3_expressions.tokenizers.ICommentState.ICommentState" title="pip_services3_expressions.tokenizers.ICommentState.ICommentState">pip_services3_expressions.tokenizers.ICommentState.ICommentState</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.comment_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.decode_strings">
+<code class="sig-name descname">decode_strings</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.decode_strings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.merge_whitespaces">
+<code class="sig-name descname">merge_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.merge_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.number_state">
+<code class="sig-name descname">number_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.INumberState.html#pip_services3_expressions.tokenizers.INumberState.INumberState" title="pip_services3_expressions.tokenizers.INumberState.INumberState">pip_services3_expressions.tokenizers.INumberState.INumberState</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.number_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.quote_state">
+<code class="sig-name descname">quote_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.quote_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_comments">
+<code class="sig-name descname">skip_comments</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_comments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_eof">
+<code class="sig-name descname">skip_eof</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_eof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_unknown">
+<code class="sig-name descname">skip_unknown</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_whitespaces">
+<code class="sig-name descname">skip_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.skip_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.symbol_state">
+<code class="sig-name descname">symbol_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ISymbolState.html#pip_services3_expressions.tokenizers.ISymbolState.ISymbolState" title="pip_services3_expressions.tokenizers.ISymbolState.ISymbolState">pip_services3_expressions.tokenizers.ISymbolState.ISymbolState</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.symbol_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.unify_numbers">
+<code class="sig-name descname">unify_numbers</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.unify_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.whitespace_state">
+<code class="sig-name descname">whitespace_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWhitespaceState.html#pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState" title="pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState">pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.whitespace_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.word_state">
+<code class="sig-name descname">word_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState">pip_services3_expressions.tokenizers.IWordState.IWordState</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionTokenizer.word_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionWordState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.tokenizers.</code><code class="sig-name descname">ExpressionWordState</code><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionWordState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.generic.GenericWordState.html#pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState" title="pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState</span></code></a></p>
+<p>Implements a word state object.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.tokenizers.ExpressionWordState.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizer.html#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer" title="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer">pip_services3_expressions.tokenizers.ITokenizer.ITokenizer</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.calculator.tokenizers.ExpressionWordState.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the stream started from the character linked to this state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The next token from the top of the stream.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

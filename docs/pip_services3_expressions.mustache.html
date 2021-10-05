@@ -122,6 +122,114 @@
 </section>
 <section id="module-pip_services3_expressions.mustache">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.mustache" title="Permalink to this headline"></a></h2>
+<dl class="py exception">
+<dt id="pip_services3_expressions.mustache.MustacheException">
+<em class="property">exception </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.</code><code class="sig-name descname">MustacheException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">code</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">0</span></em>, <em class="sig-param"><span class="n">column</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.errors.BadRequestException.html#pip_services3_commons.errors.BadRequestException.BadRequestException" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.errors.BadRequestException.BadRequestException</span></code></a></p>
+<p>Exception that can be thrown by Mustache Template.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.</code><code class="sig-name descname">MustacheTemplate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">template</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Implements an mustache template class.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.auto_variables">
+<em class="property">property </em><code class="sig-name descname">auto_variables</code><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.auto_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the flag to turn on auto creation of variables for specified mustache.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Cleans up this calculator from all data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.create_variables">
+<code class="sig-name descname">create_variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.create_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Populates the specified variables list with variables from parsed mustache.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.default_variables">
+<em class="property">property </em><code class="sig-name descname">default_variables</code><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.default_variables" title="Permalink to this definition"></a></dt>
+<dd><p>The list with default variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates this mustache template using default variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the evaluated template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.evaluate_tokens">
+<code class="sig-name descname">evaluate_tokens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.mustache.parsers.MustacheToken.html#pip_services3_expressions.mustache.parsers.MustacheToken.MustacheToken" title="pip_services3_expressions.mustache.parsers.MustacheToken.MustacheToken">pip_services3_expressions.mustache.parsers.MustacheToken.MustacheToken</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.evaluate_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.evaluate_with_variables">
+<code class="sig-name descname">evaluate_with_variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.evaluate_with_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates this mustache using specified variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variables</strong> – The collection of variables</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the evaluated template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.get_variables">
+<code class="sig-name descname">get_variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.get_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a variable value from the collection of variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variables</strong> – a collection of variables.</p></li>
+<li><p><strong>name</strong> – a variable name to get.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a variable value or <strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.initial_tokens">
+<em class="property">property </em><code class="sig-name descname">initial_tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.initial_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of original mustache tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.original_tokens">
+<em class="property">property </em><code class="sig-name descname">original_tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.original_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.result_tokens">
+<em class="property">property </em><code class="sig-name descname">result_tokens</code><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.result_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of processed mustache tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.MustacheTemplate.template">
+<em class="property">property </em><code class="sig-name descname">template</code><a class="headerlink" href="#pip_services3_expressions.mustache.MustacheTemplate.template" title="Permalink to this definition"></a></dt>
+<dd><p>The mustache template.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

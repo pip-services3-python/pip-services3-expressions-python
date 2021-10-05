@@ -149,6 +149,153 @@
 </section>
 <section id="module-pip_services3_expressions.calculator">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.calculator" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.CalculationStack">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.</code><code class="sig-name descname">CalculationStack</code><a class="headerlink" href="#pip_services3_expressions.calculator.CalculationStack" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Implements a stack of Variant values.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.CalculationStack.length">
+<em class="property">property </em><code class="sig-name descname">length</code><a class="headerlink" href="#pip_services3_expressions.calculator.CalculationStack.length" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.CalculationStack.peek">
+<code class="sig-name descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.CalculationStack.peek" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.CalculationStack.peek_at">
+<code class="sig-name descname">peek_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.CalculationStack.peek_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.CalculationStack.pop">
+<code class="sig-name descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.CalculationStack.pop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.CalculationStack.push">
+<code class="sig-name descname">push</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.CalculationStack.push" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.</code><code class="sig-name descname">ExpressionCalculator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Implements an expression calculator class.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.auto_variables">
+<em class="property">property </em><code class="sig-name descname">auto_variables</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.auto_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the flag to turn on auto creation of variables for specified expression.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Cleans up this calculator from all data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.create_variables">
+<code class="sig-name descname">create_variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariableCollection.html#pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection" title="pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection">pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.create_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Populates the specified variables list with variables from parsed expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variables</strong> – The list of variables to be populated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.default_functions">
+<em class="property">property </em><code class="sig-name descname">default_functions</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.default_functions" title="Permalink to this definition"></a></dt>
+<dd><p>The list with default functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.default_variables">
+<em class="property">property </em><code class="sig-name descname">default_variables</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.default_variables" title="Permalink to this definition"></a></dt>
+<dd><p>The list with default variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates this expression using default variables and functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.evaluate_with_variables">
+<code class="sig-name descname">evaluate_with_variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariableCollection.html#pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection" title="pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection">pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.evaluate_with_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates this expression using specified variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variables</strong> – The list of variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.evaluate_with_variables_and_functions">
+<code class="sig-name descname">evaluate_with_variables_and_functions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.calculator.variables.IVariableCollection.html#pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection" title="pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection">pip_services3_expressions.calculator.variables.IVariableCollection.IVariableCollection</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">functions</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunctionCollection.html#pip_services3_expressions.calculator.functions.IFunctionCollection.IFunctionCollection" title="pip_services3_expressions.calculator.functions.IFunctionCollection.IFunctionCollection">pip_services3_expressions.calculator.functions.IFunctionCollection.IFunctionCollection</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.evaluate_with_variables_and_functions" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates this expression using specified variables and functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variables</strong> – The list of variables</p></li>
+<li><p><strong>functions</strong> – The list of functions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.expression">
+<em class="property">property </em><code class="sig-name descname">expression</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.expression" title="Permalink to this definition"></a></dt>
+<dd><p>The expression string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.initial_tokens">
+<em class="property">property </em><code class="sig-name descname">initial_tokens</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.initial_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.original_tokens">
+<em class="property">property </em><code class="sig-name descname">original_tokens</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.original_tokens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.result_tokens">
+<em class="property">property </em><code class="sig-name descname">result_tokens</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.result_tokens" title="Permalink to this definition"></a></dt>
+<dd><p>The list of processed expression tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.ExpressionCalculator.variant_operations">
+<em class="property">property </em><code class="sig-name descname">variant_operations</code><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionCalculator.variant_operations" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the manager for operations on variant values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="pip_services3_expressions.calculator.ExpressionException">
+<em class="property">exception </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.</code><code class="sig-name descname">ExpressionException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">code</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">0</span></em>, <em class="sig-param"><span class="n">column</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.ExpressionException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.errors.BadRequestException.html#pip_services3_commons.errors.BadRequestException.BadRequestException" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.errors.BadRequestException.BadRequestException</span></code></a></p>
+<p>Exception that can be thrown by Expression Calculator.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="pip_services3_expressions.calculator.SyntaxException">
+<em class="property">exception </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.</code><code class="sig-name descname">SyntaxException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">code</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">0</span></em>, <em class="sig-param"><span class="n">column</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.SyntaxException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.errors.BadRequestException.html#pip_services3_commons.errors.BadRequestException.BadRequestException" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.errors.BadRequestException.BadRequestException</span></code></a></p>
+<p>Exception that can be thrown by Expression Parser.</p>
+</dd></dl>
+
 </section>
 </section>
 

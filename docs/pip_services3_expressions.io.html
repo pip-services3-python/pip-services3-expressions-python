@@ -94,6 +94,243 @@
 </section>
 <section id="module-pip_services3_expressions.io">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.io" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.io.IScanner">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.io.</code><code class="sig-name descname">IScanner</code><a class="headerlink" href="#pip_services3_expressions.io.IScanner" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines scanner that can read and unread characters and count lines.
+This scanner is used by tokenizers to process input streams.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.column">
+<code class="sig-name descname">column</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.IScanner.column" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the column in the current line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The column in the current line in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.line">
+<code class="sig-name descname">line</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.IScanner.line" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the current line number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current line number in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.peek">
+<code class="sig-name descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.IScanner.peek" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the character from the top of the stream without moving the stream pointer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A character from the top of the stream or <strong>-1</strong> if stream is empty.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.peek_column">
+<code class="sig-name descname">peek_column</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.IScanner.peek_column" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next character column number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The next character column number in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.peek_line">
+<code class="sig-name descname">peek_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.IScanner.peek_line" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next character line number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The next character line number in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.IScanner.read" title="Permalink to this definition"></a></dt>
+<dd><p>Reads character from the top of the stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A read character or <strong>-1</strong> if stream processed to the end.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.IScanner.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Resets scanner to the initial position</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.unread">
+<code class="sig-name descname">unread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.IScanner.unread" title="Permalink to this definition"></a></dt>
+<dd><p>Puts the one character back into the stream stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A character to be pushed back.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.IScanner.unread_many">
+<code class="sig-name descname">unread_many</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.IScanner.unread_many" title="Permalink to this definition"></a></dt>
+<dd><p>Pushes the specified number of characters to the top of the stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>count</strong> – A number of characters to be pushed back.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.io.StringScanner">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.io.</code><code class="sig-name descname">StringScanner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">content</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.StringScanner" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.io.IScanner.IScanner</span></code></a></p>
+<p>Scan characters in a string that allows tokenizers
+to look ahead through stream to perform lexical analysis.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.io.StringScanner.Eof">
+<code class="sig-name descname">Eof</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><em class="property"> = -1</em><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.Eof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.column">
+<code class="sig-name descname">column</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.column" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the column in the current line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The column in the current line in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.is_column">
+<code class="sig-name descname">is_column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">char_at</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.is_column" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the current character represents a column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>char_at</strong> – the current character</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>true</strong> if the current character is a column, or <strong>false</strong> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.is_line">
+<code class="sig-name descname">is_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">char_before</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">char_at</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">char_after</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.is_line" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the current character represents a new line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>char_before</strong> – the character before the current one</p></li>
+<li><p><strong>char_at</strong> – the current character</p></li>
+<li><p><strong>char_after</strong> – the character after the current one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>true</strong> if the current character is a new line, or <strong>false</strong> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.line">
+<code class="sig-name descname">line</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.line" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the current line number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current line number in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.peek">
+<code class="sig-name descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.peek" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the character from the top of the stream without moving the stream pointer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A character from the top of the stream or <strong>-1</strong> if stream is empty.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.peek_column">
+<code class="sig-name descname">peek_column</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.peek_column" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next character column number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The next character column number in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.peek_line">
+<code class="sig-name descname">peek_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.peek_line" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next character line number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The next character line number in the stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.read" title="Permalink to this definition"></a></dt>
+<dd><p>Reads character from the top of the stream.
+A read character or <strong>-1</strong> if stream processed to the end.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Resets scanner to the initial position</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.unread">
+<code class="sig-name descname">unread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.unread" title="Permalink to this definition"></a></dt>
+<dd><p>Puts the one character back into the stream stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A character to be pushed back.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.io.StringScanner.unread_many">
+<code class="sig-name descname">unread_many</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.io.StringScanner.unread_many" title="Permalink to this definition"></a></dt>
+<dd><p>Pushes the specified number of characters to the top of the stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>count</strong> – A number of characters to be pushed back.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

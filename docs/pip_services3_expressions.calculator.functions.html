@@ -98,6 +98,285 @@
 </section>
 <section id="module-pip_services3_expressions.calculator.functions">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.calculator.functions" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.functions.DefaultFunctionCollection">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.functions.</code><code class="sig-name descname">DefaultFunctionCollection</code><a class="headerlink" href="#pip_services3_expressions.calculator.functions.DefaultFunctionCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.calculator.functions.FunctionCollection.html#pip_services3_expressions.calculator.functions.FunctionCollection.FunctionCollection" title="pip_services3_expressions.calculator.functions.FunctionCollection.FunctionCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.calculator.functions.FunctionCollection.FunctionCollection</span></code></a></p>
+<p>Implements a list filled with standard functions.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.functions.DelegatedFunction">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.functions.</code><code class="sig-name descname">DelegatedFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">calculator</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span><span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="pip_services3_expressions.variants.IVariantOperations.html#pip_services3_expressions.variants.IVariantOperations.IVariantOperations" title="pip_services3_expressions.variants.IVariantOperations.IVariantOperations">pip_services3_expressions.variants.IVariantOperations.IVariantOperations</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.DelegatedFunction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.calculator.functions.IFunction.IFunction</span></code></a></p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.DelegatedFunction.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">variant_operations</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.variants.IVariantOperations.html#pip_services3_expressions.variants.IVariantOperations.IVariantOperations" title="pip_services3_expressions.variants.IVariantOperations.IVariantOperations">pip_services3_expressions.variants.IVariantOperations.IVariantOperations</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.DelegatedFunction.calculate" title="Permalink to this definition"></a></dt>
+<dd><p>The function calculation method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> – an array with function parameters.</p></li>
+<li><p><strong>variant_operations</strong> – Variants operations manager.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>return function result.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.DelegatedFunction.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#pip_services3_expressions.calculator.functions.DelegatedFunction.name" title="Permalink to this definition"></a></dt>
+<dd><p>The function name.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.functions.</code><code class="sig-name descname">FunctionCollection</code><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunctionCollection.html#pip_services3_expressions.calculator.functions.IFunctionCollection.IFunctionCollection" title="pip_services3_expressions.calculator.functions.IFunctionCollection.IFunctionCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.calculator.functions.IFunctionCollection.IFunctionCollection</span></code></a></p>
+<p>Implements a functions list.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.add" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new function to the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> – a function to be added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears the collection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.find_by_name">
+<code class="sig-name descname">find_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.find_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds function in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The function name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function or <strong>None</strong> if function was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.find_index_by_name">
+<code class="sig-name descname">find_index_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.find_index_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds function index in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The function name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Function index in the list or <strong>-1</strong> if function was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get a function by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a function index.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a retrieved function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.get_all">
+<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.get_all" title="Permalink to this definition"></a></dt>
+<dd><p>Get all functions stores in the collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list with functions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.length">
+<em class="property">property </em><code class="sig-name descname">length</code><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.length" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a number of functions stored in the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a number of stored functions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Removes a function by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a index of the function to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.FunctionCollection.remove_by_name">
+<code class="sig-name descname">remove_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.FunctionCollection.remove_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Removes function by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The function name to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.functions.IFunction">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.functions.</code><code class="sig-name descname">IFunction</code><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines an interface for expression function.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunction.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">variant_operations</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.variants.IVariantOperations.html#pip_services3_expressions.variants.IVariantOperations.IVariantOperations" title="pip_services3_expressions.variants.IVariantOperations.IVariantOperations">pip_services3_expressions.variants.IVariantOperations.IVariantOperations</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.variants.Variant.html#pip_services3_expressions.variants.Variant.Variant" title="pip_services3_expressions.variants.Variant.Variant">pip_services3_expressions.variants.Variant.Variant</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunction.calculate" title="Permalink to this definition"></a></dt>
+<dd><p>The function calculation method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> – The stack to get function parameters and place</p></li>
+<li><p><strong>variant_operations</strong> – Variants operations manager.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the function result.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.functions.IFunction.name">
+<code class="sig-name descname">name</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunction.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.calculator.functions.</code><code class="sig-name descname">IFunctionCollection</code><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Defines a functions list.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.add" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new function to the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> – a function to be added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears the collection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.find_by_name">
+<code class="sig-name descname">find_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.find_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds function in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The function name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function or <strong>None</strong> if function was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.find_index_by_name">
+<code class="sig-name descname">find_index_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.find_index_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Finds function index in the list by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The function name to be found.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Function index in the list or <strong>-1</strong> if function was not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get a function by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a function index.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a retrieved function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.get_all">
+<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.calculator.functions.IFunction.html#pip_services3_expressions.calculator.functions.IFunction.IFunction" title="pip_services3_expressions.calculator.functions.IFunction.IFunction">pip_services3_expressions.calculator.functions.IFunction.IFunction</a><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.get_all" title="Permalink to this definition"></a></dt>
+<dd><p>Get all functions stores in the collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list with functions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.length">
+<code class="sig-name descname">length</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.length" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Removes a function by its index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – a index of the function to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.calculator.functions.IFunctionCollection.remove_by_name">
+<code class="sig-name descname">remove_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.calculator.functions.IFunctionCollection.remove_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Removes function by it’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The function name to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

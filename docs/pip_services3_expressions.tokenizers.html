@@ -138,6 +138,682 @@
 </section>
 <section id="module-pip_services3_expressions.tokenizers">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.tokenizers" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">AbstractTokenizer</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizer.html#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer" title="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizer.ITokenizer</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Implements an abstract tokenizer class.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.clear_character_states">
+<code class="sig-name descname">clear_character_states</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.clear_character_states" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.comment_state">
+<code class="sig-name descname">comment_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ICommentState.html#pip_services3_expressions.tokenizers.ICommentState.ICommentState" title="pip_services3_expressions.tokenizers.ICommentState.ICommentState">pip_services3_expressions.tokenizers.ICommentState.ICommentState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.comment_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.decode_strings">
+<code class="sig-name descname">decode_strings</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.decode_strings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.get_character_state">
+<code class="sig-name descname">get_character_state</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.get_character_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.has_next_token">
+<code class="sig-name descname">has_next_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.has_next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if there is the next token exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>True</strong> if scanner has the next token.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.merge_whitespaces">
+<code class="sig-name descname">merge_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.merge_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the scanner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Next token of <strong>null</strong> if there are no more tokens left.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.number_state">
+<code class="sig-name descname">number_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.INumberState.html#pip_services3_expressions.tokenizers.INumberState.INumberState" title="pip_services3_expressions.tokenizers.INumberState.INumberState">pip_services3_expressions.tokenizers.INumberState.INumberState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.number_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.quote_state">
+<code class="sig-name descname">quote_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.quote_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.scanner">
+<em class="property">property </em><code class="sig-name descname">scanner</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.scanner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.set_character_state">
+<code class="sig-name descname">set_character_state</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">to_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">state</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.set_character_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.skip_comments">
+<code class="sig-name descname">skip_comments</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.skip_comments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.skip_eof">
+<code class="sig-name descname">skip_eof</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.skip_eof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.skip_unknown">
+<code class="sig-name descname">skip_unknown</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.skip_unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.skip_whitespaces">
+<code class="sig-name descname">skip_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.skip_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.symbol_state">
+<code class="sig-name descname">symbol_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ISymbolState.html#pip_services3_expressions.tokenizers.ISymbolState.ISymbolState" title="pip_services3_expressions.tokenizers.ISymbolState.ISymbolState">pip_services3_expressions.tokenizers.ISymbolState.ISymbolState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.symbol_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_buffer">
+<code class="sig-name descname">tokenize_buffer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_buffer" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a string buffer into a list of tokens structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – A string buffer to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token structures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_buffer_to_strings">
+<code class="sig-name descname">tokenize_buffer_to_strings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_buffer_to_strings" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a string buffer into a list of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – A string buffer to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_stream">
+<code class="sig-name descname">tokenize_stream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_stream" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a textual stream into a list of token structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scanner</strong> – A textual stream to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token structures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_stream_to_string">
+<code class="sig-name descname">tokenize_stream_to_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.tokenize_stream_to_string" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a textual stream into a list of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scanner</strong> – A textual stream to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.unify_numbers">
+<code class="sig-name descname">unify_numbers</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.unify_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.whitespace_state">
+<code class="sig-name descname">whitespace_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWhitespaceState.html#pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState" title="pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState">pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.whitespace_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.AbstractTokenizer.word_state">
+<code class="sig-name descname">word_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState">pip_services3_expressions.tokenizers.IWordState.IWordState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.AbstractTokenizer.word_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.ICommentState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">ICommentState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.ICommentState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines an interface for tokenizer state that processes comments.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.INumberState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">INumberState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.INumberState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines interface for tokenizer state that processes numbers - Integers, Floats, HexDec..</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.IQuoteState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">IQuoteState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.IQuoteState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines an interface for tokenizer state that processes quoted strings.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.IQuoteState.decode_string">
+<code class="sig-name descname">decode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.IQuoteState.decode_string" title="Permalink to this definition"></a></dt>
+<dd><p>Decodes a string value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – A string value to be decoded.</p></li>
+<li><p><strong>quote_symbol</strong> – A string quote character.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An decoded string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.IQuoteState.encode_string">
+<code class="sig-name descname">encode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.IQuoteState.encode_string" title="Permalink to this definition"></a></dt>
+<dd><p>Encodes a string value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – A string value to be encoded.</p></li>
+<li><p><strong>quote_symbol</strong> – A string quote character.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An encoded string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.ISymbolState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">ISymbolState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.ISymbolState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines an interface for tokenizer state that processes delimiters.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ISymbolState.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">token_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.TokenType.html#pip_services3_expressions.tokenizers.TokenType.TokenType" title="pip_services3_expressions.tokenizers.TokenType.TokenType">pip_services3_expressions.tokenizers.TokenType.TokenType</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ISymbolState.add" title="Permalink to this definition"></a></dt>
+<dd><p>Add a multi-character symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – The symbol to add, such as “=:=”</p></li>
+<li><p><strong>token_type</strong> – The token type</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">ITokenizer</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>A tokenizer divides a string into tokens. This class is highly customizable with regard
+to exactly how this division occurs, but it also has defaults that are suitable for many
+languages. This class assumes that the character values read from the string lie in
+the range 0-255. For example, the Unicode value of a capital A is 65,
+so  <strong>chr(65)</strong> prints out a capital A.</p>
+<p>The behavior of a tokenizer depends on its character state table. This table is an array
+of 256 <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">TokenizerState</span></code></a> states. The state table decides which state to enter
+upon reading a character from the input string.</p>
+<p>For example, by default, upon reading an ‘A’, a tokenizer will enter a “word” state.
+This means the tokenizer will ask a <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState"><code class="xref py py-class docutils literal notranslate"><span class="pre">WordState</span></code></a> object to consume the ‘A’,
+along with the characters after the ‘A’ that form a word. The state’s responsibility
+is to consume characters and return a complete token.</p>
+<p>The default table sets a SymbolState for every character from 0 to 255,
+and then overrides this with:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 22%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>From</p></th>
+<th class="head"><p>To</p></th>
+<th class="head"><p>State</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>‘ ‘</p></td>
+<td><p>whitespaceState</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘a’,</p></td>
+<td><p>‘z’</p></td>
+<td><p>wordState</p></td>
+</tr>
+<tr class="row-even"><td><p>‘A’</p></td>
+<td><p>‘Z’</p></td>
+<td><p>wordState</p></td>
+</tr>
+<tr class="row-odd"><td><p>160</p></td>
+<td><p>255</p></td>
+<td><p>wordState</p></td>
+</tr>
+<tr class="row-even"><td><p>‘0’</p></td>
+<td><p>‘9’</p></td>
+<td><p>numberState</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘-’</p></td>
+<td><p>‘-’</p></td>
+<td><p>numberState</p></td>
+</tr>
+<tr class="row-even"><td><p>‘.’</p></td>
+<td><p>‘.’</p></td>
+<td><p>numberState</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘”’</p></td>
+<td><p>‘”’</p></td>
+<td><p>quoteState</p></td>
+</tr>
+<tr class="row-even"><td><p>‘’’</p></td>
+<td><p>‘’’</p></td>
+<td><p>quoteState</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘/’</p></td>
+<td><p>‘/’</p></td>
+<td><p>slashState</p></td>
+</tr>
+</tbody>
+</table>
+<p>In addition to allowing modification of the state table, this class makes each of the states
+above available. Some of these states are customizable. For example, wordState allows customization
+of what characters can be part of a word, after the first character.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.comment_state">
+<code class="sig-name descname">comment_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ICommentState.html#pip_services3_expressions.tokenizers.ICommentState.ICommentState" title="pip_services3_expressions.tokenizers.ICommentState.ICommentState">pip_services3_expressions.tokenizers.ICommentState.ICommentState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.comment_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.decode_strings">
+<code class="sig-name descname">decode_strings</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.decode_strings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.has_next_token">
+<code class="sig-name descname">has_next_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.has_next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if there is the next token exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>True</strong> if scanner has the next token.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.merge_whitespaces">
+<code class="sig-name descname">merge_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.merge_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the scanner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Next token of <strong>null</strong> if there are no more tokens left.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.number_state">
+<code class="sig-name descname">number_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.INumberState.html#pip_services3_expressions.tokenizers.INumberState.INumberState" title="pip_services3_expressions.tokenizers.INumberState.INumberState">pip_services3_expressions.tokenizers.INumberState.INumberState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.number_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.quote_state">
+<code class="sig-name descname">quote_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.quote_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.scanner">
+<code class="sig-name descname">scanner</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.scanner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.skip_comments">
+<code class="sig-name descname">skip_comments</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.skip_comments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.skip_eof">
+<code class="sig-name descname">skip_eof</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.skip_eof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.skip_unknown">
+<code class="sig-name descname">skip_unknown</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.skip_unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.skip_whitespaces">
+<code class="sig-name descname">skip_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.skip_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.symbol_state">
+<code class="sig-name descname">symbol_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ISymbolState.html#pip_services3_expressions.tokenizers.ISymbolState.ISymbolState" title="pip_services3_expressions.tokenizers.ISymbolState.ISymbolState">pip_services3_expressions.tokenizers.ISymbolState.ISymbolState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.symbol_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.tokenize_buffer">
+<code class="sig-name descname">tokenize_buffer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.tokenize_buffer" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a string buffer into a list of tokens structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – A string buffer to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token structures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.tokenize_buffer_to_strings">
+<code class="sig-name descname">tokenize_buffer_to_strings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.tokenize_buffer_to_strings" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a string buffer into a list of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – A string buffer to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.tokenize_stream">
+<code class="sig-name descname">tokenize_stream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.tokenize_stream" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a textual stream into a list of token structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scanner</strong> – A textual stream to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token structures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.tokenize_stream_to_string">
+<code class="sig-name descname">tokenize_stream_to_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.tokenize_stream_to_string" title="Permalink to this definition"></a></dt>
+<dd><p>Tokenizes a textual stream into a list of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scanner</strong> – A textual stream to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of token strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.unify_numbers">
+<code class="sig-name descname">unify_numbers</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.unify_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.whitespace_state">
+<code class="sig-name descname">whitespace_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWhitespaceState.html#pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState" title="pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState">pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.whitespace_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.ITokenizer.word_state">
+<code class="sig-name descname">word_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState">pip_services3_expressions.tokenizers.IWordState.IWordState</a></em><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizer.word_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.ITokenizerState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">ITokenizerState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizerState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>A tokenizerState returns a token, given a scanner, an initial character read from the scanner,
+and a tokenizer that is conducting an overall tokenization of the scanner. The tokenizer will
+typically have a character state table that decides which state to use, depending on an initial 
+character. If a single character is insufficient, a state such as <strong>SlashState</strong>
+will read a second character, and may delegate to another state, such as <strong>SlashStarState</strong>.
+This prospect of delegation is the reason that the <a class="reference internal" href="#pip_services3_expressions.tokenizers.ITokenizerState.next_token" title="pip_services3_expressions.tokenizers.ITokenizerState.next_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">next_token()</span></code></a>
+method has a tokenizer argument.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.ITokenizerState.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizer.html#module-pip_services3_expressions.tokenizers.ITokenizer" title="pip_services3_expressions.tokenizers.ITokenizer">ITokenizer</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.ITokenizerState.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the stream started from the character linked to this state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The next token from the top of the stream.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.IWhitespaceState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">IWhitespaceState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.IWhitespaceState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines an interface for tokenizer state that processes whitespaces (’ ‘, ‘ ‘)</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.IWhitespaceState.clear_whitespace_chars">
+<code class="sig-name descname">clear_whitespace_chars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.IWhitespaceState.clear_whitespace_chars" title="Permalink to this definition"></a></dt>
+<dd><p>Clears definitions of whitespace characters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.IWhitespaceState.set_whitespace_chars">
+<code class="sig-name descname">set_whitespace_chars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">to_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">enable</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.IWhitespaceState.set_whitespace_chars" title="Permalink to this definition"></a></dt>
+<dd><p>Establish the given characters as whitespace to ignore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_symbol</strong> – First character index of the interval.</p></li>
+<li><p><strong>to_symbol</strong> – Last character index of the interval.</p></li>
+<li><p><strong>enable</strong> – <strong>true</strong> if this state should ignore characters in the given range.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.IWordState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">IWordState</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.IWordState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a>, <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Defines an interface for tokenizer state that processes words, identificators or keywords</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.IWordState.clear_word_chars">
+<code class="sig-name descname">clear_word_chars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.IWordState.clear_word_chars" title="Permalink to this definition"></a></dt>
+<dd><p>Clears definitions of word chars.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.IWordState.set_word_chars">
+<code class="sig-name descname">set_word_chars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">to_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">enable</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.IWordState.set_word_chars" title="Permalink to this definition"></a></dt>
+<dd><p>Establish characters in the given range as valid characters for part of a word after
+the first character. Note that the tokenizer must determine which characters are valid
+as the beginning character of a word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_symbol</strong> – First character index of the interval.</p></li>
+<li><p><strong>to_symbol</strong> – Last character index of the interval.</p></li>
+<li><p><strong>enable</strong> – <strong>True</strong> if this state should use characters in the given range.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.Token">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">Token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.TokenType.html#pip_services3_expressions.tokenizers.TokenType.TokenType" title="pip_services3_expressions.tokenizers.TokenType.TokenType">pip_services3_expressions.tokenizers.TokenType.TokenType</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">column</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A token represents a logical chunk of a string. For example, a typical tokenizer would break
+the string “1.23 &amp;lt;= 12.3” into three tokens: the number 1.23, a less-than-or-equal symbol,
+and the number 12.3. A token is a receptacle, and relies on a tokenizer to decide precisely how
+to divide a string into tokens.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.column">
+<em class="property">property </em><code class="sig-name descname">column</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.column" title="Permalink to this definition"></a></dt>
+<dd><p>The column number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.equals">
+<code class="sig-name descname">equals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.equals" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.line">
+<em class="property">property </em><code class="sig-name descname">line</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.line" title="Permalink to this definition"></a></dt>
+<dd><p>The line number where the token is.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.type">
+<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.type" title="Permalink to this definition"></a></dt>
+<dd><p>The token type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_expressions.tokenizers.Token.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#pip_services3_expressions.tokenizers.Token.value" title="Permalink to this definition"></a></dt>
+<dd><p>The token value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.tokenizers.TokenType">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.tokenizers.</code><code class="sig-name descname">TokenType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>Types (categories) of tokens such as “number”, “symbol” or “word”.</p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Comment">
+<code class="sig-name descname">Comment</code><em class="property"> = 12</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Comment" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Eof">
+<code class="sig-name descname">Eof</code><em class="property"> = 1</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Eof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Eol">
+<code class="sig-name descname">Eol</code><em class="property"> = 2</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Eol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Float">
+<code class="sig-name descname">Float</code><em class="property"> = 3</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Float" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.HexDecimal">
+<code class="sig-name descname">HexDecimal</code><em class="property"> = 5</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.HexDecimal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Integer">
+<code class="sig-name descname">Integer</code><em class="property"> = 4</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Integer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Keyword">
+<code class="sig-name descname">Keyword</code><em class="property"> = 10</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Keyword" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Number">
+<code class="sig-name descname">Number</code><em class="property"> = 6</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Number" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Quoted">
+<code class="sig-name descname">Quoted</code><em class="property"> = 8</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Quoted" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Special">
+<code class="sig-name descname">Special</code><em class="property"> = 13</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Special" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Symbol">
+<code class="sig-name descname">Symbol</code><em class="property"> = 7</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Symbol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Unknown">
+<code class="sig-name descname">Unknown</code><em class="property"> = (0,)</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Whitespace">
+<code class="sig-name descname">Whitespace</code><em class="property"> = 11</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Whitespace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.tokenizers.TokenType.Word">
+<code class="sig-name descname">Word</code><em class="property"> = 9</em><a class="headerlink" href="#pip_services3_expressions.tokenizers.TokenType.Word" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

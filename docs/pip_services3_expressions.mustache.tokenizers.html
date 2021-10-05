@@ -95,6 +95,101 @@
 </section>
 <section id="module-pip_services3_expressions.mustache.tokenizers">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_expressions.mustache.tokenizers" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheSpecialState">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.tokenizers.</code><code class="sig-name descname">MustacheSpecialState</code><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheSpecialState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizerState.html#pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState" title="pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.ITokenizerState.ITokenizerState</span></code></a></p>
+<p>Implements a quote string state object for Mustache templates.</p>
+<dl class="py method">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheSpecialState.next_token">
+<code class="sig-name descname">next_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.io.IScanner.html#pip_services3_expressions.io.IScanner.IScanner" title="pip_services3_expressions.io.IScanner.IScanner">pip_services3_expressions.io.IScanner.IScanner</a></span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_expressions.tokenizers.ITokenizer.html#pip_services3_expressions.tokenizers.ITokenizer.ITokenizer" title="pip_services3_expressions.tokenizers.ITokenizer.ITokenizer">pip_services3_expressions.tokenizers.ITokenizer.ITokenizer</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_expressions.tokenizers.Token.html#pip_services3_expressions.tokenizers.Token.Token" title="pip_services3_expressions.tokenizers.Token.Token">pip_services3_expressions.tokenizers.Token.Token</a><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheSpecialState.next_token" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the next token from the stream started from the character linked to this state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scanner</strong> – A textual string to be tokenized.</p></li>
+<li><p><strong>tokenizer</strong> – A tokenizer class that controls the process.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The next token from the top of the stream.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer">
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.mustache.tokenizers.</code><code class="sig-name descname">MustacheTokenizer</code><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.AbstractTokenizer.html#pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer" title="pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer</span></code></a></p>
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.comment_state">
+<code class="sig-name descname">comment_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ICommentState.html#pip_services3_expressions.tokenizers.ICommentState.ICommentState" title="pip_services3_expressions.tokenizers.ICommentState.ICommentState">pip_services3_expressions.tokenizers.ICommentState.ICommentState</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.comment_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.decode_strings">
+<code class="sig-name descname">decode_strings</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.decode_strings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.merge_whitespaces">
+<code class="sig-name descname">merge_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.merge_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.number_state">
+<code class="sig-name descname">number_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.INumberState.html#pip_services3_expressions.tokenizers.INumberState.INumberState" title="pip_services3_expressions.tokenizers.INumberState.INumberState">pip_services3_expressions.tokenizers.INumberState.INumberState</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.number_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.quote_state">
+<code class="sig-name descname">quote_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.quote_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_comments">
+<code class="sig-name descname">skip_comments</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_comments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_eof">
+<code class="sig-name descname">skip_eof</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_eof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_unknown">
+<code class="sig-name descname">skip_unknown</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_whitespaces">
+<code class="sig-name descname">skip_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.skip_whitespaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.symbol_state">
+<code class="sig-name descname">symbol_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ISymbolState.html#pip_services3_expressions.tokenizers.ISymbolState.ISymbolState" title="pip_services3_expressions.tokenizers.ISymbolState.ISymbolState">pip_services3_expressions.tokenizers.ISymbolState.ISymbolState</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.symbol_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.unify_numbers">
+<code class="sig-name descname">unify_numbers</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.unify_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.whitespace_state">
+<code class="sig-name descname">whitespace_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWhitespaceState.html#pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState" title="pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState">pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.whitespace_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.word_state">
+<code class="sig-name descname">word_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState">pip_services3_expressions.tokenizers.IWordState.IWordState</a></em><a class="headerlink" href="#pip_services3_expressions.mustache.tokenizers.MustacheTokenizer.word_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
