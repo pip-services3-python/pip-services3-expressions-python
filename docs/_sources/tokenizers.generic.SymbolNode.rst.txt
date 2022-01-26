@@ -1,7 +1,0 @@
-tokenizers.generic.SymbolNode module
-====================================
-
-.. automodule:: tokenizers.generic.SymbolNode
-   :members:
-   :undoc-members:
-   :show-inheritance:

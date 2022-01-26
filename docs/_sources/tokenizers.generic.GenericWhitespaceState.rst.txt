@@ -1,7 +1,0 @@
-tokenizers.generic.GenericWhitespaceState module
-================================================
-
-.. automodule:: tokenizers.generic.GenericWhitespaceState
-   :members:
-   :undoc-members:
-   :show-inheritance:

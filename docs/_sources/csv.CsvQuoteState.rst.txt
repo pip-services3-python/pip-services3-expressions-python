@@ -1,7 +1,0 @@
-csv.CsvQuoteState module
-========================
-
-.. automodule:: csv.CsvQuoteState
-   :members:
-   :undoc-members:
-   :show-inheritance:

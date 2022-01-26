@@ -1,7 +1,0 @@
-tokenizers.generic.CppCommentState module
-=========================================
-
-.. automodule:: tokenizers.generic.CppCommentState
-   :members:
-   :undoc-members:
-   :show-inheritance:

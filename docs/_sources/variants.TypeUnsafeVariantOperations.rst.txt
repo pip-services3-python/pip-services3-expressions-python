@@ -1,7 +1,0 @@
-variants.TypeUnsafeVariantOperations module
-===========================================
-
-.. automodule:: variants.TypeUnsafeVariantOperations
-   :members:
-   :undoc-members:
-   :show-inheritance:

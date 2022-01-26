@@ -1,7 +1,0 @@
-tokenizers.utilities.CsvTokenizer module
-========================================
-
-.. automodule:: tokenizers.utilities.CsvTokenizer
-   :members:
-   :undoc-members:
-   :show-inheritance:

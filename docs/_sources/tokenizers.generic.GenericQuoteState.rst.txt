@@ -1,7 +1,0 @@
-tokenizers.generic.GenericQuoteState module
-===========================================
-
-.. automodule:: tokenizers.generic.GenericQuoteState
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-calculator.tokenizers.ExpressionQuoteState module
-=================================================
-
-.. automodule:: calculator.tokenizers.ExpressionQuoteState
-   :members:
-   :undoc-members:
-   :show-inheritance:

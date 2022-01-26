@@ -1,7 +1,0 @@
-calculator.ExpressionCalculator module
-======================================
-
-.. automodule:: calculator.ExpressionCalculator
-   :members:
-   :undoc-members:
-   :show-inheritance:

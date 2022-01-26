@@ -1,7 +1,0 @@
-tokenizers.INumberState module
-==============================
-
-.. automodule:: tokenizers.INumberState
-   :members:
-   :undoc-members:
-   :show-inheritance:

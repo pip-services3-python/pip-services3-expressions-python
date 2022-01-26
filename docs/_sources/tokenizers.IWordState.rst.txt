@@ -1,7 +1,0 @@
-tokenizers.IWordState module
-============================
-
-.. automodule:: tokenizers.IWordState
-   :members:
-   :undoc-members:
-   :show-inheritance:

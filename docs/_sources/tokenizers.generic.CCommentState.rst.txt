@@ -1,7 +1,0 @@
-tokenizers.generic.CCommentState module
-=======================================
-
-.. automodule:: tokenizers.generic.CCommentState
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -100,20 +100,20 @@
 <dl class="py class">
 <dt id="pip_services3_expressions.csv.CsvConstant">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.csv.</code><code class="sig-name descname">CsvConstant</code><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py attribute">
 <dt id="pip_services3_expressions.csv.CsvConstant.CR">
-<code class="sig-name descname">CR</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><em class="property"> = 13</em><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant.CR" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname">CR</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></em><em class="property"> = 13</em><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant.CR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="pip_services3_expressions.csv.CsvConstant.LF">
-<code class="sig-name descname">LF</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><em class="property"> = 10</em><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant.LF" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname">LF</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></em><em class="property"> = 10</em><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant.LF" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="pip_services3_expressions.csv.CsvConstant.Nil">
-<code class="sig-name descname">Nil</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><em class="property"> = 0</em><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant.Nil" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname">Nil</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></em><em class="property"> = 0</em><a class="headerlink" href="#pip_services3_expressions.csv.CsvConstant.Nil" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -125,7 +125,7 @@
 <p>Implements a quote string state object for CSV streams.</p>
 <dl class="py method">
 <dt id="pip_services3_expressions.csv.CsvQuoteState.decode_string">
-<code class="sig-name descname">decode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.csv.CsvQuoteState.decode_string" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname">decode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a><span class="p">, </span><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)">None</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.csv.CsvQuoteState.decode_string" title="Permalink to this definition"></a></dt>
 <dd><p>Decodes a string value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -142,7 +142,7 @@
 
 <dl class="py method">
 <dt id="pip_services3_expressions.csv.CsvQuoteState.encode_string">
-<code class="sig-name descname">encode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.csv.CsvQuoteState.encode_string" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname">encode_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></span></em>, <em class="sig-param"><span class="n">quote_symbol</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a><span class="p">, </span><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)">None</a><span class="p">]</span><a class="headerlink" href="#pip_services3_expressions.csv.CsvQuoteState.encode_string" title="Permalink to this definition"></a></dt>
 <dd><p>Encodes a string value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -205,16 +205,6 @@
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.csv.</code><code class="sig-name descname">CsvTokenizer</code><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.AbstractTokenizer.html#pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer" title="pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.AbstractTokenizer.AbstractTokenizer</span></code></a></p>
 <p>Implements a tokenizer class for CSV files.</p>
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.comment_state">
-<code class="sig-name descname">comment_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ICommentState.html#pip_services3_expressions.tokenizers.ICommentState.ICommentState" title="pip_services3_expressions.tokenizers.ICommentState.ICommentState">pip_services3_expressions.tokenizers.ICommentState.ICommentState</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.comment_state" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.decode_strings">
-<code class="sig-name descname">decode_strings</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.decode_strings" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="pip_services3_expressions.csv.CsvTokenizer.end_of_line">
 <em class="property">property </em><code class="sig-name descname">end_of_line</code><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.end_of_line" title="Permalink to this definition"></a></dt>
@@ -227,72 +217,17 @@
 <dd><p>Separator for fields in CSV stream.</p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.merge_whitespaces">
-<code class="sig-name descname">merge_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.merge_whitespaces" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.number_state">
-<code class="sig-name descname">number_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.INumberState.html#pip_services3_expressions.tokenizers.INumberState.INumberState" title="pip_services3_expressions.tokenizers.INumberState.INumberState">pip_services3_expressions.tokenizers.INumberState.INumberState</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.number_state" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.quote_state">
-<code class="sig-name descname">quote_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IQuoteState.html#pip_services3_expressions.tokenizers.IQuoteState.IQuoteState" title="pip_services3_expressions.tokenizers.IQuoteState.IQuoteState">pip_services3_expressions.tokenizers.IQuoteState.IQuoteState</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.quote_state" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="pip_services3_expressions.csv.CsvTokenizer.quote_symbols">
 <em class="property">property </em><code class="sig-name descname">quote_symbols</code><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.quote_symbols" title="Permalink to this definition"></a></dt>
 <dd><p>Character to quote strings.</p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.skip_comments">
-<code class="sig-name descname">skip_comments</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.skip_comments" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.skip_eof">
-<code class="sig-name descname">skip_eof</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.skip_eof" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.skip_unknown">
-<code class="sig-name descname">skip_unknown</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.skip_unknown" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.skip_whitespaces">
-<code class="sig-name descname">skip_whitespaces</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.skip_whitespaces" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.symbol_state">
-<code class="sig-name descname">symbol_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.ISymbolState.html#pip_services3_expressions.tokenizers.ISymbolState.ISymbolState" title="pip_services3_expressions.tokenizers.ISymbolState.ISymbolState">pip_services3_expressions.tokenizers.ISymbolState.ISymbolState</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.symbol_state" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.unify_numbers">
-<code class="sig-name descname">unify_numbers</code><em class="property">: <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.unify_numbers" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.whitespace_state">
-<code class="sig-name descname">whitespace_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWhitespaceState.html#pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState" title="pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState">pip_services3_expressions.tokenizers.IWhitespaceState.IWhitespaceState</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.whitespace_state" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_expressions.csv.CsvTokenizer.word_state">
-<code class="sig-name descname">word_state</code><em class="property">: <a class="reference internal" href="pip_services3_expressions.tokenizers.IWordState.html#pip_services3_expressions.tokenizers.IWordState.IWordState" title="pip_services3_expressions.tokenizers.IWordState.IWordState">pip_services3_expressions.tokenizers.IWordState.IWordState</a></em><a class="headerlink" href="#pip_services3_expressions.csv.CsvTokenizer.word_state" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt id="pip_services3_expressions.csv.CsvWordState">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.csv.</code><code class="sig-name descname">CsvWordState</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filed_separators</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">quote_symbols</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.csv.CsvWordState" title="Permalink to this definition"></a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_expressions.csv.</code><code class="sig-name descname">CsvWordState</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filed_separators</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">quote_symbols</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_expressions.csv.CsvWordState" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_expressions.tokenizers.generic.GenericWordState.html#pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState" title="pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_expressions.tokenizers.generic.GenericWordState.GenericWordState</span></code></a></p>
 <p>Implements a word state to tokenize CSV stream.</p>
 </dd></dl>

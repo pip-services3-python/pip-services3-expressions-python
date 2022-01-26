@@ -1,7 +1,0 @@
-tokenizers.TokenType module
-===========================
-
-.. automodule:: tokenizers.TokenType
-   :members:
-   :undoc-members:
-   :show-inheritance:

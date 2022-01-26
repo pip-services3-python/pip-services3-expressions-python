@@ -1,7 +1,0 @@
-calculator.variables.Variable module
-====================================
-
-.. automodule:: calculator.variables.Variable
-   :members:
-   :undoc-members:
-   :show-inheritance:

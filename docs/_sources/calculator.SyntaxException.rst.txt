@@ -1,7 +1,0 @@
-calculator.SyntaxException module
-=================================
-
-.. automodule:: calculator.SyntaxException
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-csv.CsvWordState module
-=======================
-
-.. automodule:: csv.CsvWordState
-   :members:
-   :undoc-members:
-   :show-inheritance:

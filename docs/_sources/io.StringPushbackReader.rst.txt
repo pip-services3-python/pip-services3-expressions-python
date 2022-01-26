@@ -1,7 +1,0 @@
-io.StringScanner module
-==============================
-
-.. automodule:: io.StringScanner
-   :members:
-   :undoc-members:
-   :show-inheritance:

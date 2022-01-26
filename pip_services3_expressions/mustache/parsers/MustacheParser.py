@@ -303,7 +303,7 @@ class MustacheParser:
             result = self.__add_token_to_result(token.type, token.value, token.line, token.column)
 
             if token.type == MustacheTokenType.Section or token.type == MustacheTokenType.InvertedSection:
-                result.tokens.append(*self.__perform_syntax_analysis_for_section(token.value))
+                result.tokens.extend(self.__perform_syntax_analysis_for_section(token.value))
 
     def __perform_syntax_analysis_for_section(self, variable: str) -> List[MustacheToken]:
         result = []

@@ -1,7 +1,0 @@
-tokenizers.ITokenizerState module
-=================================
-
-.. automodule:: tokenizers.ITokenizerState
-   :members:
-   :undoc-members:
-   :show-inheritance:

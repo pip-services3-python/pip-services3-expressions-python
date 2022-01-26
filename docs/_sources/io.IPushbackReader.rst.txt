@@ -1,7 +1,0 @@
-io.IScanner module
-=========================
-
-.. automodule:: io.IScanner
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-csv.CsvSymbolState module
-=========================
-
-.. automodule:: csv.CsvSymbolState
-   :members:
-   :undoc-members:
-   :show-inheritance:

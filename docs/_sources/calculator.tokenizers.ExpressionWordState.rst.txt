@@ -1,7 +1,0 @@
-calculator.tokenizers.ExpressionWordState module
-================================================
-
-.. automodule:: calculator.tokenizers.ExpressionWordState
-   :members:
-   :undoc-members:
-   :show-inheritance:

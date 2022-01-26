@@ -1,7 +1,0 @@
-calculator.functions.FunctionCollection module
-==============================================
-
-.. automodule:: calculator.functions.FunctionCollection
-   :members:
-   :undoc-members:
-   :show-inheritance:

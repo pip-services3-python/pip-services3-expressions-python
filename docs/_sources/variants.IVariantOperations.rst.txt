@@ -1,7 +1,0 @@
-variants.IVariantOperations module
-==================================
-
-.. automodule:: variants.IVariantOperations
-   :members:
-   :undoc-members:
-   :show-inheritance:
