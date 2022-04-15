@@ -23,7 +23,7 @@ except:
 
 setup(
     name='pip_services3_expressions',
-    version='3.3.5',
+    version='3.3.6',
     url='http://github.com/pip-services3-python/pip-services3-expressions-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
@@ -37,7 +37,7 @@ setup(
     platforms='any',
     install_requires=[
         'pytest',
-        'pip_services3_commons >= 3.3.11, < 4.0'
+        'pip_services3_commons >= 3.3.14, < 4.0'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -48,6 +48,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]    
 )
